@@ -1,0 +1,14 @@
+Package: qrcode
+Type: Package
+Title: QRcode generator for R
+Version: 0.1
+Date: 2015-08-13
+Author: Victor Teh
+Maintainer: Victor Teh <victorteh@gmail.com>
+Description: Qrcode generator for R.
+License: GPL-3
+Depends: R (>= 3.0.0)
+Imports:
+  R.utils,
+  stringr
+LazyData: TRUE
