@@ -1,6 +1,6 @@
 #'  QRcode generator
 #'
-#'  @description Main function to generate qrcode in R. This package can generate all variant of qrcode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all qrcode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
+#'  @description Main function to generate QRCode in R. This package can generate all variant of QRCode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all QRCode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
 #'
 #'
 #'  @param dataString Input string for the QRCode

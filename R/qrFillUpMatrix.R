@@ -31,10 +31,8 @@ qrFillUpMatrix<-function(allBinary,data,version){
           }else if(data[pointer[1]-1,pointer[2]]==0){
             pointer <- c(pointer[1]-1,pointer[2])
           }else if(data[pointer[1],pointer[2]-1]==100){
-            print("happen here")
             if(data[pointer[1]-1,pointer[2]]==95 | data[pointer[1]-1,pointer[2]]==55){
               pointer <- c(pointer[1]-2,pointer[2])
-              print("happen here2")
             }
 
           }else{

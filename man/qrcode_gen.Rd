@@ -2,7 +2,7 @@
 % Please edit documentation in R/qrcode_gen.R
 \name{qrcode_gen}
 \alias{qrcode_gen}
-\title{Generate a QRcode in R}
+\title{QRcode generator}
 \usage{
 qrcode_gen(dataString, ErrorCorrectionLevel = "L", dataOutput = FALSE,
   plotQRcode = TRUE, wColor = "White", bColor = "black", mask = 1,
