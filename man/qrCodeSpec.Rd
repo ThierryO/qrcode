@@ -3,7 +3,7 @@
 \docType{data}
 \name{qrCodeSpec}
 \alias{qrCodeSpec}
-\title{Qrcode specifications and requirements.}
+\title{QRcode specifications and requirements.}
 \format{\preformatted{'data.frame':	160 obs. of  11 variables:
  $ Version       : int  1 1 1 1 2 2 2 2 3 3 ...
  $ ECL           : Factor w/ 4 levels "H","L","M","Q": 2 3 4 1 2 3 4 1 2 3 ...
@@ -21,12 +21,12 @@
 data(qrCodeSpec)
 }
 \description{
-List of different versions of qrcode specification and requirements.
- For more details can refer to qrcode standard.
+List of different versions of QRcode specification and requirements.
+ For more details can refer to QRcode standard.
 }
 \details{
 \itemize{
-   \item Version. Qrcode version.
+   \item Version. QRcode version.
    \item ECL. Error Correction Level. Consisted of 4 level L,M,Q and H.
    \item Numeric. Number of numeric character supported by the given version and ECL.
    \item Alphanumeric. Number of alphabet and numeric character

@@ -1,11 +1,11 @@
 #' Function to interleave the Data Code and Error Correction Core
 #'
-#' @param poly Error Correction code word polynomial
-#' @param dataPoly Input data code word polynomial
-#' @param qrInfo Dataframe that store all the required info to
-#' generate qrcode. Via \code{qrVersionInfo}
+#' @param poly error correction code word polynomial
+#' @param dataPoly input data code word polynomial
+#' @param qrInfo dataframe that store all the required info to
+#' generate QRcode. Via \code{qrVersionInfo}
 #'
-#' @return Interleaved polynomial readied to fill up the qrcode matrix
+#' @return Interleaved polynomial readied to fill up the QRcode matrix
 #'
 #' @export
 

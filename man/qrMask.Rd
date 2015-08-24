@@ -2,24 +2,24 @@
 % Please edit documentation in R/qrMask.R
 \name{qrMask}
 \alias{qrMask}
-\title{Apply mask to the qrcode matrix}
+\title{Apply mask to the QRcode matrix}
 \usage{
 qrMask(data, qrInfo, mask)
 }
 \arguments{
-\item{data}{qrcode matrix}
+\item{data}{QRcode matrix}
 
-\item{qrInfo}{Dataframe that store all the required info to
-generate qrcode. Via \code{qrVersionInfo}}
+\item{qrInfo}{dataframe that store all the required info to
+generate QRcode. Via \code{qrVersionInfo}}
 
-\item{mask}{mask for qrcode to increase decodability.
+\item{mask}{mask for QRcode to increase decodability.
 Available value is 0-7.}
 }
 \description{
-Apply mask to the qrcode matrix
+Apply mask to the QRcode matrix
 }
 \details{
-Qrcode stardard specify 8 masks as listed below.
+QRcode stardard specify 8 masks as listed below.
  \itemize{
    \item M0, (row + column) %% 2 == 0
    \item M1, (row) %% 2 == 0

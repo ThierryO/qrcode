@@ -1,8 +1,9 @@
-#' Function to calculate version polynomial
+#' Function to calculate and generate version polynomial
 #'
-#' @param versionString Version in binary string
+#' @param versionString version in binary string
 #' @param polyString polynomial in binary string, specified in the stardard
 #'  to calculate version ECL.
+#'
 #'
 #' @return version polynomial.
 #'

@@ -3,24 +3,24 @@
 \name{ECgenerator}
 \alias{ECgenerator}
 \title{Error correction code generator
-This function generate error correction code based on the input polynomial, Data polynomiail will be}
+Generate error correction code based on the input polynomial.}
 \usage{
 ECgenerator(GenPoly, DataPoly, DCWordCount, ECWordCount)
 }
 \arguments{
-\item{GenPoly}{Generated polynomial to calculate error correction code word}
+\item{GenPoly}{generated polynomial to calculate error correction code word}
 
-\item{DataPoly}{Input data polynomial}
+\item{DataPoly}{input data polynomial}
 
-\item{DCWordCount}{Data code word count}
+\item{DCWordCount}{data code word count}
 
-\item{ECWordCount}{Error code word count}
+\item{ECWordCount}{error code word count}
 }
 \value{
 Error code word polynomial
 }
 \description{
 Error correction code generator
-This function generate error correction code based on the input polynomial, Data polynomiail will be
+Generate error correction code based on the input polynomial.
 }
 

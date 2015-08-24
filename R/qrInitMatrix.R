@@ -1,8 +1,10 @@
-#' Function to initialize qrcode in matrix for different version
+#' Function to initialize QRcode in matrix for different version
+#'
+#' Create a basic structre of QRcode in matrix format. Each element in QRcode will be marked as different value.
 #'
 #' @param version version number of the target QRcode
 #'
-#' \code{qrRaster} is used to create a basic structre of QRcode in raster format. Each element in QRcode will be marked as different value.
+
 
 qrInitMatrix <- function(version){
 

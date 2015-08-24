@@ -9,27 +9,27 @@ qrcode_gen(dataString, ErrorCorrectionLevel = "L", dataOutput = FALSE,
   softLimitFlag = TRUE)
 }
 \arguments{
-\item{dataString}{Input string for the QRCode}
+\item{dataString}{input string for the QRcode}
 
 \item{ErrorCorrectionLevel}{Error Correction Level. The available options are "L","M","Q" and " H". Default value as "L"}
 
-\item{dataOutput}{Option to export data as matrix. Default value is FALSE.}
+\item{dataOutput}{option to export data as matrix. Default value is FALSE.}
 
-\item{plotQRcode}{Option to plot QRcode. Default value is TRUE.}
+\item{plotQRcode}{option to plot QRcode. Default value is TRUE.}
 
-\item{wColor}{Color of the white module(white squre) in qrcode. Default value "white".}
+\item{wColor}{color of the white module(white squre) in QRcode. Default value "white".}
 
-\item{bColor}{Color pf the black module(black squre) in qrcode. Default value "black".}
+\item{bColor}{color pf the black module(black squre) in QRcode. Default value "black".}
 
-\item{mask}{mask for qrcode to increase decodability. available value is 0-7.}
+\item{mask}{mask for QRcode to increase decodability. Available value is 0-7.}
 
-\item{softLimitFlag}{flag to limit the qr code version to 10. Default value TRUE.}
+\item{softLimitFlag}{flag to limit the QRcode version to 10. Default value TRUE.}
 }
 \value{
 A matrix that represent the QRcode. 1 as black module and 0 as white module.
 }
 \description{
-Main function to generate qrcode in R. This package can generate all variant of qrcode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all qrcode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
+Create QRcode in R. Capable to generate all variant of QRcode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all QRcode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
 }
 \examples{
 qrcode_gen('www.r-project.org')

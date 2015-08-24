@@ -1,6 +1,6 @@
-#' Function to calculate format
+#' Function to calculate and generate format polynomial
 #'
-#' @param formatString qrcode format binary string
+#' @param formatString QRcode format binary string
 #' @param polyString polynomial to create ECL for formatString
 #'
 #'

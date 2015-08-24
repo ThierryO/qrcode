@@ -7,11 +7,11 @@
 DataStringBinary(dataString, qrInfo)
 }
 \arguments{
-\item{dataString}{Input data string.}
+\item{dataString}{input data string.}
 
-\item{qrInfo}{Dataframe that store all the required info to generate qrcode.}
+\item{qrInfo}{dataframe that store all the required info to generate qrcode.}
 }
 \description{
-Function to convert input data string to binary polynomial
+Convert input data string to binary polynomial
 }
 

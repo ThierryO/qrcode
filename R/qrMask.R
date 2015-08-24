@@ -1,13 +1,13 @@
-#' Apply mask to the qrcode matrix
+#' Apply mask to the QRcode matrix
 #'
-#' @param data qrcode matrix
-#' @param qrInfo Dataframe that store all the required info to
-#' generate qrcode. Via \code{qrVersionInfo}
-#' @param mask mask for qrcode to increase decodability.
+#' @param data QRcode matrix
+#' @param qrInfo dataframe that store all the required info to
+#' generate QRcode. Via \code{qrVersionInfo}
+#' @param mask mask for QRcode to increase decodability.
 #' Available value is 0-7.
 #'
 #' @details
-#'    Qrcode stardard specify 8 masks as listed below.
+#'    QRcode stardard specify 8 masks as listed below.
 #'  \itemize{
 #'    \item M0, (row + column) %% 2 == 0
 #'    \item M1, (row) %% 2 == 0

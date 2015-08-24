@@ -1,9 +1,9 @@
 #' Function to convert input data string to binary polynomial
 #'
-#' @description  Function to convert input data string to binary polynomial
+#' @description  Convert input data string to binary polynomial
 #'
-#' @param dataString Input data string.
-#' @param qrInfo Dataframe that store all the required info to generate qrcode.
+#' @param dataString input data string.
+#' @param qrInfo dataframe that store all the required info to generate qrcode.
 #'
 #'
 #' @import R.utils

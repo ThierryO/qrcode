@@ -7,7 +7,7 @@
 polynomialGenerator(ECcount)
 }
 \arguments{
-\item{ECcount}{Error correction code word count}
+\item{ECcount}{error correction code word count}
 }
 \value{
 polynomail to generate Error correction code

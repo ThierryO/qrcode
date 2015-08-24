@@ -4,6 +4,7 @@
 #' @param ECLevel Error Correction Level. In QRcode standard, the are 4 levels \"L\",\"M\",\"Q\" and \"H\" which represent 7\%, 15\%, 20\% and 30\% data recovery capability.
 #'
 #' @return 1 row dataframe that include all required info to generate QRcode.
+#' @importFrom utils data head
 #' @export
 
 qrVersionInfo <- function(dataString,ECLevel='L'){

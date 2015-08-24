@@ -1,11 +1,12 @@
 #' Function to fill up the data bits
 #'
-#' \code{qrFillUpMatrix} fill up the predefined QRcode raster.
+#' Fill up the predefined QRcode matrix with the input binary string.
+#'
 #' @param allBinary all data in binary in character format.
-#' @param data raster data created by \code{\link{qrFillUpMatrix}}
+#' @param data matrix data created by \code{\link{qrFillUpMatrix}}
 #' @param version version of the QRcode.
 #'
-#' @return raster data filled up with data bits
+#' @return matrix filled up with the data bits
 #' @export
 
 

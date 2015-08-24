@@ -2,12 +2,12 @@
 % Please edit documentation in R/versionPolyGen.R
 \name{versionPolyGen}
 \alias{versionPolyGen}
-\title{Function to calculate version polynomial}
+\title{Function to calculate and generate version polynomial}
 \usage{
 versionPolyGen(versionString, polyString)
 }
 \arguments{
-\item{versionString}{Version in binary string}
+\item{versionString}{version in binary string}
 
 \item{polyString}{polynomial in binary string, specified in the stardard
  to calculate version ECL.}
@@ -16,6 +16,6 @@ versionPolyGen(versionString, polyString)
 version polynomial.
 }
 \description{
-Function to calculate version polynomial
+Function to calculate and generate version polynomial
 }
 

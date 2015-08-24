@@ -1,10 +1,10 @@
-#'  Qrcode specifications and requirements.
+#'  QRcode specifications and requirements.
 #'
-#'  List of different versions of qrcode specification and requirements.
-#'  For more details can refer to qrcode standard.
+#'  List of different versions of QRcode specification and requirements.
+#'  For more details can refer to QRcode standard.
 #'
 #'  \itemize{
-#'    \item Version. Qrcode version.
+#'    \item Version. QRcode version.
 #'    \item ECL. Error Correction Level. Consisted of 4 level L,M,Q and H.
 #'    \item Numeric. Number of numeric character supported by the given version and ECL.
 #'    \item Alphanumeric. Number of alphabet and numeric character

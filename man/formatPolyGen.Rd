@@ -2,16 +2,16 @@
 % Please edit documentation in R/formatPolyGen.R
 \name{formatPolyGen}
 \alias{formatPolyGen}
-\title{Function to calculate format}
+\title{Function to calculate and generate format polynomial}
 \usage{
 formatPolyGen(formatString, polyString)
 }
 \arguments{
-\item{formatString}{qrcode format binary string}
+\item{formatString}{QRcode format binary string}
 
 \item{polyString}{polynomial to create ECL for formatString}
 }
 \description{
-Function to calculate format
+Function to calculate and generate format polynomial
 }
 

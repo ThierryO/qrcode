@@ -1,6 +1,6 @@
 #' Function to generate polynomial
 #'
-#' @param ECcount Error correction code word count
+#' @param ECcount error correction code word count
 #'
 #' @return polynomail to generate Error correction code
 #'

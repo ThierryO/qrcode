@@ -7,15 +7,15 @@
 qrInterleave(poly, dataPoly, qrInfo)
 }
 \arguments{
-\item{poly}{Error Correction code word polynomial}
+\item{poly}{error correction code word polynomial}
 
-\item{dataPoly}{Input data code word polynomial}
+\item{dataPoly}{input data code word polynomial}
 
-\item{qrInfo}{Dataframe that store all the required info to
-generate qrcode. Via \code{qrVersionInfo}}
+\item{qrInfo}{dataframe that store all the required info to
+generate QRcode. Via \code{qrVersionInfo}}
 }
 \value{
-Interleaved polynomial readied to fill up the qrcode matrix
+Interleaved polynomial readied to fill up the QRcode matrix
 }
 \description{
 Function to interleave the Data Code and Error Correction Core

@@ -9,14 +9,14 @@ qrFillUpMatrix(allBinary, data, version)
 \arguments{
 \item{allBinary}{all data in binary in character format.}
 
-\item{data}{raster data created by \code{\link{qrFillUpMatrix}}}
+\item{data}{matrix data created by \code{\link{qrFillUpMatrix}}}
 
 \item{version}{version of the QRcode.}
 }
 \value{
-raster data filled up with data bits
+matrix filled up with the data bits
 }
 \description{
-\code{qrFillUpMatrix} fill up the predefined QRcode raster.
+Fill up the predefined QRcode matrix with the input binary string.
 }
 
