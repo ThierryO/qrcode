@@ -21,5 +21,5 @@
 #' @name qrCodeSpec
 #' @docType data
 #' @keywords dataset
-#' @usage data(qrCodeSpec)
+#' @noRd
 "qrCodeSpec"

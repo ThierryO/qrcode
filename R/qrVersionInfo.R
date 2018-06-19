@@ -11,10 +11,6 @@ qrVersionInfo <- function(dataString,ECLevel='L'){
   if(max(ECLevel==c('L','M','Q','H'))==0){
     warning('Wrong ECLevel. Allowed value are  \"L\",\"M\",\"Q\" and \"H\"')
   }
-  #load spec table
-  #data('qrCodeSpec')
-  qrCodeSpec<-''
-  data(qrCodeSpec, envir = environment())
   #identify whether the data string is belongs to which category: Alphnumeric or Byte
   if(length(grep('[a-z!?><;@#&()]',dataString))==0){
     mode <- '0010' #Alphanumeric
