@@ -1,13 +1,13 @@
 #' Error correction code generator
 #' Generate error correction code based on the input polynomial.
 #'
-#'  @param GenPoly generated polynomial to calculate error correction code word
-#'  @param DataPoly input data polynomial
-#'  @param DCWordCount data code word count
-#'  @param ECWordCount error code word count
+#' @param GenPoly generated polynomial to calculate error correction code word
+#' @param DataPoly input data polynomial
+#' @param DCWordCount data code word count
+#' @param ECWordCount error code word count
 #'
-#'  @return Error code word polynomial
-#'  @export
+#' @return Error code word polynomial
+#' @export
 
 ECgenerator<-function(GenPoly,DataPoly,DCWordCount,ECWordCount){
 

@@ -1,28 +1,28 @@
 #'  QRcode generator
 #'
-#'  @description Create QRcode in R. Capable to generate all variant of QRcode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all QRcode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
+#' @description Create QRcode in R. Capable to generate all variant of QRcode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all QRcode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
 #'
 #'
-#'  @param dataString input string for the QRcode
-#'  @param ErrorCorrectionLevel Error Correction Level. The available options are "L","M","Q" and " H". Default value as "L"
-#'  @param dataOutput option to export data as matrix. Default value is FALSE.
-#'  @param plotQRcode option to plot QRcode. Default value is TRUE.
-#'  @param wColor color of the white module(white squre) in QRcode. Default value "white".
-#'  @param bColor color pf the black module(black squre) in QRcode. Default value "black".
-#'  @param mask mask for QRcode to increase decodability. Available value is 0-7.
-#'  @param softLimitFlag flag to limit the QRcode version to 10. Default value TRUE.
-#'  @return A matrix that represent the QRcode. 1 as black module and 0 as white module.
+#' @param dataString input string for the QRcode
+#' @param ErrorCorrectionLevel Error Correction Level. The available options are "L","M","Q" and " H". Default value as "L"
+#' @param dataOutput option to export data as matrix. Default value is FALSE.
+#' @param plotQRcode option to plot QRcode. Default value is TRUE.
+#' @param wColor color of the white module(white squre) in QRcode. Default value "white".
+#' @param bColor color pf the black module(black squre) in QRcode. Default value "black".
+#' @param mask mask for QRcode to increase decodability. Available value is 0-7.
+#' @param softLimitFlag flag to limit the QRcode version to 10. Default value TRUE.
+#' @return A matrix that represent the QRcode. 1 as black module and 0 as white module.
 #'
 #'
-#'  @examples
+#' @examples
 #'  qrcode_gen('www.r-project.org')
 #'
 #'  #User may change the color of the module
 #'  qrcode_gen('www.r-project.org',bColor='Green3')
 #'
-#'  @importFrom stats heatmap
+#' @importFrom stats heatmap
 #'
-#'  @export
+#' @export
 
 qrcode_gen <- function(dataString,ErrorCorrectionLevel='L',dataOutput = FALSE, plotQRcode=TRUE,wColor='White',bColor ='black',mask=1,softLimitFlag = TRUE){
   qrInfo <- qrVersionInfo(dataString,ECLevel = ErrorCorrectionLevel)
