@@ -8,47 +8,57 @@
 #' @return Interleaved polynomial readied to fill up the QRcode matrix
 #'
 #' @export
+#' @importFrom R.utils intToBin
 
-qrInterleave <- function(poly,dataPoly,qrInfo){
-  groupCount <- c(qrInfo$Grp1,qrInfo$Grp2)
-  groupDCCount <- c(qrInfo$DCinGrp1,qrInfo$DCinGrp2)
+qrInterleave <- function(poly, dataPoly, qrInfo) {
+  groupCount <- c(qrInfo$Grp1, qrInfo$Grp2)
 
   counter <- 1
-  #grp1Poly
-  for(i in 1:groupCount[1]){
-    targetDataPoly <- dataPoly[counter:(counter+qrInfo$DCinGrp1-1)]
-    counter <- counter+qrInfo$DCinGrp1
-    if(i==1){
-      grp1ECPoly <- ECgenerator(poly,targetDataPoly,qrInfo$DCinGrp1,qrInfo$ECwordPerBlock)
+  # grp1Poly
+  for (i in seq_len(groupCount[1])) {
+    targetDataPoly <- dataPoly[counter:(counter + qrInfo$DCinGrp1 - 1)]
+    counter <- counter + qrInfo$DCinGrp1
+    if (i == 1) {
+      grp1ECPoly <- ECgenerator(
+        poly, targetDataPoly, qrInfo$DCinGrp1, qrInfo$ECwordPerBlock
+      )
       grp1DCPoly <- targetDataPoly
-    } else{
-      grp1ECPoly <- rbind(grp1ECPoly,ECgenerator(poly,targetDataPoly,qrInfo$DCinGrp1,qrInfo$ECwordPerBlock))
-      grp1DCPoly <- rbind(grp1DCPoly,targetDataPoly)
+    } else {
+      grp1ECPoly <- rbind(
+        grp1ECPoly,
+        ECgenerator(
+          poly, targetDataPoly, qrInfo$DCinGrp1, qrInfo$ECwordPerBlock
+        )
+      )
+      grp1DCPoly <- rbind(grp1DCPoly, targetDataPoly)
     }
   }
 
   #grp2Poly
-  if(groupCount[2]!=0){
+  if (groupCount[2] != 0) {
     grp1ECPoly <- grp1ECPoly
-    grp1DCPoly <- cbind(grp1DCPoly,-1)
-    for(i in 1:groupCount[2]){
-      targetDataPoly <- dataPoly[counter:(counter+qrInfo$DCinGrp2-1)]
-      counter <- counter+qrInfo$DCinGrp2
-      grp1ECPoly <- rbind(grp1ECPoly,ECgenerator(poly,targetDataPoly,qrInfo$DCinGrp2,qrInfo$ECwordPerBlock))
-      grp1DCPoly <- rbind(grp1DCPoly,targetDataPoly)  }
+    grp1DCPoly <- cbind(grp1DCPoly, -1)
+    for (i in seq_len(groupCount[2])) {
+      targetDataPoly <- dataPoly[counter:(counter + qrInfo$DCinGrp2 - 1)]
+      counter <- counter + qrInfo$DCinGrp2
+      grp1ECPoly <- rbind(
+        grp1ECPoly,
+        ECgenerator(
+          poly, targetDataPoly, qrInfo$DCinGrp2, qrInfo$ECwordPerBlock
+        )
+      )
+      grp1DCPoly <- rbind(grp1DCPoly, targetDataPoly)
+    }
   }
 
   #interleave
-  targetECPoly<-grp1ECPoly[1:length(grp1ECPoly)]
-  targetDCPoly <- grp1DCPoly[1:length(grp1DCPoly)]
-  targetECPoly<- targetECPoly[targetECPoly>=0]
-  targetDCPoly<- targetDCPoly[targetDCPoly>=0]
+  targetECPoly <- grp1ECPoly[seq_along(grp1ECPoly)]
+  targetDCPoly <- grp1DCPoly[seq_along(grp1DCPoly)]
+  targetECPoly <- targetECPoly[targetECPoly >= 0]
+  targetDCPoly <- targetDCPoly[targetDCPoly >= 0]
 
-  ECBin <- paste0(R.utils::intToBin(targetECPoly),collapse = '')
-  DCBin <- paste0(R.utils::intToBin(targetDCPoly),collapse = '')
-  allBinary <- paste0(DCBin,ECBin,collapse = '')
-  allBinary <- unlist(strsplit(allBinary,split = ''))
-
-
-
+  ecBin <- paste0(intToBin(targetECPoly), collapse = "")
+  dcBin <- paste0(intToBin(targetDCPoly), collapse = "")
+  allBinary <- paste0(dcBin, ecBin, collapse = "")
+  unlist(strsplit(allBinary, split = ""))
 }

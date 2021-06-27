@@ -16,32 +16,46 @@ qrcode_gen(
 )
 }
 \arguments{
-\item{dataString}{input string for the QRcode}
+\item{dataString}{input string for the QRcode.}
 
-\item{ErrorCorrectionLevel}{Error Correction Level. The available options are "L","M","Q" and " H". Default value as "L"}
+\item{ErrorCorrectionLevel}{Error Correction Level.
+The available options are \code{"L"}, \code{"M"}, \code{"Q"} and \code{"H"}.
+Default value as \code{"L"}.}
 
-\item{dataOutput}{option to export data as matrix. Default value is FALSE.}
+\item{dataOutput}{option to export data as matrix.
+Default value is \code{FALSE}.}
 
-\item{plotQRcode}{option to plot QRcode. Default value is TRUE.}
+\item{plotQRcode}{option to plot QRcode.
+Default value is \code{TRUE}.}
 
-\item{wColor}{color of the white module(white squre) in QRcode. Default value "white".}
+\item{wColor}{color of the white module(white squre) in QRcode.
+Default value \code{"white"}.}
 
-\item{bColor}{color pf the black module(black squre) in QRcode. Default value "black".}
+\item{bColor}{color of the black module(black squre) in QRcode.
+Default value \code{"black"}.}
 
-\item{mask}{mask for QRcode to increase decodability. Available value is 0-7.}
+\item{mask}{mask for QRcode to increase decodability.
+Available values are \code{0} to \code{7}.}
 
-\item{softLimitFlag}{flag to limit the QRcode version to 10. Default value TRUE.}
+\item{softLimitFlag}{flag to limit the QRcode version to 10.
+Default value \code{TRUE}.}
 }
 \value{
-A matrix that represent the QRcode. 1 as black module and 0 as white module.
+A matrix that represent the QRcode.
+1 as black module and 0 as white module.
 }
 \description{
-Create QRcode in R. Capable to generate all variant of QRcode, version 1 to 40 and Error correct level of "L","M","Q" and " H". Not all reader in market can support all QRcode version, \code{qrcode_gen} has a software limit to version 10 which is tested working in most reader.
+Create QRcode in R.
+Capable to generate all variant of QRcode, version 1 to 40 and Error correct
+level of "L","M","Q" and " H".
+Not all reader in market can support all QRcode version,
+\code{qrcode_gen()} has a software limit to version 10 which is tested working in
+most reader.
 }
 \examples{
- qrcode_gen('www.r-project.org')
+ qrcode_gen("www.r-project.org")
 
  #User may change the color of the module
- qrcode_gen('www.r-project.org',bColor='Green3')
+ qrcode_gen("www.r-project.org", bColor = "Green3")
 
 }

@@ -2,6 +2,7 @@
 ^.*\.Rproj$
 ^\.github$
 ^\.httr-oauth$
+^\.lintr$
 ^\.Rproj\.user$
 ^\.zenodo\.json$
 ^checklist.yml$

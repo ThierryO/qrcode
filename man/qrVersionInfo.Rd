@@ -4,12 +4,14 @@
 \alias{qrVersionInfo}
 \title{Function to identify the version of the QRcode based on input string}
 \usage{
-qrVersionInfo(dataString, ECLevel = "L")
+qrVersionInfo(dataString, ECLevel = c("L", "M", "Q", "H"))
 }
 \arguments{
-\item{dataString}{dataString is the input string}
+\item{dataString}{dataString is the input string.}
 
-\item{ECLevel}{Error Correction Level. In QRcode standard, the are 4 levels \"L\",\"M\",\"Q\" and \"H\" which represent 7\%, 15\%, 20\% and 30\% data recovery capability.}
+\item{ECLevel}{Error Correction Level.
+In QRcode standard, the are 4 levels "L", "M", "Q" and "H" which represent
+7\%, 15\%, 20\% and 30\% data recovery capability.}
 }
 \value{
 1 row dataframe that include all required info to generate QRcode.
