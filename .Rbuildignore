@@ -1,2 +1,14 @@
+^_pkgdown.yml$
 ^.*\.Rproj$
+^\.github$
+^\.httr-oauth$
 ^\.Rproj\.user$
+^\.zenodo\.json$
+^checklist.yml$
+^codecov\.yml$
+^data-raw$
+^docs$
+^LICENSE.md$
+^man-roxygen$
+^pkgdown$
+^README\.Rmd$

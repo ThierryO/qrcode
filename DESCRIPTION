@@ -1,5 +1,5 @@
-Package: qrcode
 Type: Package
+Package: qrcode
 Title: QRcode Generator for R
 Version: 0.1.3
 Authors@R: 
@@ -14,12 +14,13 @@ Authors@R:
              email = "victorteh@gmail.com"))
 Description: Create QRcode in R.
 License: GPL-3
-Depends: R (>= 3.0.0)
+Depends: 
+    R (>= 3.0.0)
 Imports:
-  R.utils,
-  stringr,
-  stats,
-  utils
+    R.utils,
+    stats,
+    stringr,
+    utils
+Encoding: UTF-8
 LazyData: TRUE
 RoxygenNote: 7.1.1
-Encoding: UTF-8
