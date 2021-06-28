@@ -22,68 +22,48 @@
 qrMask <- function(data, qrInfo, mask) {
 
   size <- 21 + (qrInfo$Version - 1) * 4
-  #mask
-  #
-  #M0, (row + column) %% 2 == 0
-  #M1, (row) %% 2 == 0
-  #M2, (column) %% 3 == 0
-  #M3, (row + column) %% 3 == 0
-  #M4, ( row%/%2 + column%/%3 ) %% 2 == 0
-  #M5, ((row * column) %% 2) + ((row * column) %% 3) == 0
-  #M6, ( ((row * column) %% 2) + ((row * column) %% 3) ) %% 2 == 0
-  #M7, ( ((row + column) %% 2) + ((row * column) %% 3) ) %% 2 == 0
-  #
-  testString <- c(
-    "maskresult<-(row + column) %% 2 == 0", "maskresult<-(row) %% 2 == 0",
-    "maskresult<-(column) %% 3 == 0", "maskresult<-(row + column) %% 3 == 0",
-    "maskresult<-(row%/%2 + column%/%3) %% 2 == 0",
-    "maskresult<-((row * column) %% 2) + ((row * column) %% 3) == 0",
-    "maskresult<-( ((row * column) %% 2) + ((row * column) %% 3) ) %% 2 == 0",
-    "maskresult<-(((row + column) %% 2) + ((row * column) %% 3) ) %% 2 == 0"
-  )
-  dataMask <- data
-  maskresult <- TRUE
-  for (i in seq_len(size)) {
-    #row
-    row <- i - 1
-    for (j in seq_len(size)) {
-      #column
-      column <- j - 1
-      if (dataMask[i, j] < 3) {
-        eval(parse(text = testString[mask + 1]))
-        if (maskresult) {
-          #toggle if ==0
-          if (dataMask[i, j] ==  1) {
-            dataMask[i, j] <- 0
-          } else {
-            dataMask[i, j] <- 1
-          }
-        }
+
+  maskresult <- function(mask) {
+    switch(
+      as.character(mask),
+      "0" = function(row, column) {
+        (row + column) %% 2 == 0
+      },
+      "1" = function(row, column) {
+        row %% 2 == 0
+      },
+      "2" = function(row, column) {
+        column %% 3 == 0
+      },
+      "3" = function(row, column) {
+        (row + column) %% 3 == 0
+      },
+      "4" = function(row, column) {
+        (row %/% 2 + column %/% 3) %% 2 == 0
+      },
+      "5" = function(row, column) {
+        ((row * column) %% 2) + ((row * column) %% 3) == 0
+      },
+      "6" = function(row, column) {
+        (((row * column) %% 2) + ((row * column) %% 3)) %% 2 == 0
+      },
+      "7" = function(row, column) {
+        (((row + column) %% 2) + ((row * column) %% 3)) %% 2 == 0
       }
-    }
+    )
   }
+  mask_fun <- maskresult(mask)
+  dataMask <- data
+  to_mask <- which(dataMask < 3, arr.ind = TRUE)
+  to_toggle <- mask_fun(to_mask[, "row"] - 1, to_mask[, "col"] - 1)
+  dataMask[to_mask[to_toggle, ]] <- as.integer(!dataMask[to_mask[to_toggle, ]])
   dataMask[dataMask == 1] <- 99
   dataMask[dataMask == 0] <- 49
 
-
-
-  if (qrInfo$ECL == "L") {
-    formatString <- paste0(
-      "01", str_pad(intToBin(mask), 3, side = "left", pad = "0"), collapse = ""
-    )
-  } else if (qrInfo$ECL == "M") {
-    formatString <- paste0(
-      "00", str_pad(intToBin(mask), 3, side = "left", pad = "0"), collapse = ""
-    )
-  } else if (qrInfo$ECL == "H") {
-    formatString <- paste0(
-      "10", str_pad(intToBin(mask), 3, side = "left", pad = "0"), collapse = ""
-    )
-  } else {
-    formatString <- paste0(
-      "11", str_pad(intToBin(mask), 3, side = "left", pad = "0"), collapse = ""
-    )
-  }
+  formatString <- paste0(
+    switch(as.character(qrInfo$ECL), L = "01", M = "00", H = "10", "11"),
+    str_pad(intToBin(mask), 3, side = "left", pad = "0"), collapse = ""
+  )
   polyString <- "10100110111"
 
   formatBin <- formatPolyGen(formatString, polyString)
