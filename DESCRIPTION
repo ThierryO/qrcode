@@ -25,3 +25,6 @@ Encoding: UTF-8
 LazyData: TRUE
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
