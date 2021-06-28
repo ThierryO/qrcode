@@ -8,42 +8,46 @@
 #'
 #' @return Error code word polynomial
 #' @export
+#' @importFrom utils tail
 
 ECgenerator <- function(GenPoly, DataPoly, DCWordCount, ECWordCount) { #nolint
-
-  #antilog table
-  logTable <- data.frame(exponent = 0:255, log = 1)
-  for (i in 1:255) {
-    temp <- 2 * logTable$log[i]
-    logTable$log[i + 1] <- ifelse(temp > 255, bitwXor(temp, 285), temp)
-  }
+  logTable <- create_log_table()
 
   targetDataPoly <- c(DataPoly, rep(0, ECWordCount))
   for (j in seq_len(DCWordCount)) {
     if (targetDataPoly[1] > 0) {
-      data_poly_temp <- unlist(
-        lapply(
-          targetDataPoly,
-          function(x) {
-            logTable[logTable$log == x, 1]
-          }
-        )
-      )
-      poly_temp <- GenPoly + data_poly_temp[1]
+      poly_temp <- GenPoly + lookup_exponent(logTable, targetDataPoly[1])
       poly_temp <- poly_temp %% 255
-      poly_temp <- unlist(
-        lapply(
-          poly_temp,
-          function(x) {
-            logTable[logTable$exponent == x, 2]
-          }
-        )
-      )
+      poly_temp <- lookup_log(logTable, poly_temp)
       targetDataPoly[seq_along(poly_temp)] <- bitwXor(
         targetDataPoly[seq_along(poly_temp)], poly_temp
       )
     }
-    targetDataPoly <- targetDataPoly[2:length(targetDataPoly)]
+    targetDataPoly <- tail(targetDataPoly, -1)
   }
   return(targetDataPoly)
+}
+
+create_log_table <- function() {
+  log_table <- data.frame(exponent = 0:254, log = 1L)
+  for (i in 1:254) {
+    temp <- 2L * log_table$log[i]
+    log_table$log[i + 1] <- ifelse(temp > 255, bitwXor(temp, 285), temp)
+  }
+  return(log_table)
+}
+
+lookup_log <- function(log_table, exponent) {
+  log_table$log[exponent + 1]
+}
+
+lookup_exponent <- function(log_table, log) {
+  idx <- vapply(
+    log,
+    function(x) {
+      which(log_table$log == x)
+    },
+    integer(1)
+  )
+  log_table$exponent[idx]
 }
