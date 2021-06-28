@@ -12,21 +12,11 @@
 ECgenerator <- function(GenPoly, DataPoly, DCWordCount, ECWordCount) { #nolint
 
   #antilog table
-  logTable <- c()
-  for (i in 0:255) {
-    exponent <- i
-    temp <- ifelse(i == 0, 2^0, temp * 2)
-    if (temp > 255) {
-      temp <- bitwXor(temp, 285)
-    }
-    if (i == 0) {
-      logTable <- c(0, 1)
-    } else {
-      logTable <- rbind(logTable, c(exponent, temp))
-    }
+  logTable <- data.frame(exponent = 0:255, log = 1)
+  for (i in 1:255) {
+    temp <- 2 * logTable$log[i]
+    logTable$log[i + 1] <- ifelse(temp > 255, bitwXor(temp, 285), temp)
   }
-  logTable <- as.data.frame(logTable)
-  names(logTable) <- c("exponent", "log")
 
   targetDataPoly <- c(DataPoly, rep(0, ECWordCount))
   for (j in seq_len(DCWordCount)) {
