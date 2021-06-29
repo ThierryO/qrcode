@@ -13,3 +13,4 @@
 ^man-roxygen$
 ^pkgdown$
 ^README\.Rmd$
+^cran-comments\.md$
