@@ -4,6 +4,7 @@
 * Add `generate_svg()`.
 * Change maintainer.
 * Set-up a pkgdown website.
+* Add a logo.
 * Add GitHub actions to test the packages.
 * Add a few unit tests.
 * Streamline some of the functions and reduce their cyclomatic complexity.

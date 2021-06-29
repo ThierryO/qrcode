@@ -1,3 +1,5 @@
+# QRcode Generator for R <img src="man/figures/logo.svg" align="right" alt="A hexagon with the word qrcode and a qrcode linking to the DOI" width="120" />
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable-1)
 ![GitHub](https://img.shields.io/github/license/thierryo/qrcode)
@@ -5,8 +7,6 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/thierryo/qrcode.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/thierryo/qrcode.svg)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5040089.svg)](https://doi.org/10.5281/zenodo.5040089)
-
-# QRcode Generator for R
 
 Current version support all QRcode version(1 - 40) and different levels of Error Correction (L, M, Q and H). Meanwhile the encoding method only supports Alphanumeric (Uppercase, Numeric and some basic symbol) and UTF-8 (Byte). 
 The example below creates a QR code.
