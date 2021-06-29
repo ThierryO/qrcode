@@ -19,6 +19,7 @@
 #'   Passed to `ErrorCorrectionLevel` of [qrcode_gen()].
 #' @return invisible `NULL`
 #' @export
+#' @importFrom utils browseURL
 generate_svg <- function(
   string, filename, size = 100, foreground = "black", background = "white",
   show = interactive(), error_correction = c("L", "M", "H", "Q")
