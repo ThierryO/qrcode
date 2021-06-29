@@ -9,7 +9,7 @@ versionPolyGen(versionString, polyString)
 \arguments{
 \item{versionString}{version in binary string}
 
-\item{polyString}{polynomial in binary string, specified in the stardard
+\item{polyString}{polynomial in binary string, specified in the standard
 to calculate version ECL.}
 }
 \value{

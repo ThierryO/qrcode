@@ -10,5 +10,6 @@ qrInitMatrix(version)
 \item{version}{version number of the target QRcode}
 }
 \description{
-Create a basic structre of QRcode in matrix format. Each element in QRcode will be marked as different value.
+Create a basic structre of QRcode in matrix format.
+Each element in QRcode will be marked as different value.
 }

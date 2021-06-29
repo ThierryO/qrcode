@@ -8,36 +8,46 @@
 #'
 #' @return Error code word polynomial
 #' @export
+#' @importFrom utils tail
 
-ECgenerator<-function(GenPoly,DataPoly,DCWordCount,ECWordCount){
+ECgenerator <- function(GenPoly, DataPoly, DCWordCount, ECWordCount) { #nolint
+  logTable <- create_log_table()
 
-  #antilog table
-  logTable <- c();
-  for(i in 0:255){
-    exponent <- i
-    ifelse(i==0,temp<-2^0,temp<-temp*2)
-    if(temp>255){
-      temp<- bitwXor(temp,285)
+  targetDataPoly <- c(DataPoly, rep(0, ECWordCount))
+  for (j in seq_len(DCWordCount)) {
+    if (targetDataPoly[1] > 0) {
+      poly_temp <- GenPoly + lookup_exponent(logTable, targetDataPoly[1])
+      poly_temp <- poly_temp %% 255
+      poly_temp <- lookup_log(logTable, poly_temp)
+      targetDataPoly[seq_along(poly_temp)] <- bitwXor(
+        targetDataPoly[seq_along(poly_temp)], poly_temp
+      )
     }
-    if(i==0){
-      logTable <- c(0,1)
-    }else{
-      logTable <- rbind(logTable,c(exponent,temp))
-    }
-  }
-  logTable <- as.data.frame(logTable)
-  names(logTable) <- c('exponent','log')
-
-  targetDataPoly <- c(DataPoly,rep(0,ECWordCount))
-  for(j in 1:DCWordCount){
-    if(targetDataPoly[1]>0){
-    dataPoly_temp<-unlist(lapply(targetDataPoly,function(x) logTable[logTable$log==x,1]))
-    poly_temp <- GenPoly+dataPoly_temp[1]
-    poly_temp <- poly_temp%%255
-    poly_temp <- unlist(lapply(poly_temp,function(x) logTable[logTable$exponent==x,2]))
-    targetDataPoly[1:length(poly_temp)] <- bitwXor(targetDataPoly[1:length(poly_temp)], poly_temp)
-    }
-    targetDataPoly<-targetDataPoly[2:length(targetDataPoly)]
+    targetDataPoly <- tail(targetDataPoly, -1)
   }
   return(targetDataPoly)
+}
+
+create_log_table <- function() {
+  log_table <- data.frame(exponent = 0:254, log = 1L)
+  for (i in 1:254) {
+    temp <- 2L * log_table$log[i]
+    log_table$log[i + 1] <- ifelse(temp > 255, bitwXor(temp, 285), temp)
+  }
+  return(log_table)
+}
+
+lookup_log <- function(log_table, exponent) {
+  log_table$log[exponent + 1]
+}
+
+lookup_exponent <- function(log_table, log) {
+  idx <- vapply(
+    log,
+    function(x) {
+      which(log_table$log == x)
+    },
+    integer(1)
+  )
+  log_table$exponent[idx]
 }

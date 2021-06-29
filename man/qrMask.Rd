@@ -9,25 +9,25 @@ qrMask(data, qrInfo, mask)
 \arguments{
 \item{data}{QRcode matrix}
 
-\item{qrInfo}{dataframe that store all the required info to
-generate QRcode. Via \code{qrVersionInfo}}
+\item{qrInfo}{dataframe that store all the required info to generate QRcode.
+Via \code{\link[=qrVersionInfo]{qrVersionInfo()}}}
 
 \item{mask}{mask for QRcode to increase decodability.
-Available value is 0-7.}
+Available value are \code{0} to \code{7}.}
 }
 \description{
 Apply mask to the QRcode matrix
 }
 \details{
 QRcode stardard specify 8 masks as listed below.
- \itemize{
-   \item M0, (row + column) %% 2 == 0
-   \item M1, (row) %% 2 == 0
-   \item M2, (column) %% 3 == 0
-   \item M3, (row + column) %% 3 == 0
-   \item M4, ( row%/%2 + column%/%3 ) %% 2 == 0
-   \item M5, ((row * column) %% 2) + ((row * column) %% 3) == 0
-   \item M6, ( ((row * column) %% 2) + ((row * column) %% 3) ) %% 2 == 0
-   \item M7, ( ((row + column) %% 2) + ((row * column) %% 3) ) %% 2 == 0
- }
+\itemize{
+\item M0, (row + column) \%\% 2 == 0
+\item M1, (row) \%\% 2 == 0
+\item M2, (column) \%\% 3 == 0
+\item M3, (row + column) \%\% 3 == 0
+\item M4, ( row\%/\%2 + column\%/\%3 ) \%\% 2 == 0
+\item M5, ((row * column) \%\% 2) + ((row * column) \%\% 3) == 0
+\item M6, ( ((row * column) \%\% 2) + ((row * column) \%\% 3) ) \%\% 2 == 0
+\item M7, ( ((row + column) \%\% 2) + ((row * column) \%\% 3) ) \%\% 2 == 0
+}
 }
