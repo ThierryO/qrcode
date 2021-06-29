@@ -2,6 +2,7 @@
 
 export(DataStringBinary)
 export(ECgenerator)
+export(generate_svg)
 export(qrFillUpMatrix)
 export(qrInterleave)
 export(qrMask)

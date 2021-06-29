@@ -1,6 +1,7 @@
 # qrcode 0.1.3
 
 * Added a `NEWS.md` file to track changes to the package.
+* Add `generate_svg()`.
 * Change maintainer.
 * Set-up a pkgdown website.
 * Add GitHub actions to test the packages.
