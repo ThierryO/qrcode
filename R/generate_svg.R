@@ -8,10 +8,10 @@
 #'   Tries to create the path, when it doesn't exist.
 #' @param size size of the svg file in pixels.
 #' @param foreground Stroke and fill colour for the foreground.
-#'   Use a valid [CSS color](https://www.w3schools.com/colors).
+#'   Use a valid [CSS color](https://www.w3schools.com/colors/).
 #'   Default to `"black"`.
 #' @param background Fill colour for the background.
-#'   Use a valid [CSS color](https://www.w3schools.com/colors).
+#'   Use a valid [CSS color](https://www.w3schools.com/colors/).
 #'   Default to `"white"`.
 #' @param show Open the file after creating it.
 #'   Defaults to `TRUE` on [interactive()] sessions, otherwise `FALSE`.

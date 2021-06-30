@@ -25,11 +25,11 @@ Tries to create the path, when it doesn't exist.}
 \item{size}{size of the svg file in pixels.}
 
 \item{foreground}{Stroke and fill colour for the foreground.
-Use a valid \href{https://www.w3schools.com/colors}{CSS color}.
+Use a valid \href{https://www.w3schools.com/colors/}{CSS color}.
 Default to \code{"black"}.}
 
 \item{background}{Fill colour for the background.
-Use a valid \href{https://www.w3schools.com/colors}{CSS color}.
+Use a valid \href{https://www.w3schools.com/colors/}{CSS color}.
 Default to \code{"white"}.}
 
 \item{show}{Open the file after creating it.
