@@ -1,6 +1,6 @@
 Type: Package
 Package: qrcode
-Title: QRcode Generator for R
+Title: Generate QRcodes with R
 Version: 0.1.3
 Authors@R: 
     c(person(given = "Victor",
