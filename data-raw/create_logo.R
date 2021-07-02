@@ -1,7 +1,0 @@
-library(qrcode)
-# install.packages("remotes")
-# remotes::install_github("checklist")
-library(checklist)
-icon <- tempfile(fileext = ".svg")
-generate_svg("https://doi.org/10.5281/zenodo.5040088", filename = icon)
-create_hexsticker("qrcode", icon = icon, scale = 0.35, x = 170, y = -108)
