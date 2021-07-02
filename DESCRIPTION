@@ -1,6 +1,6 @@
 Type: Package
 Package: qrcode
-Title: QRcode Generator for R
+Title: Generate QRcodes with R
 Version: 0.1.3
 Authors@R: 
     c(person(given = "Victor",
@@ -14,7 +14,7 @@ Authors@R:
              comment = c(ORCID = "0000-0001-8804-4216")))
 Description: Create QRcode in R.
 License: GPL-3
-URL: https://ThierryO.github.io/qrcode,
+URL: https://thierryo.github.io/qrcode/,
     https://github.com/ThierryO/qrcode,
     https://doi.org/10.5281/zenodo.5040088
 BugReports: https://github.com/ThierryO/qrcode/issues
