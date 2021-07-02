@@ -12,4 +12,5 @@ jobs:
     steps:
       - uses: inbo/actions/pkgdown_covr@master
         with:
+          token: ${{ secrets.PAT }}
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
