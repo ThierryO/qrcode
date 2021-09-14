@@ -12,8 +12,8 @@
 qrVersionInfo <- function(dataString, ECLevel = c("L", "M", "Q", "H")) { #nolint
   ECLevel <- match.arg(ECLevel) #nolint
   # identify whether the data string is belongs to which category:
-  # Alphnumeric or Byte
-  if (length(grep("[a-z!?><;@#&()]", dataString)) == 0) {
+  # Alphanumeric or Byte
+  if (length(grep("[a-z!?><;@#&()_]", dataString)) == 0) {
     mode <- "0010" # Alphanumeric
     qrInfo <- head(
       qrCodeSpec[
