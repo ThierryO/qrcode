@@ -22,6 +22,7 @@ Depends:
     R (>= 3.0.0)
 Imports:
     R.utils,
+    assertthat,
     stats,
     stringr,
     utils
