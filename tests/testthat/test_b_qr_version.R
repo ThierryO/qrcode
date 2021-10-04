@@ -11,4 +11,12 @@ test_that("qr_version() works as expected", {
   Encoding(x) <- "latin1"
   expect_type(z <- qr_version(x), "list")
   expect_identical(z[1:3], list(version = 1L, ecl = "L", mode = "Byte"))
+  expect_type(
+    z <- qr_version(
+      "This text requires version 5 with error correction level Q", ecl = "Q"
+    )
+  )
+  expect_identical(z[1:3], list(version = 5L, ecl = "Q", mode = "Byte"))
 })
+
+

@@ -8,7 +8,8 @@ qr_encode <- function(x, ecl = c("L", "M", "Q", "H")) {
     version$mode, Numeric = qr_encode_numeric(x),
     Alphanumeric = qr_encode_alnum(x), Byte = qr_encode_byte(x)
   )
-  c(version$byte_string, encoded)
+  bit_string <- c(version$bit_string, encoded)
+  return(bit_string)
 }
 
 qr_encode_numeric <- function(x) {
@@ -18,14 +19,14 @@ qr_encode_numeric <- function(x) {
     x <- substring(x, 4)
   }
   groups <- as.integer(groups)
-  bits <- vapply(
+  bit_string <- vapply(
     groups, FUN.VALUE = vector(1, mode = "list"),
     FUN = function(i) {
       bits <- head(intToBits(i), ifelse(i < 10, 4, ifelse(i < 100, 7, 100)))
       list(as.logical(rev(bits)))
     }
   )
-  return(unlist(bits))
+  return(bits(unlist(bit_string)))
 }
 
 qr_encode_alnum <- function(x) {
@@ -34,13 +35,13 @@ qr_encode_alnum <- function(x) {
   code_mat <- matrix(code_mat, nrow = 2)
   groups <- code_mat[1, ] * 45 + code_mat[2, ]
   bits <- sapply(groups, intToBits)[11:1, ]
-  bitstring <- as.logical(as.vector(bits))
+  bit_string <- as.logical(as.vector(bits))
   if (length(coded) %% 2 == 0) {
-    return(bitstring)
+    return(bit_string)
   }
-  c(bitstring, as.logical(intToBits(tail(coded, 1))[6:1]))
+  bits(c(bit_string, as.logical(intToBits(tail(coded, 1))[6:1])))
 }
 
 qr_encode_byte <- function(x) {
-  as.logical(rev(rawToBits(rev(charToRaw(x)))))
+  bits(as.logical(rev(rawToBits(rev(charToRaw(x))))))
 }
