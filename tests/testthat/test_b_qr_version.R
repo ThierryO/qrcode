@@ -14,9 +14,24 @@ test_that("qr_version() works as expected", {
   expect_type(
     z <- qr_version(
       "This text requires version 5 with error correction level Q", ecl = "Q"
-    )
+    ),
+    "list"
   )
   expect_identical(z[1:3], list(version = 5L, ecl = "Q", mode = "Byte"))
+  set.seed(20211005)
+  expect_type(
+    z <- qr_version(
+      paste(sample(letters, 100, replace = TRUE), collapse = ""), ecl = "Q"
+    )
+  )
+  expect_identical(z[1:3], list(version = 8L, ecl = "Q", mode = "Byte"))
+  expect_type(
+    z <- qr_version(
+      paste(sample(letters, 1600, replace = TRUE), collapse = ""), ecl = "Q"
+    )
+  )
+  expect_identical(z[1:3], list(version = 40L, ecl = "Q", mode = "Byte"))
+
 })
 
 

@@ -26,20 +26,22 @@ qr_error <- function(x, ecl = c("L", "M", "Q", "H")) {
   codeword <- matrix(bit_string, nrow = 8)
   message_poly_base <- as.vector(2^(7:0) %*% codeword)
   messages <- matrix(
-    NA_integer_, nrow = attr(bit_string, "n1") + attr(bit_string, "n1"),
+    NA_integer_, nrow = attr(bit_string, "n1") + attr(bit_string, "n2"),
     ncol = max(attr(bit_string, "dcword1"), attr(bit_string, "dcword2"))
   )
   for (i in seq_len(attr(bit_string, "n1"))) {
     messages[i, seq_len(attr(bit_string, "dcword1"))] <- head(
       message_poly_base, attr(bit_string, "dcword1")
     )
-    message_poly_base <- tail( message_poly_base, -attr(bit_string, "dcword1"))
+    message_poly_base <- tail(message_poly_base, -attr(bit_string, "dcword1"))
   }
-  for (i in attr(bit_string, "n1") + seq_len(attr(bit_string, "n2"))) {
-    messages[i, seq_len(attr(bit_string, "dcword2"))] <- head(
-      message_poly_base, attr(bit_string, "dcword2")
-    )
-    message_poly_base <- tail(message_poly_base, -attr(bit_string, "dcword2"))
+  if (attr(bit_string, "n2") > 0) {
+    for (i in attr(bit_string, "n1") + seq_len(attr(bit_string, "n2"))) {
+      messages[i, seq_len(attr(bit_string, "dcword2"))] <- head(
+        message_poly_base, attr(bit_string, "dcword2")
+      )
+      message_poly_base <- tail(message_poly_base, -attr(bit_string, "dcword2"))
+    }
   }
   assert_that(
     length(message_poly_base) == 0,
@@ -106,6 +108,10 @@ inv_galois <- function(i) {
 divide <- function(message_poly, generator_poly) {
   remainder <- c(message_poly, rep(0, length(generator_poly)))
   while (length(remainder) > length(generator_poly)) {
+    if (remainder[1] == 0) {
+      remainder <- tail(remainder, -1)
+      next
+    }
     delta <- inv_galois((galois(remainder[1]) + generator_poly) %% 255)
     remainder <- tail(c(
       galois_xor(head(remainder, length(generator_poly)), delta),
