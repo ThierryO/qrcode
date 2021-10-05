@@ -18,16 +18,8 @@ qr_version <- function(x, ecl = c("L", "M", "Q", "H")) {
     dimnames = list(NULL, c("Numeric", "Alphanumeric", "Byte"))
   )
   count_length <- indicator[cut(relevant$Version, c(0, 9, 26, 40)), qm]
-  count <- bits(as.logical(rev(rawToBits(as.raw(nchar(x))))))
-  assert_that(
-    length(count) <= count_length,
-    msg = paste(
-      "count longer than expected in qr_version().",
-      "Please contact the maintainer and",
-      "provide the code that triggered this error."
-    )
-  )
-  bit_string <- c(bit_string, rep(FALSE, count_length - length(count)), count)
+  count <- bits(as.logical(rev(head(intToBits(nchar(x)), count_length))))
+  bit_string <- c(bit_string, count)
   remainder <- ifelse(
     relevant$Version < 14,
     ifelse(relevant$Version < 7, ifelse(relevant$Version < 2, 0, 7), 0),
@@ -37,19 +29,6 @@ qr_version <- function(x, ecl = c("L", "M", "Q", "H")) {
       ifelse(relevant$Version < 35, 3, 0)
     )
   )
-  list(
-    NULL, c(6L, 18L), c(6L, 22L), c(6L, 26L), c(6L, 30L), c(6L, 34L),
-    c(6L, 22, 38L), c(6L, 22L, 42L), c(6L, 26L, 46L), c(6L, 28L, 50L),
-    c(6L, 30L, 54L), c(6L, 32L, 58L), c(6L, 34L, 62L), c(6L, 26L, 46L, 66L),
-    c(6L, 26L, 48L, 70L), c(6L, 26L, 50L, 74L), c(6L, 26L, 50L, 74L),
-    c(6L, 26L, 54L, 78L), c(6L, 26L, 56L, 82L), c(6L, 26L, 58L, 86L),
-    c(6L, 34L, 62L, 90L), c(6L, 28L, 50L, 72L, 94L), c(6L, 26L, 50L, 74L, 98L),
-    c(6L, 30L, 54L, 78L, 102L), c(6L, 28L, 54L, 80L, 106L),
-    c(6L, 32L, 58L, 84L, 110L), c(6L, 30L, 58L, 86L, 114L),
-    c(6L, 34L, 62L, 90L, 118L), c(6L, 26L, 50, 74L, 98L, 122L),
-    c(6L, 30L, 54L, 78L, 102L, 126L), c(6L, 26L, 52L, 78L, 104L, 130L),
-    c(6L, 30L, 56L, 82L, 108L, 134L), c(6L, 34L, )
-  )
   attr(bit_string, "version") <- relevant$Version
   attr(bit_string, "ecl") <- ecl
   attr(bit_string, "dcword1") <- relevant$DCinGrp1
@@ -58,6 +37,26 @@ qr_version <- function(x, ecl = c("L", "M", "Q", "H")) {
   attr(bit_string, "n2") <- relevant$Grp2
   attr(bit_string, "ecword") <- relevant$ECwordPerBlock
   attr(bit_string, "remainder") <- remainder
+  list(
+    integer(0), c(7L, 19L), c(7L, 23L), c(7L, 27L), c(7L, 31L), c(7L, 35L),
+    c(7L, 23L, 39L), c(7L, 23L, 43L), c(7L, 27L, 47L), c(7L, 29L, 51L),
+    c(7L, 31L, 55L), c(7L, 33L, 59L), c(7L, 35L, 63L), c(7L, 27L, 47L, 67L),
+    c(7L, 27L, 49L, 71L), c(7L, 27L, 51L, 75L), c(7L, 27L, 51L, 75L),
+    c(7L, 27L, 55L, 79L), c(7L, 27L, 57L, 83L), c(7L, 27L, 59L, 87L),
+    c(7L, 35L, 63L, 91L), c(7L, 29L, 51L, 73L, 95L), c(7L, 27L, 51L, 75L, 99L),
+    c(7L, 31L, 55L, 79L, 103L), c(7L, 29L, 55L, 81L, 107L),
+    c(7L, 33L, 59L, 85L, 111L), c(7L, 31L, 59L, 87L, 115L),
+    c(7L, 35L, 63L, 91L, 119L), c(7L, 27L, 51L, 75L, 99L, 123L),
+    c(7L, 31L, 55L, 79L, 103L, 127L), c(7L, 27L, 53L, 79L, 105L, 131L),
+    c(7L, 31L, 57L, 83L, 109L, 135L), c(7L, 35L, 61L, 87L, 109L, 139L),
+    c(7L, 31L, 59L, 87L, 115L, 143L), c(7L, 35L, 63L, 91L, 119L, 147L ),
+    c(7L, 31L, 55L, 79L, 103L, 127L, 151L),
+    c(7L, 25L, 51L, 77L, 103L, 129L, 155L),
+    c(7L, 29L, 55L, 81L, 107L, 133L, 159L),
+    c(7L, 33L, 59L, 85L, 111L, 137L, 163L),
+    c(7L, 27L, 55L, 83L, 111L, 139L, 167L),
+    c(7L, 31L, 59L, 87L, 115L, 143L, 171L)
+  )[[relevant$Version]] -> attr(bit_string, "alignment")
   return(
     list(
       version = relevant$Version, ecl = ecl, mode = qm, bit_string = bit_string
