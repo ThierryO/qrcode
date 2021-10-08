@@ -1,30 +1,28 @@
 #' Generate the QR code as an svg file
 #'
-#' Create the QR code using [qrcode_gen()] and save it as an svg file.
-#' @param string Input string for the QR code.
-#'   Passed to `dataString` of [qrcode_gen()].
+#' Create the QR code using [qr_code()] and save it as an svg file.
+#' @inheritParams qr_mode
+#' @inheritParams qr_version
 #' @param filename Where to store the filename.
 #'   Silently overwrites existings files.
 #'   Tries to create the path, when it doesn't exist.
 #' @param size size of the svg file in pixels.
 #' @param foreground Stroke and fill colour for the foreground.
 #'   Use a valid [CSS color](https://www.w3schools.com/colors/).
-#'   Default to `"black"`.
+#'   Defaults to `"black"`.
 #' @param background Fill colour for the background.
 #'   Use a valid [CSS color](https://www.w3schools.com/colors/).
-#'   Default to `"white"`.
+#'   Defaults to `"white"`.
 #' @param show Open the file after creating it.
 #'   Defaults to `TRUE` on [interactive()] sessions, otherwise `FALSE`.
-#' @param error_correction Required error correction level.
-#'   Passed to `ErrorCorrectionLevel` of [qrcode_gen()].
 #' @return invisible `NULL`
 #' @export
 #' @importFrom utils browseURL
 generate_svg <- function(
-  string, filename, size = 100, foreground = "black", background = "white",
-  show = interactive(), error_correction = c("L", "M", "H", "Q")
+  x, filename, size = 100, foreground = "black", background = "white",
+  show = interactive(), ecl = c("L", "M", "H", "Q")
 ) {
-  error_correction <- match.arg(error_correction)
+  ecl <- match.arg(ecl)
   heading <- c(
     "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
     sprintf(
@@ -35,7 +33,7 @@ generate_svg <- function(
       ),
       size
     ),
-    sprintf("  <g id=\"qrcode:%s\">", string),
+    sprintf("  <g id=\"qrcode:%s\">", x),
     sprintf(
       paste(
         "    <rect x=\"0\" y=\"0\" width=\"%1$ipx\" height=\"%1$ipx\"",
@@ -45,10 +43,7 @@ generate_svg <- function(
     )
   )
   footing <- c("  </g>", "</svg>")
-  qrcode <- qrcode_gen(
-    dataString = string, ErrorCorrectionLevel = error_correction,
-    dataOutput = TRUE, plotQRcode = FALSE
-  )
+  qrcode <- qr_code(x = x, ecl = ecl)
   pixel <- size / ncol(qrcode)
   top_left <- (which(qrcode == 1, arr.ind = TRUE) - 1) * pixel
   svg_data <- sprintf(

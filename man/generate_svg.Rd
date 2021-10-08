@@ -5,18 +5,17 @@
 \title{Generate the QR code as an svg file}
 \usage{
 generate_svg(
-  string,
+  x,
   filename,
   size = 100,
   foreground = "black",
   background = "white",
   show = interactive(),
-  error_correction = c("L", "M", "H", "Q")
+  ecl = c("L", "M", "H", "Q")
 )
 }
 \arguments{
-\item{string}{Input string for the QR code.
-Passed to \code{dataString} of \code{\link[=qrcode_gen]{qrcode_gen()}}.}
+\item{x}{the input string}
 
 \item{filename}{Where to store the filename.
 Silently overwrites existings files.
@@ -26,21 +25,21 @@ Tries to create the path, when it doesn't exist.}
 
 \item{foreground}{Stroke and fill colour for the foreground.
 Use a valid \href{https://www.w3schools.com/colors/}{CSS color}.
-Default to \code{"black"}.}
+Defaults to \code{"black"}.}
 
 \item{background}{Fill colour for the background.
 Use a valid \href{https://www.w3schools.com/colors/}{CSS color}.
-Default to \code{"white"}.}
+Defaults to \code{"white"}.}
 
 \item{show}{Open the file after creating it.
 Defaults to \code{TRUE} on \code{\link[=interactive]{interactive()}} sessions, otherwise \code{FALSE}.}
 
-\item{error_correction}{Required error correction level.
-Passed to \code{ErrorCorrectionLevel} of \code{\link[=qrcode_gen]{qrcode_gen()}}.}
+\item{ecl}{the required error correction level.
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%)}
 }
 \value{
 invisible \code{NULL}
 }
 \description{
-Create the QR code using \code{\link[=qrcode_gen]{qrcode_gen()}} and save it as an svg file.
+Create the QR code using \code{\link[=qr_code]{qr_code()}} and save it as an svg file.
 }
