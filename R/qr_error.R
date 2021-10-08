@@ -12,7 +12,7 @@ qr_error <- function(x, ecl = c("L", "M", "Q", "H")) {
   bit_string <- c(
     bit_string, (rep(FALSE, pmin(8 * codewords - length(bit_string), 4)))
   )
-  bit_string <- c(bit_string, rep(FALSE, length(bit_string) %% 4))
+  bit_string <- c(bit_string, rep(FALSE, (8 - length(bit_string) %% 8) %% 8))
   pad_byte <- list(
     bits(c(TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE)),
     bits(c(FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE))
