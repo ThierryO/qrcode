@@ -25,7 +25,7 @@ qr_error <- function(x, ecl = c("L", "M", "Q", "H")) {
     )
   )
   codeword <- matrix(bit_string, nrow = 8)
-  message_poly_base <- as.vector(2^(7:0) %*% codeword)
+  message_poly_base <- as.vector(2 ^ (7:0) %*% codeword)
   messages <- matrix(
     NA_integer_, nrow = attr(bit_string, "n1") + attr(bit_string, "n2"),
     ncol = max(attr(bit_string, "dcword1"), attr(bit_string, "dcword2"))
@@ -75,7 +75,7 @@ generator <- function(b) {
   c(params[1, 1], galois(new_params), params[2, ncol(params)])
 }
 
-galois_xor <- function(a, b){
+galois_xor <- function(a, b) {
   bits1 <- vapply(a, intToBits, raw(32))
   bits2 <- vapply(b, intToBits, raw(32))
   packBits(xor(bits1, bits2), "integer")

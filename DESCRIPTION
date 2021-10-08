@@ -2,16 +2,12 @@ Type: Package
 Package: qrcode
 Title: Generate QRcodes with R
 Version: 0.1.4
-Authors@R: 
-    c(person(given = "Victor",
-             family = "Teh",
-             role = "aut",
-             email = "victorteh@gmail.com"),
-      person(given = "Thierry",
-             family = "Onkelinx",
-             role = c("ctb", "cre"),
-             email = "thierry.onkelinx@inbo.be",
-             comment = c(ORCID = "0000-0001-8804-4216")))
+Authors@R: c(
+    person("Victor", "Teh", , "victorteh@gmail.com", role = "aut",
+           comment = "Original author"),
+    person("Thierry", "Onkelinx", , "thierry.onkelinx@inbo.be", role = c("aut", "cre"),
+           comment = c("Author of the reimplemented functions", ORCID = "0000-0001-8804-4216"))
+  )
 Description: Create QRcode in R.
 License: GPL-3
 URL: https://thierryo.github.io/qrcode/,
