@@ -3,6 +3,7 @@
 #' @inheritParams qr_mode
 #' @export
 #' @importFrom assertthat assert_that
+#' @importFrom stats na.omit
 #' @importFrom utils head tail
 qr_error <- function(x, ecl = c("L", "M", "Q", "H")) {
   bit_string <- qr_encode(x = x, ecl = ecl)
