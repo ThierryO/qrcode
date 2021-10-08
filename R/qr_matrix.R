@@ -94,8 +94,10 @@ qr_matrix <- function(x, ecl = c("L", "M", "Q", "H")) {
   available[1:9, 1:9] <- FALSE
   available[9, code_dim - 0:7] <- FALSE
   available[code_dim - 0:6, 9] <- FALSE
-  available[code_dim - 8:11, 1:6] <- FALSE
-  available[1:6, code_dim - 8:11] <- FALSE
+  if (attr(payload, "version") >= 7) {
+    available[code_dim - 8:10, 1:6] <- FALSE
+    available[1:6, code_dim - 8:10] <- FALSE
+  }
 
   data_matrix <- available
   data_matrix[data_matrix == TRUE] <- NA
@@ -117,6 +119,7 @@ qr_matrix <- function(x, ecl = c("L", "M", "Q", "H")) {
     }
     i <- i + 1
   }
+
   list(
     patterns = code_matrix, payload = data_matrix,
     version = attr(payload, "version")
