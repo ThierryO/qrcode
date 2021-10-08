@@ -1,3 +1,7 @@
+# qrcode 0.1.4
+
+* Reimplemented the main functions.
+
 # qrcode 0.1.3
 
 * Added a `NEWS.md` file to track changes to the package.

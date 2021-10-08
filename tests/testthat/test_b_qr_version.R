@@ -43,5 +43,3 @@ test_that("qr_version() works as expected", {
   expect_true(has_attr(z$bit_string, "remainder"))
   expect_true(has_attr(z$bit_string, "alignment"))
 })
-
-
