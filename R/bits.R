@@ -24,9 +24,6 @@ print.bits <- function(x, ...) {
 #' @importFrom assertthat has_attr
 c.bits <- function(...) {
   dots <- list(...)
-  if (length(dots) == 0) {
-    return(bits(logical(0)))
-  }
 
   dots_logical <- vapply(
     dots, FUN.VALUE = vector("list", 1),
