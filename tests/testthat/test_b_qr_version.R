@@ -22,16 +22,26 @@ test_that("qr_version() works as expected", {
   expect_type(
     z <- qr_version(
       paste(sample(letters, 100, replace = TRUE), collapse = ""), ecl = "Q"
-    )
+    ),
+    "list"
   )
   expect_identical(z[1:3], list(version = 8L, ecl = "Q", mode = "Byte"))
   expect_type(
     z <- qr_version(
       paste(sample(letters, 1600, replace = TRUE), collapse = ""), ecl = "Q"
-    )
+    ),
+    "list"
   )
   expect_identical(z[1:3], list(version = 40L, ecl = "Q", mode = "Byte"))
-
+  expect_true(has_attr(z$bit_string, "version"))
+  expect_true(has_attr(z$bit_string, "ecl"))
+  expect_true(has_attr(z$bit_string, "dcword1"))
+  expect_true(has_attr(z$bit_string, "n1"))
+  expect_true(has_attr(z$bit_string, "dcword2"))
+  expect_true(has_attr(z$bit_string, "n2"))
+  expect_true(has_attr(z$bit_string, "ecword"))
+  expect_true(has_attr(z$bit_string, "remainder"))
+  expect_true(has_attr(z$bit_string, "alignment"))
 })
 
 
