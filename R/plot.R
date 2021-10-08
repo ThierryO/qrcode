@@ -10,7 +10,7 @@
 plot.qr_code <- function(x, col = c("white", "black"), y, ...) {
   z <- t(x)[, rev(seq_len(ncol(x)))]
   old_par <- par(no.readonly = TRUE)
-  on.exit(par(old_par))
+  on.exit(par(old_par), add = TRUE, after = FALSE)
   par(mai = rep(0, 4), mar = rep(0, 4))
   image(z, asp = 1, col = col, axes = FALSE)
 }

@@ -83,7 +83,7 @@ galois_xor <- function(a, b) {
 
 galois_series <- function() {
   gf <- integer(255)
-  gf[1] <- 1
+  gf[1] <- 1L
   for (i in 2:255) {
     gf[i] <- 2L * gf[i - 1]
     if (gf[i] > 255) {
