@@ -115,7 +115,7 @@ apply_mask <- function(payload, patterns, mask, version, mask_pattern, ecl) {
     return(payload)
   }
   fs <- format_version(version)
-  fs <- matrix(fs, nrow = 3)
+  fs <- matrix(rev(fs), nrow = 3)
   payload[ncol(payload) - 10:8, 1:6] <- fs
   payload[1:6, ncol(payload) - 10:8] <- t(fs)
   return(payload)
