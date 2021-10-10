@@ -47,5 +47,8 @@ qr_encode_alnum <- function(x) {
 }
 
 qr_encode_byte <- function(x) {
+  if (!Encoding(x) %in% c("unknown", "latin1")) {
+    x <- iconv(x, Encoding(x), "latin1")
+  }
   bits(as.logical(rev(rawToBits(rev(charToRaw(x))))))
 }
