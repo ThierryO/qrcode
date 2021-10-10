@@ -58,3 +58,11 @@ int2bits <- function(i, n_bit = 16) {
   assert_that(is.number(i), is.count(n_bit))
   bits(as.logical(rev(head(intToBits(i), n_bit))))
 }
+
+#' Convert a bits object into a character string
+#' @param x the bits object
+#' @param ... currently ignore
+#' @export
+as.character.bits <- function(x, ...) {
+  paste(as.character(as.integer(x)), collapse = "")
+}
