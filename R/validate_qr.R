@@ -1,9 +1,10 @@
-#' @importFrom assertthat assert_that
+#' @importFrom assertthat assert_that is.flag
 #' @importFrom grDevices dev.off png
-validate_qr <- function(x, ecl = c("L", "M", "Q", "H")) {
+validate_qr <- function(x, ecl = c("L", "M", "Q", "H"), validate = TRUE) {
   ecl <- match.arg(ecl)
-  where <- tempfile(fileext = ".png")
+  assert_that(is.flag(validate), noNA(validate))
   assert_that(requireNamespace("httr"))
+  where <- tempfile(fileext = ".png")
   png(where)
   plot(qr_code(x, ecl))
   dev.off()
@@ -12,8 +13,13 @@ validate_qr <- function(x, ecl = c("L", "M", "Q", "H")) {
     url = "http://api.qrserver.com/v1/read-qr-code/",
     body = list(file = httr::upload_file(where), outputformat = "json")
   )
-  all.equal(
-    httr::content(result)[[1]][["symbol"]][[1]][["data"]],
-    x
+  error <- httr::content(result)[[1]][["symbol"]][[1]][["error"]]
+  assert_that(is.null(error), msg = error)
+  tested <- httr::content(result)[[1]][["symbol"]][[1]][["data"]]
+  if (!validate) {
+    return(tested)
+  }
+  assert_that(
+    tested == x, msg = paste0("Got '", tested, "' instead of '", x, "'")
   )
 }

@@ -4,6 +4,12 @@
 #' @export
 qr_encode <- function(x, ecl = c("L", "M", "Q", "H")) {
   version <- qr_version(x = x, ecl = ecl)
+  if (version$mode == "Numeric") {
+    while (nchar(x) > 1 && substr(x, 1, 1) == "0") {
+      x <- substring(x, 2)
+    }
+    version <- qr_version(x = x, ecl = ecl)
+  }
   encoded <- switch(
     version$mode, Numeric = qr_encode_numeric(x),
     Alphanumeric = qr_encode_alnum(x), Byte = qr_encode_byte(x)
@@ -13,20 +19,18 @@ qr_encode <- function(x, ecl = c("L", "M", "Q", "H")) {
 }
 
 qr_encode_numeric <- function(x) {
-  groups <- character()
+  groups <- character(0)
   while (nchar(x)) {
     groups <- c(groups, substr(x, 1, 3))
     x <- substring(x, 4)
   }
-  groups <- as.integer(groups)
   bit_string <- vapply(
     groups, FUN.VALUE = vector(1, mode = "list"),
     FUN = function(i) {
-      bits <- head(intToBits(i), ifelse(i < 10, 4, ifelse(i < 100, 7, 100)))
-      list(as.logical(rev(bits)))
+      list(int2bits(as.integer(i), n_bit = c(4, 7, 10)[nchar(i)]))
     }
   )
-  return(bits(unlist(bit_string)))
+  return(do.call(c, bit_string))
 }
 
 qr_encode_alnum <- function(x) {
