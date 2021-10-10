@@ -35,15 +35,22 @@ qr_encode_numeric <- function(x) {
 
 qr_encode_alnum <- function(x) {
   coded <- alphanum()[strsplit(x, "")[[1]]]
+  if (length(coded) == 1) {
+    return(int2bits(coded, 6))
+  }
   code_mat <- head(coded, 2 * floor(length(coded) / 2))
   code_mat <- matrix(code_mat, nrow = 2)
   groups <- code_mat[1, ] * 45 + code_mat[2, ]
-  bits <- sapply(groups, intToBits)[11:1, ]
-  bit_string <- as.logical(as.vector(bits))
+  bit_string <- vapply(
+    groups, FUN.VALUE = vector("list", 1), FUN = function(i) {
+      list(int2bits(i, 11))
+    }
+  )
+  bit_string <- do.call(c, bit_string)
   if (length(coded) %% 2 == 0) {
     return(bit_string)
   }
-  bits(c(bit_string, as.logical(intToBits(tail(coded, 1))[6:1])))
+  bits(c(bit_string, int2bits(tail(coded, 1), 6)))
 }
 
 qr_encode_byte <- function(x) {
