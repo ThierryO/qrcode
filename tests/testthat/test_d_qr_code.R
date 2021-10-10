@@ -1,3 +1,19 @@
+test_that("qr_code() returns a qr_code object", {
+  expect_s3_class(qr_code("0"), "qr_code")
+  expect_s3_class(qr_code("100"), "qr_code")
+  expect_s3_class(qr_code("0.1"), "qr_code")
+  expect_s3_class(qr_code("A"), "qr_code")
+  expect_s3_class(qr_code("AB"), "qr_code")
+  expect_s3_class(qr_code("ABC"), "qr_code")
+  expect_s3_class(qr_code("ABCD"), "qr_code")
+  expect_s3_class(qr_code("a"), "qr_code")
+  x <- "fa\xE7ile"
+  Encoding(x) <- "latin1"
+  expect_s3_class(qr_code(x), "qr_code")
+  expect_s3_class(qr_code("\u00E6"), "qr_code")
+  expect_error(qr_code("\u2192"), "only latin1")
+})
+
 test_that("qr_code() has a stable output for numeric", {
   skip_if_not(Sys.getenv("DETAILED") != "", "Skipping detailed checks.")
   skip_on_cran()
