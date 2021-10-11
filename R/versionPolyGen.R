@@ -11,6 +11,7 @@
 #' @family legacy
 
 versionPolyGen <- function(versionString, polyString) {
+  .Deprecated("qr_code")
 
   versionString <- as.integer(unlist(strsplit(versionString, split = "")))
   oriVersionString <- versionString

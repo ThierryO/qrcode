@@ -13,6 +13,7 @@
 #' @family legacy
 
 qrInterleave <- function(poly, dataPoly, qrInfo) {
+  .Deprecated("qr_code")
   groupCount <- c(qrInfo$Grp1, qrInfo$Grp2)
 
   counter <- 1
@@ -21,17 +22,21 @@ qrInterleave <- function(poly, dataPoly, qrInfo) {
     targetDataPoly <- dataPoly[counter:(counter + qrInfo$DCinGrp1 - 1)]
     counter <- counter + qrInfo$DCinGrp1
     if (i == 1) {
-      grp1ECPoly <- ECgenerator(
-        poly, targetDataPoly, qrInfo$DCinGrp1, qrInfo$ECwordPerBlock
-      )
-      grp1DCPoly <- targetDataPoly
-    } else {
-      grp1ECPoly <- rbind(
-        grp1ECPoly,
-        ECgenerator(
+      suppressWarnings(classes = "deprecatedWarning", {
+        grp1ECPoly <- ECgenerator(
           poly, targetDataPoly, qrInfo$DCinGrp1, qrInfo$ECwordPerBlock
         )
-      )
+      })
+      grp1DCPoly <- targetDataPoly
+    } else {
+      suppressWarnings(classes = "deprecatedWarning", {
+        grp1ECPoly <- rbind(
+          grp1ECPoly,
+          ECgenerator(
+            poly, targetDataPoly, qrInfo$DCinGrp1, qrInfo$ECwordPerBlock
+          )
+        )
+      })
       grp1DCPoly <- rbind(grp1DCPoly, targetDataPoly)
     }
   }

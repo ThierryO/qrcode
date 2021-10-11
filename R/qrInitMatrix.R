@@ -10,6 +10,7 @@
 
 
 qrInitMatrix <- function(version) {
+  .Deprecated("qr_code")
 
   size <- 21 + (version - 1) * 4
 

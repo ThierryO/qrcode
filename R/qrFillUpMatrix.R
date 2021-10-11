@@ -13,6 +13,7 @@
 
 
 qrFillUpMatrix <- function(allBinary, data, version) {
+  .Deprecated("qr_code")
   counter <- 1
   direction <- 1
   byteCount <- length(allBinary) / 8
