@@ -13,6 +13,7 @@
 #' @family legacy
 #'
 DataStringBinary <- function(dataString, qrInfo) { #nolint
+  .Deprecated("qr_code")
 
   if (qrInfo$mode == "0100") {
     # ##

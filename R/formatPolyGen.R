@@ -8,6 +8,7 @@
 #'
 
 formatPolyGen <- function(formatString, polyString) {
+  .Deprecated("qr_code")
 
   formatString <- as.integer(unlist(strsplit(formatString, split = "")))
   oriFormatString <- formatString

@@ -13,6 +13,7 @@
 #' @family legacy
 
 ECgenerator <- function(GenPoly, DataPoly, DCWordCount, ECWordCount) { #nolint
+  .Deprecated("qr_code")
   logTable <- create_log_table()
 
   targetDataPoly <- c(DataPoly, rep(0, ECWordCount))

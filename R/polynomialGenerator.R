@@ -8,6 +8,7 @@
 #'
 
 polynomialGenerator <- function(ECcount) { #nolint
+  .Deprecated("qr_code")
   logTable <- create_log_table()
 
   poly <- c(0, 0)
