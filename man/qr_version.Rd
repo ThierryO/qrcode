@@ -2,7 +2,9 @@
 % Please edit documentation in R/qr_version.R
 \name{qr_version}
 \alias{qr_version}
-\title{Determine the required version}
+\title{Determine the required version
+Returns a list with the version, error correction level and mode.
+The bit string encodes mode and the length of the input string.}
 \usage{
 qr_version(x, ecl = c("L", "M", "Q", "H"))
 }
@@ -10,10 +12,17 @@ qr_version(x, ecl = c("L", "M", "Q", "H"))
 \item{x}{the input string}
 
 \item{ecl}{the required error correction level.
-Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%)}
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
+Defaults to \code{"L"}.}
 }
 \description{
 Determine the required version
+Returns a list with the version, error correction level and mode.
+The bit string encodes mode and the length of the input string.
+}
+\examples{
+qr_version("HELLO WORLD")
+qr_version("hello world", ecl = "H")
 }
 \seealso{
 Other internal: 

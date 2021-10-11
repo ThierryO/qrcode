@@ -1,6 +1,10 @@
 #' Prepare matrices with default patterns and unmasked data
-#' @inheritParams qr_version
-#' @inheritParams qr_mode
+#' A list with a matrix containing the default patterns (finder pattern,
+#' timing pattern, separators, alignment pattern and dark module), the unmask
+#' data pattern and the version.
+#' @inheritParams qr_code
+#' @examples
+#' qr_matrix("HELLO WORLD")
 #' @export
 #' @importFrom assertthat assert_that
 #' @importFrom utils head tail

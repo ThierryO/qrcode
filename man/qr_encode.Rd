@@ -10,10 +10,14 @@ qr_encode(x, ecl = c("L", "M", "Q", "H"))
 \item{x}{the input string}
 
 \item{ecl}{the required error correction level.
-Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%)}
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
+Defaults to \code{"L"}.}
 }
 \description{
-Create the bit encoding
+The message converted into a bit string.
+}
+\examples{
+qr_encode("HELLO WORLD")
 }
 \seealso{
 Other internal: 

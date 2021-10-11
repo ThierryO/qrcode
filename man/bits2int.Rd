@@ -2,22 +2,36 @@
 % Please edit documentation in R/bits.R
 \name{bits2int}
 \alias{bits2int}
-\title{Convert a bits object to an integer}
+\alias{int2bits}
+\title{Convert a bits object to an integer and vice versa}
 \usage{
-bits2int(i)
+bits2int(x)
+
+int2bits(i, n_bit = 16)
 }
 \arguments{
-\item{i}{the bits object}
+\item{x}{the bits object}
+
+\item{i}{the integer}
+
+\item{n_bit}{the number of bits}
 }
 \description{
-Convert a bits object to an integer
+Convert a bits object to an integer and vice versa
+}
+\examples{
+z <- bits(c(FALSE, TRUE, TRUE, FALSE))
+z
+y <- bits2int(z)
+y
+int2bits(y)
+int2bits(y, 4)
 }
 \seealso{
 Other bits: 
 \code{\link{as.character.bits}()},
 \code{\link{bits}()},
 \code{\link{c.bits}()},
-\code{\link{int2bits}()},
 \code{\link{print.bits}()}
 }
 \author{

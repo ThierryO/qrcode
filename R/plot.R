@@ -5,6 +5,9 @@
 #' Defaults to `c("white", "black")`.
 #' @param y currently ignored
 #' @param ... currently ignored
+#' @examples
+#' qr <- qr_code("HELLO WORLD")
+#' plot(qr)
 #' @export
 #' @importFrom graphics image par
 #' @author Thierry Onkelinx

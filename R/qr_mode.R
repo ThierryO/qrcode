@@ -1,5 +1,22 @@
 #' Determine the required mode
-#' @param x the input string
+#'
+#' The current implementation handles three modes: numeric, alphanumeric and
+#' byte.
+#' Kanji is currently not supported.
+#' Please contact the maintainer if you need it.
+#' Numeric: only digits from 0 to 9
+#' Alphanumeric: all numeric characters, upper case `LETTERS`, and the
+#' characters `" "` (space), `"$"`, `"%"`, `"*"`, `"+"`, `"-"`, `"."`, `"/"` and
+#' `":"`
+#' Byte: All characters from the Latin 1 (ISO 8859-1) character set.
+#' Input strings with an other encoding are converted into Latin 1.
+#' The function return an error if such conversion fails.
+#'
+#' @inheritParams qr_code
+#' @examples
+#' qr_mode("0123")
+#' qr_mode("A")
+#' qr_mode("a")
 #' @return a character indicating the mode
 #' @export
 #' @importFrom assertthat assert_that is.string noNA

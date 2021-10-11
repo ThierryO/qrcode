@@ -10,14 +10,18 @@
 \item{...}{the bits to concatenate}
 }
 \description{
-The result inherits qrcode related arugments from the first element.
+The result inherits arugments from the first element.
+}
+\examples{
+z <- bits(c(FALSE, TRUE))
+z
+c(z, z, rev(z))
 }
 \seealso{
 Other bits: 
 \code{\link{as.character.bits}()},
 \code{\link{bits2int}()},
 \code{\link{bits}()},
-\code{\link{int2bits}()},
 \code{\link{print.bits}()}
 }
 \author{

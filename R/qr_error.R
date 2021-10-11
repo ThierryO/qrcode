@@ -1,6 +1,10 @@
 #' Create the message and error code bit string
-#' @inheritParams qr_version
-#' @inheritParams qr_mode
+#'
+#' The function returns a bit string containing the message.
+#' @inheritParams qr_code
+#' @returns The message as a `bits()` object.
+#' @examples
+#' qr_error("HELLO WORLD")
 #' @export
 #' @importFrom assertthat assert_that
 #' @importFrom stats na.omit

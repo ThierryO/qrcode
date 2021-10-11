@@ -20,6 +20,10 @@ Defaults to \code{c("white", "black")}.}
 \description{
 Plot the QR code
 }
+\examples{
+qr <- qr_code("HELLO WORLD")
+plot(qr)
+}
 \seealso{
 Other qr: 
 \code{\link{generate_svg}()},

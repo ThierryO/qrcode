@@ -1,8 +1,7 @@
 #' Generate the QR code as an svg file
 #'
 #' Create the QR code using [qr_code()] and save it as an svg file.
-#' @inheritParams qr_mode
-#' @inheritParams qr_version
+#' @inheritParams qr_code
 #' @param filename Where to store the filename.
 #'   Silently overwrites existings files.
 #'   Tries to create the path, when it doesn't exist.
@@ -16,6 +15,10 @@
 #' @param show Open the file after creating it.
 #'   Defaults to `TRUE` on [interactive()] sessions, otherwise `FALSE`.
 #' @return invisible `NULL`
+#' @examples
+#' generate_svg(
+#'   x = "HELLO WORLD", filename = tempfile(fileext = ".svg"), show = FALSE
+#' )
 #' @export
 #' @importFrom utils browseURL
 #' @author Thierry Onkelinx

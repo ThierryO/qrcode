@@ -16,7 +16,10 @@ reference:
 - title: Generate QR code
   desc: All the relevant functions for generating and displaying the QR code.
   contents:
-  - has_concept("qr")
+  - qr_code
+  - generate_svg
+  - plot.qr_code
+  - print.qr_code
 - title: Internal functions
   desc: Functions used internally by `qr_code()`.
   contents:

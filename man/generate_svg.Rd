@@ -35,13 +35,19 @@ Defaults to \code{"white"}.}
 Defaults to \code{TRUE} on \code{\link[=interactive]{interactive()}} sessions, otherwise \code{FALSE}.}
 
 \item{ecl}{the required error correction level.
-Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%)}
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
+Defaults to \code{"L"}.}
 }
 \value{
 invisible \code{NULL}
 }
 \description{
 Create the QR code using \code{\link[=qr_code]{qr_code()}} and save it as an svg file.
+}
+\examples{
+generate_svg(
+  x = "HELLO WORLD", filename = tempfile(fileext = ".svg"), show = FALSE
+)
 }
 \seealso{
 Other qr: 

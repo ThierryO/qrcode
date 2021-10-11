@@ -2,7 +2,9 @@
 % Please edit documentation in R/bits.R
 \name{print.bits}
 \alias{print.bits}
-\title{Print a bits vector}
+\title{Print a bits vector
+Display the logical vector as a bit string where \code{FALSE} is shown as \code{0} and
+\code{TRUE} as \code{1}.}
 \usage{
 \method{print}{bits}(x, ...)
 }
@@ -13,14 +15,19 @@
 }
 \description{
 Print a bits vector
+Display the logical vector as a bit string where \code{FALSE} is shown as \code{0} and
+\code{TRUE} as \code{1}.
+}
+\examples{
+z <- bits(c(FALSE, TRUE))
+print(z)
 }
 \seealso{
 Other bits: 
 \code{\link{as.character.bits}()},
 \code{\link{bits2int}()},
 \code{\link{bits}()},
-\code{\link{c.bits}()},
-\code{\link{int2bits}()}
+\code{\link{c.bits}()}
 }
 \author{
 Thierry Onkelinx

@@ -2,7 +2,10 @@
 % Please edit documentation in R/qr_matrix.R
 \name{qr_matrix}
 \alias{qr_matrix}
-\title{Prepare matrices with default patterns and unmasked data}
+\title{Prepare matrices with default patterns and unmasked data
+A list with a matrix containing the default patterns (finder pattern,
+timing pattern, separators, alignment pattern and dark module), the unmask
+data pattern and the version.}
 \usage{
 qr_matrix(x, ecl = c("L", "M", "Q", "H"))
 }
@@ -10,10 +13,17 @@ qr_matrix(x, ecl = c("L", "M", "Q", "H"))
 \item{x}{the input string}
 
 \item{ecl}{the required error correction level.
-Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%)}
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
+Defaults to \code{"L"}.}
 }
 \description{
 Prepare matrices with default patterns and unmasked data
+A list with a matrix containing the default patterns (finder pattern,
+timing pattern, separators, alignment pattern and dark module), the unmask
+data pattern and the version.
+}
+\examples{
+qr_matrix("HELLO WORLD")
 }
 \seealso{
 Other internal: 

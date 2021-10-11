@@ -14,6 +14,9 @@
 \description{
 Please use \code{plot(x)} for a better quality image
 }
+\examples{
+qr_code("HELLO WORLD")
+}
 \seealso{
 Other qr: 
 \code{\link{generate_svg}()},
