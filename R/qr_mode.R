@@ -3,6 +3,8 @@
 #' @return a character indicating the mode
 #' @export
 #' @importFrom assertthat assert_that is.string noNA
+#' @author Thierry Onkelinx
+#' @family internal
 qr_mode <- function(x) {
   assert_that(is.string(x), noNA(x))
   if (grepl("^[0-9]*$", x)) {

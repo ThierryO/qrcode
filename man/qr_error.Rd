@@ -15,3 +15,14 @@ Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and
 \description{
 Create the message and error code bit string
 }
+\seealso{
+Other internal: 
+\code{\link{qr_encode}()},
+\code{\link{qr_matrix}()},
+\code{\link{qr_mode}()},
+\code{\link{qr_version}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{internal}

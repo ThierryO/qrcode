@@ -19,3 +19,20 @@ In QRcode standard, the are 4 levels "L", "M", "Q" and "H" which represent
 \description{
 Function to identify the version of the QRcode based on input string
 }
+\seealso{
+Other legacy: 
+\code{\link{DataStringBinary}()},
+\code{\link{ECgenerator}()},
+\code{\link{formatPolyGen}()},
+\code{\link{polynomialGenerator}()},
+\code{\link{qrFillUpMatrix}()},
+\code{\link{qrInitMatrix}()},
+\code{\link{qrInterleave}()},
+\code{\link{qrMask}()},
+\code{\link{qrcode_gen}()},
+\code{\link{versionPolyGen}()}
+}
+\author{
+Victor Teh
+}
+\concept{legacy}

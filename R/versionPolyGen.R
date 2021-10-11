@@ -7,6 +7,8 @@
 #'
 #' @return version polynomial.
 #'
+#' @author Victor Teh
+#' @family legacy
 
 versionPolyGen <- function(versionString, polyString) {
 

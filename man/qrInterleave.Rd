@@ -20,3 +20,20 @@ Interleaved polynomial readied to fill up the QRcode matrix
 \description{
 Function to interleave the Data Code and Error Correction Core
 }
+\seealso{
+Other legacy: 
+\code{\link{DataStringBinary}()},
+\code{\link{ECgenerator}()},
+\code{\link{formatPolyGen}()},
+\code{\link{polynomialGenerator}()},
+\code{\link{qrFillUpMatrix}()},
+\code{\link{qrInitMatrix}()},
+\code{\link{qrMask}()},
+\code{\link{qrVersionInfo}()},
+\code{\link{qrcode_gen}()},
+\code{\link{versionPolyGen}()}
+}
+\author{
+Victor Teh
+}
+\concept{legacy}

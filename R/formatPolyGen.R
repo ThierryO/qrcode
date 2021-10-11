@@ -2,6 +2,8 @@
 #'
 #' @param formatString QRcode format binary string
 #' @param polyString polynomial to create ECL for formatString
+#' @author Victor Teh
+#' @family legacy
 #'
 #'
 

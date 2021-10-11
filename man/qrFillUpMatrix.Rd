@@ -19,3 +19,20 @@ matrix filled up with the data bits
 \description{
 Fill up the predefined QRcode matrix with the input binary string.
 }
+\seealso{
+Other legacy: 
+\code{\link{DataStringBinary}()},
+\code{\link{ECgenerator}()},
+\code{\link{formatPolyGen}()},
+\code{\link{polynomialGenerator}()},
+\code{\link{qrInitMatrix}()},
+\code{\link{qrInterleave}()},
+\code{\link{qrMask}()},
+\code{\link{qrVersionInfo}()},
+\code{\link{qrcode_gen}()},
+\code{\link{versionPolyGen}()}
+}
+\author{
+Victor Teh
+}
+\concept{legacy}

@@ -43,3 +43,13 @@ invisible \code{NULL}
 \description{
 Create the QR code using \code{\link[=qr_code]{qr_code()}} and save it as an svg file.
 }
+\seealso{
+Other qr: 
+\code{\link{plot.qr_code}()},
+\code{\link{print.qr_code}()},
+\code{\link{qr_code}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{qr}

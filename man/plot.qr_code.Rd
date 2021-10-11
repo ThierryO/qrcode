@@ -20,3 +20,13 @@ Defaults to \code{c("white", "black")}.}
 \description{
 Plot the QR code
 }
+\seealso{
+Other qr: 
+\code{\link{generate_svg}()},
+\code{\link{print.qr_code}()},
+\code{\link{qr_code}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{qr}

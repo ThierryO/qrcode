@@ -37,11 +37,17 @@
 #' @importFrom stats heatmap
 #'
 #' @export
+#' @author Victor Teh
+#' @family legacy
 
 qrcode_gen <- function(
   dataString, ErrorCorrectionLevel = "L", dataOutput = FALSE, plotQRcode = TRUE, #nolint
   wColor = "White", bColor = "black", mask = 1, softLimitFlag = TRUE
 ) {
+  .Deprecated(
+    "qr_code",
+    msg = "`qrcode_gen()` has known bugs. Please use `qr_code()` instead."
+  )
   qrInfo <- qrVersionInfo(dataString, ECLevel = ErrorCorrectionLevel)
   if (softLimitFlag && qrInfo$Version > 10) {
     stop("Input string size too big.

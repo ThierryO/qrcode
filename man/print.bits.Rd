@@ -14,3 +14,15 @@
 \description{
 Print a bits vector
 }
+\seealso{
+Other bits: 
+\code{\link{as.character.bits}()},
+\code{\link{bits2int}()},
+\code{\link{bits}()},
+\code{\link{c.bits}()},
+\code{\link{int2bits}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{bits}

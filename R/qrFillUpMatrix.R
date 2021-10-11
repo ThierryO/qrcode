@@ -8,6 +8,8 @@
 #'
 #' @return matrix filled up with the data bits
 #' @export
+#' @author Victor Teh
+#' @family legacy
 
 
 qrFillUpMatrix <- function(allBinary, data, version) {

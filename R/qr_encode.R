@@ -2,6 +2,8 @@
 #' @inheritParams qr_mode
 #' @inheritParams qr_version
 #' @export
+#' @author Thierry Onkelinx
+#' @family internal
 qr_encode <- function(x, ecl = c("L", "M", "Q", "H")) {
   version <- qr_version(x = x, ecl = ecl)
   if (version$mode == "Numeric") {

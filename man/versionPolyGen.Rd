@@ -18,3 +18,20 @@ version polynomial.
 \description{
 Function to calculate and generate version polynomial
 }
+\seealso{
+Other legacy: 
+\code{\link{DataStringBinary}()},
+\code{\link{ECgenerator}()},
+\code{\link{formatPolyGen}()},
+\code{\link{polynomialGenerator}()},
+\code{\link{qrFillUpMatrix}()},
+\code{\link{qrInitMatrix}()},
+\code{\link{qrInterleave}()},
+\code{\link{qrMask}()},
+\code{\link{qrVersionInfo}()},
+\code{\link{qrcode_gen}()}
+}
+\author{
+Victor Teh
+}
+\concept{legacy}

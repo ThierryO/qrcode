@@ -14,3 +14,20 @@ DataStringBinary(dataString, qrInfo)
 \description{
 Convert input data string to binary polynomial
 }
+\seealso{
+Other legacy: 
+\code{\link{ECgenerator}()},
+\code{\link{formatPolyGen}()},
+\code{\link{polynomialGenerator}()},
+\code{\link{qrFillUpMatrix}()},
+\code{\link{qrInitMatrix}()},
+\code{\link{qrInterleave}()},
+\code{\link{qrMask}()},
+\code{\link{qrVersionInfo}()},
+\code{\link{qrcode_gen}()},
+\code{\link{versionPolyGen}()}
+}
+\author{
+Victor Teh
+}
+\concept{legacy}

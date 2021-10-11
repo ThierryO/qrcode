@@ -3,6 +3,8 @@
 #' @inheritParams qr_mode
 #' @inheritParams qr_version
 #' @export
+#' @author Thierry Onkelinx
+#' @family qr
 qr_code <- function(x, ecl = c("L", "M", "Q", "H")) {
   ecl <- match.arg(ecl)
   base_matrix <- qr_matrix(x = x, ecl = ecl)

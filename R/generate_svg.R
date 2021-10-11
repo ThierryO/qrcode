@@ -18,6 +18,8 @@
 #' @return invisible `NULL`
 #' @export
 #' @importFrom utils browseURL
+#' @author Thierry Onkelinx
+#' @family qr
 generate_svg <- function(
   x, filename, size = 100, foreground = "black", background = "white",
   show = interactive(), ecl = c("L", "M", "H", "Q")

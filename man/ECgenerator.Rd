@@ -23,3 +23,20 @@ Error code word polynomial
 Error correction code generator
 Generate error correction code based on the input polynomial.
 }
+\seealso{
+Other legacy: 
+\code{\link{DataStringBinary}()},
+\code{\link{formatPolyGen}()},
+\code{\link{polynomialGenerator}()},
+\code{\link{qrFillUpMatrix}()},
+\code{\link{qrInitMatrix}()},
+\code{\link{qrInterleave}()},
+\code{\link{qrMask}()},
+\code{\link{qrVersionInfo}()},
+\code{\link{qrcode_gen}()},
+\code{\link{versionPolyGen}()}
+}
+\author{
+Victor Teh
+}
+\concept{legacy}

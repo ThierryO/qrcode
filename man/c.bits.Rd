@@ -12,3 +12,15 @@
 \description{
 The result inherits qrcode related arugments from the first element.
 }
+\seealso{
+Other bits: 
+\code{\link{as.character.bits}()},
+\code{\link{bits2int}()},
+\code{\link{bits}()},
+\code{\link{int2bits}()},
+\code{\link{print.bits}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{bits}

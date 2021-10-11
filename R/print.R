@@ -4,6 +4,8 @@
 #' @param x the `qr_code` object
 #' @param ... currently ignored
 #' @export
+#' @author Thierry Onkelinx
+#' @family qr
 print.qr_code <- function(x, ...) {
   x <- cbind(x, FALSE)
   x <- rbind(x, FALSE)

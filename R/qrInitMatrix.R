@@ -4,6 +4,8 @@
 #' Each element in QRcode will be marked as different value.
 #'
 #' @param version version number of the target QRcode
+#' @author Victor Teh
+#' @family legacy
 #'
 
 
