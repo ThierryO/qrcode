@@ -12,3 +12,15 @@ bits2int(i)
 \description{
 Convert a bits object to an integer
 }
+\seealso{
+Other bits: 
+\code{\link{as.character.bits}()},
+\code{\link{bits}()},
+\code{\link{c.bits}()},
+\code{\link{int2bits}()},
+\code{\link{print.bits}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{bits}

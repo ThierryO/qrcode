@@ -9,6 +9,8 @@
 #'
 #' @export
 #' @importFrom R.utils intToBin
+#' @author Victor Teh
+#' @family legacy
 
 qrInterleave <- function(poly, dataPoly, qrInfo) {
   groupCount <- c(qrInfo$Grp1, qrInfo$Grp2)

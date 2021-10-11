@@ -14,3 +14,15 @@
 \description{
 Convert a bits object into a character string
 }
+\seealso{
+Other bits: 
+\code{\link{bits2int}()},
+\code{\link{bits}()},
+\code{\link{c.bits}()},
+\code{\link{int2bits}()},
+\code{\link{print.bits}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{bits}

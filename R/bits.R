@@ -2,6 +2,8 @@
 #' @param x a logical vector
 #' @export
 #' @importFrom assertthat assert_that noNA
+#' @author Thierry Onkelinx
+#' @family bits
 bits <- function(x) {
   assert_that(is.logical(x), noNA(x))
   class(x) <- c("bits", "logical")
@@ -12,6 +14,8 @@ bits <- function(x) {
 #' @param x the object to print
 #' @param ... currently ignored
 #' @export
+#' @author Thierry Onkelinx
+#' @family bits
 print.bits <- function(x, ...) {
   cat(paste(as.integer(x), collapse = ""))
 }
@@ -22,6 +26,8 @@ print.bits <- function(x, ...) {
 #' @param ... the bits to concatenate
 #' @export
 #' @importFrom assertthat has_attr
+#' @author Thierry Onkelinx
+#' @family bits
 c.bits <- function(...) {
   dots <- list(...)
 
@@ -43,6 +49,8 @@ c.bits <- function(...) {
 #' @param i the bits object
 #' @export
 #' @importFrom assertthat assert_that
+#' @author Thierry Onkelinx
+#' @family bits
 bits2int <- function(i) {
   assert_that(inherits(i, "bits"))
   sum(2 ^ rev(seq_along(i) - 1)[i])
@@ -54,6 +62,8 @@ bits2int <- function(i) {
 #' @export
 #' @importFrom assertthat assert_that is.count is.number
 #' @importFrom utils head
+#' @author Thierry Onkelinx
+#' @family bits
 int2bits <- function(i, n_bit = 16) {
   assert_that(is.number(i), is.count(n_bit))
   bits(as.logical(rev(head(intToBits(i), n_bit))))
@@ -63,6 +73,8 @@ int2bits <- function(i, n_bit = 16) {
 #' @param x the bits object
 #' @param ... currently ignore
 #' @export
+#' @author Thierry Onkelinx
+#' @family bits
 as.character.bits <- function(x, ...) {
   paste(as.character(as.integer(x)), collapse = "")
 }

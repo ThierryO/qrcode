@@ -7,6 +7,8 @@
 #' @param ... currently ignored
 #' @export
 #' @importFrom graphics image par
+#' @author Thierry Onkelinx
+#' @family qr
 plot.qr_code <- function(x, col = c("white", "black"), y, ...) {
   z <- t(x)[, rev(seq_len(ncol(x)))]
   old_par <- par(no.readonly = TRUE)

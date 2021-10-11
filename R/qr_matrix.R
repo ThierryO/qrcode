@@ -4,6 +4,8 @@
 #' @export
 #' @importFrom assertthat assert_that
 #' @importFrom utils head tail
+#' @author Thierry Onkelinx
+#' @family internal
 qr_matrix <- function(x, ecl = c("L", "M", "Q", "H")) {
   payload <- qr_error(x = x, ecl = ecl)
   code_dim <- 4 * (attr(payload, "version") - 1) + 21

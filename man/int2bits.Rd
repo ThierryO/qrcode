@@ -14,3 +14,15 @@ int2bits(i, n_bit = 16)
 \description{
 Convert an integer to a bits object
 }
+\seealso{
+Other bits: 
+\code{\link{as.character.bits}()},
+\code{\link{bits2int}()},
+\code{\link{bits}()},
+\code{\link{c.bits}()},
+\code{\link{print.bits}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{bits}

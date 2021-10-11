@@ -18,3 +18,13 @@ The QR code as a logical matrix with "qr_code" class.
 \description{
 Generate the QR code
 }
+\seealso{
+Other qr: 
+\code{\link{generate_svg}()},
+\code{\link{plot.qr_code}()},
+\code{\link{print.qr_code}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{qr}

@@ -15,7 +15,7 @@ Current version support all QRcode version(1 - 40) and different levels of Error
 The example below creates a QR code.
 
 ```
-qrcode_gen("www.r-project.org"")
+qrcode_gen("www.r-project.org")
 ```
 
 Current version has a software limit to version 10.

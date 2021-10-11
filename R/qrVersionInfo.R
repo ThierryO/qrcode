@@ -8,8 +8,11 @@
 #' @return 1 row dataframe that include all required info to generate QRcode.
 #' @importFrom utils data head
 #' @export
+#' @author Victor Teh
+#' @family legacy
 
 qrVersionInfo <- function(dataString, ECLevel = c("L", "M", "Q", "H")) { #nolint
+  .Deprecated("qr_version")
   ECLevel <- match.arg(ECLevel) #nolint
   # identify whether the data string is belongs to which category:
   # Alphnumeric or Byte

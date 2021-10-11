@@ -14,3 +14,13 @@
 \description{
 Please use \code{plot(x)} for a better quality image
 }
+\seealso{
+Other qr: 
+\code{\link{generate_svg}()},
+\code{\link{plot.qr_code}()},
+\code{\link{qr_code}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{qr}

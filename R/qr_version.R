@@ -3,6 +3,8 @@
 #' @param ecl the required error correction level.
 #' Available options are `"L"` (7%), `"M"` (15%), `"Q"` (25%) and `"H"` (30%)
 #' @export
+#' @author Thierry Onkelinx
+#' @family internal
 qr_version <- function(x, ecl = c("L", "M", "Q", "H")) {
   ecl <- match.arg(ecl)
   relevant <- qrCodeSpec[qrCodeSpec$ECL == ecl, ]

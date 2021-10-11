@@ -15,3 +15,14 @@ a character indicating the mode
 \description{
 Determine the required mode
 }
+\seealso{
+Other internal: 
+\code{\link{qr_encode}()},
+\code{\link{qr_error}()},
+\code{\link{qr_matrix}()},
+\code{\link{qr_version}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{internal}

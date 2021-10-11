@@ -9,6 +9,8 @@
 #' @return Error code word polynomial
 #' @export
 #' @importFrom utils tail
+#' @author Victor Teh
+#' @family legacy
 
 ECgenerator <- function(GenPoly, DataPoly, DCWordCount, ECWordCount) { #nolint
   logTable <- create_log_table()

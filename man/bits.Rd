@@ -12,3 +12,15 @@ bits(x)
 \description{
 Create a bits object
 }
+\seealso{
+Other bits: 
+\code{\link{as.character.bits}()},
+\code{\link{bits2int}()},
+\code{\link{c.bits}()},
+\code{\link{int2bits}()},
+\code{\link{print.bits}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{bits}

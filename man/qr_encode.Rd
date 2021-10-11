@@ -15,3 +15,14 @@ Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and
 \description{
 Create the bit encoding
 }
+\seealso{
+Other internal: 
+\code{\link{qr_error}()},
+\code{\link{qr_matrix}()},
+\code{\link{qr_mode}()},
+\code{\link{qr_version}()}
+}
+\author{
+Thierry Onkelinx
+}
+\concept{internal}

@@ -12,6 +12,24 @@ navbar:
   - icon: "fa fa-github"
     href: https://github.com/thierryo
 
+reference:
+- title: Generate QR code
+  desc: All the relevant functions for generating and displaying the QR code.
+  contents:
+  - has_concept("qr")
+- title: Internal functions
+  desc: Functions used internally by `qr_code()`.
+  contents:
+  - has_concept("internal")
+- title: The bits S3 class
+  desc: The bits class is a logical vector displayed as a string of 0 and 1.
+  contents:
+  - has_concept("bits")
+- title: Legacy functions
+  desc: Old functions with known bugs. They are deprecated and will be removed in due course.
+  contents:
+  - has_concept("legacy")
+
 authors:
   Thierry Onkelinx:
     href: "https://www.muscardinus.be"
