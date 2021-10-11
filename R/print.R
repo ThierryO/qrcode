@@ -3,6 +3,8 @@
 #' Please use `plot(x)` for a better quality image
 #' @param x the `qr_code` object
 #' @param ... currently ignored
+#' @examples
+#' qr_code("HELLO WORLD")
 #' @export
 #' @author Thierry Onkelinx
 #' @family qr

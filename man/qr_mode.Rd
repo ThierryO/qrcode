@@ -13,7 +13,22 @@ qr_mode(x)
 a character indicating the mode
 }
 \description{
-Determine the required mode
+The current implementation handles three modes: numeric, alphanumeric and
+byte.
+Kanji is currently not supported.
+Please contact the maintainer if you need it.
+Numeric: only digits from 0 to 9
+Alphanumeric: all numeric characters, upper case \code{LETTERS}, and the
+characters \code{" "} (space), \code{"$"}, \code{"\%"}, \code{"*"}, \code{"+"}, \code{"-"}, \code{"."}, \code{"/"} and
+\code{":"}
+Byte: All characters from the Latin 1 (ISO 8859-1) character set.
+Input strings with an other encoding are converted into Latin 1.
+The function return an error if such conversion fails.
+}
+\examples{
+qr_mode("0123")
+qr_mode("A")
+qr_mode("a")
 }
 \seealso{
 Other internal: 

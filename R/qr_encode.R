@@ -1,6 +1,9 @@
 #' Create the bit encoding
-#' @inheritParams qr_mode
-#' @inheritParams qr_version
+#'
+#' The message converted into a bit string.
+#' @inheritParams qr_code
+#' @examples
+#' qr_encode("HELLO WORLD")
 #' @export
 #' @author Thierry Onkelinx
 #' @family internal

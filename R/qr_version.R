@@ -1,7 +1,10 @@
 #' Determine the required version
-#' @inheritParams qr_mode
-#' @param ecl the required error correction level.
-#' Available options are `"L"` (7%), `"M"` (15%), `"Q"` (25%) and `"H"` (30%)
+#' Returns a list with the version, error correction level and mode.
+#' The bit string encodes mode and the length of the input string.
+#' @inheritParams qr_code
+#' @examples
+#' qr_version("HELLO WORLD")
+#' qr_version("hello world", ecl = "H")
 #' @export
 #' @author Thierry Onkelinx
 #' @family internal

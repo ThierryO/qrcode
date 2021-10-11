@@ -10,14 +10,21 @@ bits(x)
 \item{x}{a logical vector}
 }
 \description{
-Create a bits object
+Converts a logical vector into a bits object.
+This remains a logical vector.
+The main difference is that is printed as a \code{0} and \code{1} bit string rather
+than a \code{FALSE} and \code{TRUE} vector
+}
+\examples{
+z <- bits(c(FALSE, TRUE))
+z
+str(z)
 }
 \seealso{
 Other bits: 
 \code{\link{as.character.bits}()},
 \code{\link{bits2int}()},
 \code{\link{c.bits}()},
-\code{\link{int2bits}()},
 \code{\link{print.bits}()}
 }
 \author{

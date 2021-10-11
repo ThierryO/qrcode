@@ -1,5 +1,14 @@
 #' Create a bits object
+#'
+#' Converts a logical vector into a bits object.
+#' This remains a logical vector.
+#' The main difference is that is printed as a `0` and `1` bit string rather
+#' than a `FALSE` and `TRUE` vector
 #' @param x a logical vector
+#' @examples
+#' z <- bits(c(FALSE, TRUE))
+#' z
+#' str(z)
 #' @export
 #' @importFrom assertthat assert_that noNA
 #' @author Thierry Onkelinx
@@ -11,8 +20,13 @@ bits <- function(x) {
 }
 
 #' Print a bits vector
+#' Display the logical vector as a bit string where `FALSE` is shown as `0` and
+#' `TRUE` as `1`.
 #' @param x the object to print
 #' @param ... currently ignored
+#' @examples
+#' z <- bits(c(FALSE, TRUE))
+#' print(z)
 #' @export
 #' @author Thierry Onkelinx
 #' @family bits
@@ -22,8 +36,12 @@ print.bits <- function(x, ...) {
 
 #' Combine bits
 #'
-#' The result inherits qrcode related arugments from the first element.
+#' The result inherits arugments from the first element.
 #' @param ... the bits to concatenate
+#' @examples
+#' z <- bits(c(FALSE, TRUE))
+#' z
+#' c(z, z, rev(z))
 #' @export
 #' @importFrom assertthat has_attr
 #' @author Thierry Onkelinx
@@ -45,25 +63,31 @@ c.bits <- function(...) {
   return(result)
 }
 
-#' Convert a bits object to an integer
-#' @param i the bits object
+#' Convert a bits object to an integer and vice versa
+#' @param x the bits object
+#' @param i the integer
+#' @param n_bit the number of bits
+#' @rdname bits2int
 #' @export
+#' @examples
+#' z <- bits(c(FALSE, TRUE, TRUE, FALSE))
+#' z
+#' y <- bits2int(z)
+#' y
+#' int2bits(y)
+#' int2bits(y, 4)
 #' @importFrom assertthat assert_that
 #' @author Thierry Onkelinx
 #' @family bits
-bits2int <- function(i) {
-  assert_that(inherits(i, "bits"))
-  sum(2 ^ rev(seq_along(i) - 1)[i])
+bits2int <- function(x) {
+  assert_that(inherits(x, "bits"))
+  sum(2 ^ rev(seq_along(x) - 1)[x])
 }
 
-#' Convert an integer to a bits object
-#' @param i the integer
-#' @param n_bit the number of bits
+#' @rdname bits2int
 #' @export
 #' @importFrom assertthat assert_that is.count is.number
 #' @importFrom utils head
-#' @author Thierry Onkelinx
-#' @family bits
 int2bits <- function(i, n_bit = 16) {
   assert_that(is.number(i), is.count(n_bit))
   bits(as.logical(rev(head(intToBits(i), n_bit))))
@@ -72,6 +96,10 @@ int2bits <- function(i, n_bit = 16) {
 #' Convert a bits object into a character string
 #' @param x the bits object
 #' @param ... currently ignore
+#' @examples
+#' z <- bits(c(FALSE, TRUE, TRUE, FALSE))
+#' z
+#' as.character(z)
 #' @export
 #' @author Thierry Onkelinx
 #' @family bits

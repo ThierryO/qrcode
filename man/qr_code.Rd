@@ -10,13 +10,24 @@ qr_code(x, ecl = c("L", "M", "Q", "H"))
 \item{x}{the input string}
 
 \item{ecl}{the required error correction level.
-Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%)}
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
+Defaults to \code{"L"}.}
 }
 \value{
 The QR code as a logical matrix with "qr_code" class.
 }
 \description{
-Generate the QR code
+A \href{https://en.wikipedia.org/wiki/QR_code}{QR code} is a two-dimensional
+barcode developed by the \href{https://www.denso.com}{Denso Wave} company.
+}
+\examples{
+qr_code("https://www.r-project.org")
+qr <- qr_code("https://cran.r-project.org/package=qrcode", ecl = "M")
+qr
+plot(qr)
+# the qr_code object is a logical matrix
+str(qr)
+qr[1:10, 1:10]
 }
 \seealso{
 Other qr: 
