@@ -45,7 +45,7 @@ plot(code)
 ```
 
 ```{r svg}
-generate_svg("QR CODE", filename = "man/figures/qr.svg")
+generate_svg(code, filename = "man/figures/qr.svg")
 ```
 
 ![A QR code displaying the value 'QR CODE'](man/figures/qr.svg)
