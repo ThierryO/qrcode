@@ -41,6 +41,7 @@ qr_code <- function(x, ecl = c("L", "M", "Q", "H")) {
   best <- rbind(FALSE, FALSE, FALSE, best, FALSE, FALSE, FALSE)
   best <- cbind(FALSE, FALSE, FALSE, best, FALSE, FALSE, FALSE)
   class(best) <- c("qr_code", "matrix")
+  attr(best, "string") <- x
   return(best)
 }
 

@@ -73,7 +73,7 @@ plot(code)
 <img src="man/figures/example-1.png" title="A QR code displaying the value 'QR CODE'" alt="A QR code displaying the value 'QR CODE'"  />
 
 ``` r
-generate_svg("QR CODE", filename = "man/figures/qr.svg")
+generate_svg(code, filename = "man/figures/qr.svg")
 ```
 
 ![A QR code displaying the value ‘QR CODE’](man/figures/qr.svg)
