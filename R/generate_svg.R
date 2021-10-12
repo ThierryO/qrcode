@@ -50,14 +50,14 @@ generate_svg <- function(
   footing <- c("  </g>", "</svg>")
   qrcode <- qr_code(x = x, ecl = ecl)
   pixel <- size / ncol(qrcode)
-  top_left <- (which(qrcode == 1, arr.ind = TRUE) - 1) * pixel
+  top_left <- (which(qrcode, arr.ind = TRUE) - 1) * pixel
   svg_data <- sprintf(
     paste(
       "    <rect x=\"%.2f\" y=\"%.2f\" width=\"%3$0.2f\" height=\"%3$0.2f\"",
       "stroke=\"%4$s\" stroke-width=\"0.2\" stroke-linecap=\"butt\"",
       "fill=\"%4$s\"/>"
     ),
-    top_left[, 1], top_left[, 2], pixel, foreground
+    top_left[, 2], top_left[, 1], pixel, foreground
   )
   dir.create(dirname(filename), showWarnings = FALSE, recursive = TRUE)
   writeLines(c(heading, svg_data, footing), filename)
