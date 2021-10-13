@@ -10,7 +10,7 @@
 \item{...}{the bits to concatenate}
 }
 \description{
-The result inherits arugments from the first element.
+The result inherits arguments from the first element.
 }
 \examples{
 z <- bits(c(FALSE, TRUE))

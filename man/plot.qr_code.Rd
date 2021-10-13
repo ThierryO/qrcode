@@ -10,7 +10,7 @@
 \item{x}{the \code{qr_code} object}
 
 \item{col}{Define the colours.
-The first element refers to \code{FALSE} ann the second \code{TRUE}.
+The first element refers to \code{FALSE} and the second \code{TRUE}.
 Defaults to \code{c("white", "black")}.}
 
 \item{y}{currently ignored}
