@@ -18,8 +18,7 @@ The QR code as a logical matrix with "qr_code" class.
 }
 \description{
 A \href{https://en.wikipedia.org/wiki/QR_code}{QR code} is a two-dimensional
-barcode developed by the \href{https://www.denso.com/global/en/}{Denso Wave}
-company.
+barcode developed by the Denso Wave company.
 }
 \examples{
 qr_code("https://www.r-project.org")
