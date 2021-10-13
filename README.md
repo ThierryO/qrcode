@@ -22,7 +22,8 @@ size](https://img.shields.io/github/repo-size/thierryo/qrcode.svg)
 # QRcode Generator for R <img src="man/figures/logo.svg" align="right" alt="A hexagon with the word qrcode and a qrcode linking to the DOI" width="120" />
 
 A [QR code](https://en.wikipedia.org/wiki/QR_code) is a two-dimensional
-barcode developed by the [Denso Wave](https://www.denso.com) company.
+barcode developed by the [Denso Wave](https://www.denso.com/global/en/)
+company.
 
 The current implementation handles three modes: numeric, alphanumeric
 and byte. Kanji is currently not supported. Please contact the
