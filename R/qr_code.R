@@ -1,7 +1,8 @@
 #' Generate the QR code
 #'
 #' A [QR code](https://en.wikipedia.org/wiki/QR_code) is a two-dimensional
-#' barcode developed by the [Denso Wave](https://www.denso.com) company.
+#' barcode developed by the [Denso Wave](https://www.denso.com/global/en/)
+#' company.
 #' @param x the input string
 #' @param ecl the required error correction level.
 #' Available options are `"L"` (7%), `"M"` (15%), `"Q"` (25%) and `"H"` (30%).
