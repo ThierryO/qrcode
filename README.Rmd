@@ -69,7 +69,7 @@ The legacy function `qrcode_gen()` has several known bugs.
 Do check any QR code you create with that function extra careful.
 Some of them will not work.
 
-Because of these bugs, we reimplemented the code from scratch in version 0.1.4.
+Because of these bugs, we re-implemented the code from scratch in version 0.1.4.
 We created new functions and left the old version in place.
 Please note that we deprecated the legacy functions.
 We plan to keep the deprecated functions around until at least June 2022.

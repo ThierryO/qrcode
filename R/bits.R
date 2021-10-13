@@ -36,7 +36,7 @@ print.bits <- function(x, ...) {
 
 #' Combine bits
 #'
-#' The result inherits arugments from the first element.
+#' The result inherits arguments from the first element.
 #' @param ... the bits to concatenate
 #' @examples
 #' z <- bits(c(FALSE, TRUE))

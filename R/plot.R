@@ -1,7 +1,7 @@
 #' Plot the QR code
 #' @param x the `qr_code` object
 #' @param col Define the colours.
-#' The first element refers to `FALSE` ann the second `TRUE`.
+#' The first element refers to `FALSE` and the second `TRUE`.
 #' Defaults to `c("white", "black")`.
 #' @param y currently ignored
 #' @param ... currently ignored

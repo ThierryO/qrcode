@@ -1,6 +1,6 @@
 # qrcode 0.1.4
 
-* Reimplemented the main functions to fix bug in the legacy functions.
+* Re-implemented the main functions to fix bug in the legacy functions.
 * Deprecated the legacy functions.
 
 # qrcode 0.1.3
