@@ -36,3 +36,8 @@ reference:
 authors:
   Thierry Onkelinx:
     href: "https://www.muscardinus.be"
+template:
+  params:
+    docsearch:
+      api_key: BH4D9OD16A
+      index_name: 726ee21349adbe94cf79913703e6e9fa
