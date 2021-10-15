@@ -1,3 +1,7 @@
+# qrcode 0.1.5
+
+* Add [DocSearch](https://docsearch.algolia.com/) support to pkgdown website.
+
 # qrcode 0.1.4
 
 * Re-implemented the main functions to fix bug in the legacy functions.
