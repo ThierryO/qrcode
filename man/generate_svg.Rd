@@ -2,6 +2,8 @@
 % Please edit documentation in R/generate_svg.R
 \name{generate_svg}
 \alias{generate_svg}
+\alias{generate_svg.default}
+\alias{generate_svg.qr_code}
 \title{Generate the QR code as an svg file}
 \usage{
 generate_svg(
@@ -10,7 +12,28 @@ generate_svg(
   size = 100,
   foreground = "black",
   background = "white",
-  show = interactive()
+  show = interactive(),
+  ...
+)
+
+\method{generate_svg}{default}(
+  qrcode,
+  filename,
+  size = 100,
+  foreground = "black",
+  background = "white",
+  show = interactive(),
+  ...
+)
+
+\method{generate_svg}{qr_code}(
+  qrcode,
+  filename,
+  size = 100,
+  foreground = "black",
+  background = "white",
+  show = interactive(),
+  ...
 )
 }
 \arguments{

@@ -20,6 +20,7 @@
 #' generate_svg(
 #'   qrcode = code, filename = tempfile(fileext = ".svg"), show = FALSE
 #' )
+#' @rdname generate_svg
 #' @export
 #' @importFrom assertthat assert_that
 #' @importFrom utils browseURL
@@ -27,7 +28,28 @@
 #' @family qr
 generate_svg <- function(
   qrcode, filename, size = 100, foreground = "black", background = "white",
-  show = interactive()
+  show = interactive(), ...
+) {
+  UseMethod("generate_svg")
+}
+
+#' @rdname generate_svg
+#' @export
+generate_svg.default <- function(
+    qrcode, filename, size = 100, foreground = "black", background = "white",
+    show = interactive(), ...
+) {
+  generate_svg.qr_code(
+    qrcode = qrcode, filename = filename, size = size, foreground = foreground,
+    background = background, show = show, ...
+  )
+}
+
+#' @rdname generate_svg
+#' @export
+generate_svg.qr_code <- function(
+  qrcode, filename, size = 100, foreground = "black", background = "white",
+  show = interactive(), ...
 ) {
   assert_that(inherits(qrcode, "qr_code"))
   heading <- c(
