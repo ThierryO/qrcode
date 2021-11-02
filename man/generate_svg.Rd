@@ -4,12 +4,13 @@
 \alias{generate_svg}
 \alias{generate_svg.default}
 \alias{generate_svg.qr_code}
+\alias{generate_svg.qr_wifi}
 \title{Generate the QR code as an svg file}
 \usage{
 generate_svg(
   qrcode,
   filename,
-  size = 100,
+  size = 300,
   foreground = "black",
   background = "white",
   show = interactive(),
@@ -19,7 +20,7 @@ generate_svg(
 \method{generate_svg}{default}(
   qrcode,
   filename,
-  size = 100,
+  size = 300,
   foreground = "black",
   background = "white",
   show = interactive(),
@@ -29,7 +30,18 @@ generate_svg(
 \method{generate_svg}{qr_code}(
   qrcode,
   filename,
-  size = 100,
+  size = 300,
+  foreground = "black",
+  background = "white",
+  show = interactive(),
+  ...
+)
+
+\method{generate_svg}{qr_wifi}(
+  qrcode,
+  filename,
+  size = 300,
+  fontsize = 15,
   foreground = "black",
   background = "white",
   show = interactive(),
@@ -43,7 +55,8 @@ generate_svg(
 Silently overwrites existing files.
 Tries to create the path, when it doesn't exist.}
 
-\item{size}{size of the svg file in pixels.}
+\item{size}{width of the svg file in pixels.
+Defaults to \code{300}.}
 
 \item{foreground}{Stroke and fill colour for the foreground.
 Use a valid \href{https://www.w3schools.com/colors/}{CSS colour}.
@@ -55,6 +68,8 @@ Defaults to \code{"white"}.}
 
 \item{show}{Open the file after creating it.
 Defaults to \code{TRUE} on \code{\link[=interactive]{interactive()}} sessions, otherwise \code{FALSE}.}
+
+\item{fontsize}{The size of the font in pixels.}
 }
 \value{
 invisible \code{NULL}
