@@ -5,7 +5,8 @@
 #' @param filename Where to store the filename.
 #'   Silently overwrites existing files.
 #'   Tries to create the path, when it doesn't exist.
-#' @param size size of the svg file in pixels.
+#' @param size width of the svg file in pixels.
+#' Defaults to `300`.
 #' @param foreground Stroke and fill colour for the foreground.
 #'   Use a valid [CSS colour](https://www.w3schools.com/colors/).
 #'   Defaults to `"black"`.
@@ -27,7 +28,7 @@
 #' @author Thierry Onkelinx
 #' @family qr
 generate_svg <- function(
-  qrcode, filename, size = 100, foreground = "black", background = "white",
+  qrcode, filename, size = 300, foreground = "black", background = "white",
   show = interactive(), ...
 ) {
   UseMethod("generate_svg")
@@ -36,7 +37,7 @@ generate_svg <- function(
 #' @rdname generate_svg
 #' @export
 generate_svg.default <- function(
-    qrcode, filename, size = 100, foreground = "black", background = "white",
+    qrcode, filename, size = 300, foreground = "black", background = "white",
     show = interactive(), ...
 ) {
   generate_svg.qr_code(
@@ -48,7 +49,7 @@ generate_svg.default <- function(
 #' @rdname generate_svg
 #' @export
 generate_svg.qr_code <- function(
-  qrcode, filename, size = 100, foreground = "black", background = "white",
+  qrcode, filename, size = 300, foreground = "black", background = "white",
   show = interactive(), ...
 ) {
   assert_that(inherits(qrcode, "qr_code"))
@@ -84,6 +85,62 @@ generate_svg.qr_code <- function(
   )
   dir.create(dirname(filename), showWarnings = FALSE, recursive = TRUE)
   writeLines(c(heading, svg_data, footing), filename)
+  if (show) {
+    browseURL(filename)
+  }
+  return(invisible(NULL))
+}
+
+#' @rdname generate_svg
+#' @param fontsize The size of the font in pixels.
+#' @export
+generate_svg.qr_wifi <- function(
+    qrcode, filename, size = 300, fontsize = 15, foreground = "black",
+    background = "white", show = interactive(), ...
+) {
+  assert_that(inherits(qrcode, "qr_wifi"))
+  svg_header <- c(
+    "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+    sprintf(
+      paste(
+        "<svg xmlns=\"http://www.w3.org/2000/svg\"",
+        "xmlns:xlink=\"http://www.w3.org/1999/xlink\"",
+        "height=\"%i\" width=\"%i\">"
+      ),
+      size + 5 * fontsize , size
+    ),
+    sprintf(
+      paste(
+        "    <rect x=\"0\" y=\"0\" height=\"%ipx\" width=\"%ipx\"",
+        "style=\"fill:%s;\"/>"
+      ),
+      size + 5 * fontsize, size, background
+    )
+  )
+  generate_svg.qr_code(
+    qrcode = qrcode, filename = filename, size = size, show = FALSE,
+    foreground = foreground, background = background
+  )
+  svg_qrcode <- readLines(filename)
+  svg_qrcode <- tail(head(svg_qrcode, -1), -2)
+  svg_message <- c(
+    "<style>",
+    sprintf("  .light { font: italic %ipx sans-serif; }", fontsize),
+    "</style>",
+    sprintf(
+      "<text x=\"%i\" y=\"%i\" class=\"light\">Network SSID: %s</text>",
+      floor(0.1 * size), floor(size + 1.5 * fontsize), attr(qrcode, "ssid")
+    ),
+    sprintf(
+      "<text x=\"%i\" y=\"%i\" class=\"light\">Encryption: %s</text>",
+      floor(0.1 * size), floor(size + 3 * fontsize), attr(qrcode, "encryption")
+    ),
+    sprintf(
+      "<text x=\"%i\" y=\"%i\" class=\"light\">Password: %s</text>",
+      floor(0.1 * size), floor(size + 4.5 * fontsize), attr(qrcode, "key")
+    )
+  )
+  writeLines(c(svg_header, svg_qrcode, svg_message, "</svg>"), filename)
   if (show) {
     browseURL(filename)
   }
