@@ -6,11 +6,12 @@
 ^\.Rproj\.user$
 ^\.zenodo\.json$
 ^checklist.yml$
+^CITATION\.cff$
 ^codecov\.yml$
+^cran-comments\.md$
 ^data-raw$
 ^docs$
 ^LICENSE.md$
 ^man-roxygen$
 ^pkgdown$
 ^README\.Rmd$
-^cran-comments\.md$

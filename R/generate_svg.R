@@ -107,7 +107,7 @@ generate_svg.qr_wifi <- function(
         "xmlns:xlink=\"http://www.w3.org/1999/xlink\"",
         "height=\"%i\" width=\"%i\">"
       ),
-      size + 5 * fontsize , size
+      size + 5 * fontsize, size
     ),
     sprintf(
       paste(
