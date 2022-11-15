@@ -14,6 +14,7 @@
 #' @inheritParams qr_code
 #' @export
 #' @importFrom assertthat assert_that is.string noNA
+#' @family qr
 qr_event <- function(
     start, end, title, ..., ecl = c("L", "M", "Q", "H")
 ) {

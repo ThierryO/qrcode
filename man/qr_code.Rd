@@ -33,7 +33,9 @@ qr[1:10, 1:10]
 Other qr: 
 \code{\link{generate_svg}()},
 \code{\link{plot.qr_code}()},
-\code{\link{print.qr_code}()}
+\code{\link{print.qr_code}()},
+\code{\link{qr_event}()},
+\code{\link{qr_wifi}()}
 }
 \author{
 Thierry Onkelinx

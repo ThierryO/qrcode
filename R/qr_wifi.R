@@ -10,6 +10,7 @@
 #' Defaults to  `FALSE`.
 #' @inheritParams qr_code
 #' @export
+#' @family qr
 qr_wifi <- function(
     ssid, encryption = c("WPA", "WEP", ""), key = "", hidden = FALSE,
     ecl = c("L", "M", "Q", "H")

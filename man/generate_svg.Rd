@@ -41,11 +41,11 @@ generate_svg(
   qrcode,
   filename,
   size = 300,
-  fontsize = 15,
   foreground = "black",
   background = "white",
   show = interactive(),
-  ...
+  ...,
+  fontsize = 15
 )
 }
 \arguments{
@@ -69,6 +69,8 @@ Defaults to \code{"white"}.}
 \item{show}{Open the file after creating it.
 Defaults to \code{TRUE} on \code{\link[=interactive]{interactive()}} sessions, otherwise \code{FALSE}.}
 
+\item{...}{Currently ignored.}
+
 \item{fontsize}{The size of the font in pixels.}
 }
 \value{
@@ -87,7 +89,9 @@ generate_svg(
 Other qr: 
 \code{\link{plot.qr_code}()},
 \code{\link{print.qr_code}()},
-\code{\link{qr_code}()}
+\code{\link{qr_code}()},
+\code{\link{qr_event}()},
+\code{\link{qr_wifi}()}
 }
 \author{
 Thierry Onkelinx
