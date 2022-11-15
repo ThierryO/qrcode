@@ -1,7 +1,7 @@
 Type: Package
 Package: qrcode
 Title: Generate QRcodes with R
-Version: 0.1.5
+Version: 0.2
 Authors@R: c(
     person("Victor", "Teh", , "victorteh@gmail.com", role = "aut",
            comment = "Original author"),
@@ -17,10 +17,8 @@ BugReports: https://github.com/ThierryO/qrcode/issues
 Depends: 
     R (>= 3.0.0)
 Imports:
-    R.utils,
     assertthat,
     stats,
-    stringr,
     utils
 Suggests:
     httr,
@@ -28,6 +26,5 @@ Suggests:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-GB
-LazyData: TRUE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1

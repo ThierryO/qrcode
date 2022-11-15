@@ -28,12 +28,11 @@ The current implementation handles three modes: numeric, alphanumeric
 and byte. Kanji is currently not supported. Please contact the
 maintainer if you need it.
 
--   **Numeric**: only digits from 0 to 9
--   **Alphanumeric**: all numeric characters, upper case `LETTERS`, and
-    the characters `" "` (space), `"$"`, `"%"`, `"*"`, `"+"`, `"-"`,
-    `"."`, `"/"` and `":"`
--   **Byte**: All characters from the Latin 1 (ISO 8859-1) character
-    set.
+- **Numeric**: only digits from 0 to 9
+- **Alphanumeric**: all numeric characters, upper case `LETTERS`, and
+  the characters `" "` (space), `"$"`, `"%"`, `"*"`, `"+"`, `"-"`,
+  `"."`, `"/"` and `":"`
+- **Byte**: All characters from the Latin 1 (ISO 8859-1) character set.
 
 ## Main functions
 
@@ -70,7 +69,7 @@ print(code)
 plot(code)
 ```
 
-<img src="man/figures/example-1.png" title="A QR code displaying the value 'QR CODE'" alt="A QR code displaying the value 'QR CODE'"  />
+<img src="man/figures/example-1.png" alt="A QR code displaying the value 'QR CODE'"  />
 
 ``` r
 generate_svg(code, filename = "man/figures/qr.svg")
@@ -93,12 +92,6 @@ remotes::install_github("ThierryO/qrcode")
 
 ## Legacy code
 
-The legacy function `qrcode_gen()` has several known bugs. Do check any
-QR code you create with that function extra careful. Some of them will
-not work.
-
-Because of these bugs, we re-implemented the code from scratch in
-version 0.1.4. We created new functions and left the old version in
-place. Please note that we deprecated the legacy functions. We plan to
-keep the deprecated functions around until at least June 2022. Update
-your code before that date.
+The legacy function `qrcode_gen()` had several known bugs. Because of
+these bugs, we re-implemented the code from scratch in version 0.1.4. We
+created new functions. The old functions are defunct since version 0.2.
