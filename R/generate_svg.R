@@ -15,6 +15,7 @@
 #'   Defaults to `"white"`.
 #' @param show Open the file after creating it.
 #'   Defaults to `TRUE` on [interactive()] sessions, otherwise `FALSE`.
+#' @param ... Currently ignored.
 #' @return invisible `NULL`
 #' @examples
 #' code <- qr_code("HELLO WORLD")
@@ -95,8 +96,8 @@ generate_svg.qr_code <- function(
 #' @param fontsize The size of the font in pixels.
 #' @export
 generate_svg.qr_wifi <- function(
-    qrcode, filename, size = 300, fontsize = 15, foreground = "black",
-    background = "white", show = interactive(), ...
+    qrcode, filename, size = 300, foreground = "black", background = "white",
+    show = interactive(), ..., fontsize = 15
 ) {
   assert_that(inherits(qrcode, "qr_wifi"))
   svg_header <- c(

@@ -6,3 +6,20 @@ allowed:
     value: Research Institute for Nature and Forest must be listed as copyright holder
       and funder and use info@inbo.be as email.
   notes: []
+required:
+- CITATION
+- DESCRIPTION
+- R CMD check
+- checklist
+- codemeta
+- documentation
+- filename conventions
+- license
+- lintr
+- repository secret
+- spelling
+spelling:
+  default: en-GB
+  ignore:
+  - .github
+  - LICENSE.md

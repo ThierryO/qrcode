@@ -21,7 +21,9 @@ qr_code("HELLO WORLD")
 Other qr: 
 \code{\link{generate_svg}()},
 \code{\link{plot.qr_code}()},
-\code{\link{qr_code}()}
+\code{\link{qr_code}()},
+\code{\link{qr_event}()},
+\code{\link{qr_wifi}()}
 }
 \author{
 Thierry Onkelinx

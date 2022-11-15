@@ -20,6 +20,8 @@ reference:
   - generate_svg
   - plot.qr_code
   - print.qr_code
+  - qr_event
+  - qr_wifi
 - title: Internal functions
   desc: Functions used internally by `qr_code()`.
   contents:

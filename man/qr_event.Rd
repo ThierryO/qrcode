@@ -32,3 +32,12 @@ Other arguments are silently ignored.
 \item \code{url}
 }
 }
+\seealso{
+Other qr: 
+\code{\link{generate_svg}()},
+\code{\link{plot.qr_code}()},
+\code{\link{print.qr_code}()},
+\code{\link{qr_code}()},
+\code{\link{qr_wifi}()}
+}
+\concept{qr}

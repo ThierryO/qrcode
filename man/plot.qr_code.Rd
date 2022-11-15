@@ -28,7 +28,9 @@ plot(qr)
 Other qr: 
 \code{\link{generate_svg}()},
 \code{\link{print.qr_code}()},
-\code{\link{qr_code}()}
+\code{\link{qr_code}()},
+\code{\link{qr_event}()},
+\code{\link{qr_wifi}()}
 }
 \author{
 Thierry Onkelinx

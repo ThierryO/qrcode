@@ -33,3 +33,12 @@ Defaults to \code{"L"}.}
 \description{
 Generate QR code with wifi login information
 }
+\seealso{
+Other qr: 
+\code{\link{generate_svg}()},
+\code{\link{plot.qr_code}()},
+\code{\link{print.qr_code}()},
+\code{\link{qr_code}()},
+\code{\link{qr_event}()}
+}
+\concept{qr}
