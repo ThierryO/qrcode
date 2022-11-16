@@ -1,0 +1,29 @@
+{
+  "title": "qrcode: Generate QRcodes with R",
+  "version": "0.2",
+  "license": "GPL-3",
+  "upload_type": "software",
+  "description": "<p>Create QRcode in R.<\/p>",
+  "keywords": [
+    "two-dimensional barcode",
+    "matrix barcode"
+  ],
+  "language": "eng",
+  "contributors": [
+    {
+      "name": "Onkelinx, Thierry",
+      "orcid": "0000-0001-8804-4216",
+      "type": "ContactPerson"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Onkelinx, Thierry",
+      "orcid": "0000-0001-8804-4216"
+    },
+    {
+      "name": "Teh, Victor"
+    }
+  ],
+  "access_right": "open"
+}
