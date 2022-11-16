@@ -42,7 +42,7 @@ qr_version <- function(x, ecl = c("L", "M", "Q", "H")) {
   attr(bit_string, "n2") <- relevant$Grp2
   attr(bit_string, "ecword") <- relevant$ECwordPerBlock
   attr(bit_string, "remainder") <- remainder
-  list(
+  attr(bit_string, "alignment") <- list(
     "1" = numeric(0), "2" = c(6, 18), "3" = c(6, 22), "4" = c(6, 26),
     "5" = c(6, 30), "6" = c(6, 34), "7" = c(6, 22, 38), "8" = c(6, 24, 42),
     "9" = c(6, 26, 46), "10" = c(6, 28, 50), "11" = c(6, 30, 54),
@@ -62,7 +62,7 @@ qr_version <- function(x, ecl = c("L", "M", "Q", "H")) {
     "38" = c(6, 32, 58, 84, 110, 136, 162),
     "39" = c(6, 26, 54, 82, 110, 138, 166),
     "40" = c(6, 30, 58, 86, 114, 142, 170)
-  )[[relevant$Version]] -> attr(bit_string, "alignment")
+  )[[relevant$Version]]
   attr(bit_string, "alignment") <- as.integer(attr(bit_string, "alignment")) + 1
   return(
     list(
