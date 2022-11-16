@@ -1,7 +1,8 @@
-.httr-oauth
+*.html
+.DS_Store
 .RData
 .Rhistory
 .Rproj.user
 .Ruserdata
-*.html
+.httr-oauth
 docs
