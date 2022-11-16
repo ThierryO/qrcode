@@ -20,6 +20,7 @@ reference:
   - generate_svg
   - plot.qr_code
   - print.qr_code
+  - qr_logo
   - qr_event
   - qr_wifi
 - title: Internal functions
