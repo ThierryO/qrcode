@@ -32,7 +32,7 @@ reference:
   contents:
   - has_concept("bits")
 - title: Legacy functions
-  desc: Old functions with known bugs. They are deprecated and will be removed in due course.
+  desc: Old functions with known bugs. They were deprecated since version 0.1.4 and defunct since version 0.2. We will remove them in future versions.
   contents:
   - has_concept("legacy")
 

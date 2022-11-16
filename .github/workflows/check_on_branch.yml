@@ -1,0 +1,19 @@
+on:
+  push:
+    branches-ignore:
+      - main
+      - master
+      - ghpages
+
+name: "check package"
+
+jobs:
+  check-package:
+    runs-on: ubuntu-latest
+    name: "check package"
+    env:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    steps:
+      - uses: inbo/actions/check_pkg@master
+        with:
+          token: ${{ secrets.PAT }}
