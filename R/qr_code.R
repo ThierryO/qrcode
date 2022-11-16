@@ -77,7 +77,7 @@ format_string <- function(ecl, mask) {
   version_bits <- int2bits(ecl_int * 8 + mask, n_bit = 5L)
   remainder <- c(version_bits, rep(FALSE, 10))
   generator <- int2bits(1335, n_bit = 11)
-  while (!remainder[1] & length(remainder) > 10) {
+  while (!remainder[1] && length(remainder) > 10) {
     remainder <- tail(remainder, -1)
   }
   while (length(remainder) > 10) {
@@ -97,7 +97,7 @@ format_version <- function(version) {
   version_bits <- int2bits(version, 6)
   remainder <- c(version_bits, rep(FALSE, 12))
   generator <- int2bits(7973, 13)
-  while (!remainder[1] & length(remainder) > 12) {
+  while (!remainder[1] && length(remainder) > 12) {
     remainder <- tail(remainder, -1)
   }
   while (length(remainder) > 12) {
