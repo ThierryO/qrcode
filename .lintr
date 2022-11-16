@@ -1,4 +1,0 @@
-linters: with_defaults(object_name_linter(c("camelCase", "snake_case")))
-exclude: "#nolint"
-exclude_start: "# Begin Exclude Linting"
-exclude_end: "# End Exclude Linting"

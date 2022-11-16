@@ -2,10 +2,18 @@ description: Configuration file for checklist::check_pkg()
 package: yes
 allowed:
   warnings:
+  - motivation: No relevant communities.
+    value: 'no communities found in `DESCRIPTION`. Please add them with `Config/checklist/communities:
+      inbo; second`'
   - motivation: The Research Institute for Nature and Forest does not hold the copyright.
     value: Research Institute for Nature and Forest must be listed as copyright holder
       and funder and use info@inbo.be as email.
-  notes: []
+  notes:
+  - motivation: INBO does not hold the copyright
+    value: '`Research Institute for Nature and Forest` not listed as copyright holder
+      in `DESCRIPTION`.'
+  - motivation: INBO does not fund the package maintainance
+    value: '`Research Institute for Nature and Forest` not listed as funder in `DESCRIPTION`.'
 required:
 - CITATION
 - DESCRIPTION
@@ -23,3 +31,4 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
+  - cran-comments.md
