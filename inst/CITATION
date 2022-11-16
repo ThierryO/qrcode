@@ -2,12 +2,13 @@ citHeader("To cite `qrcode` in publications please use:")
 # begin checklist entry
 citEntry(
   entry = "Manual",
-  title = "qrcode: Generate QRcodes with R. Version 0.1.5",
-  author = c(person(given = "Victor", family = "Teh"), person(given = "Thierry", family = "Onkelinx")),
-  year = 2021,
+  title = "qrcode: Generate QRcodes with R. Version 0.2",
+  author = c( author = c(person(given = "Thierry", family = "Onkelinx"), person(given = "Victor", family = "Teh"))),
+  year = 2022,
   url = "https://thierryo.github.io/qrcode/",
   abstract = "Create QRcode in R.",
-  textVersion = "Teh, Victor; Onkelinx, Thierry (2021) qrcode: Generate QRcodes with R. Version 0.1.5. https://thierryo.github.io/qrcode/, https://github.com/ThierryO/qrcode, https://doi.org/10.5281/zenodo.5040088",
+  textVersion = "Onkelinx, Thierry; Teh, Victor (2022) qrcode: Generate QRcodes with R. Version 0.2. https://thierryo.github.io/qrcode/",
+  keywords = "two-dimensional barcode; matrix barcode",
   doi = "10.5281/zenodo.5040088",
 )
 # end checklist entry
