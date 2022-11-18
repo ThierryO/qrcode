@@ -1,7 +1,7 @@
 {
   "title": "qrcode: Generate QRcodes with R",
   "version": "0.2",
-  "license": "GPL-3",
+  "license": "GPL-3.0",
   "upload_type": "software",
   "description": "<p>Create QRcode in R.<\/p>",
   "keywords": [
