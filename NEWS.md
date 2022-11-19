@@ -1,6 +1,12 @@
 # qrcode 0.2
 
+* Defunct legacy functions.
+* Generate QR codes for calender events with `qr_event()`.
+* Generate QR codes for WiFi network settings with `qr_wifi()`.
+* Add a logo to a QR code with `qr_logo()`.
 * Add [DocSearch](https://docsearch.algolia.com/) support to pkgdown website.
+* Use [`checklist`](https://inbo.github.io/checklist/) to monitor the quality of
+  the package.
 
 # qrcode 0.1.4
 
