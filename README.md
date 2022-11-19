@@ -94,4 +94,5 @@ remotes::install_github("ThierryO/qrcode")
 
 The legacy function `qrcode_gen()` had several known bugs. Because of
 these bugs, we re-implemented the code from scratch in version 0.1.4. We
-created new functions. The old functions are defunct since version 0.1.5.
+created new functions. The old functions are defunct since version
+0.2.0.

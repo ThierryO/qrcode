@@ -1,4 +1,4 @@
-# qrcode 0.1.5
+# qrcode 0.2.0
 
 * Defunct legacy functions.
 * Generate QR codes for calender events with `qr_event()`.

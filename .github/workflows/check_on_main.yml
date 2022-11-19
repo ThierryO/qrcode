@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     name: "check package"
     env:
-      GITHUB_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    permissions:
+      contents: write
+      pages: write
     steps:
       - uses: inbo/actions/check_pkg@token
