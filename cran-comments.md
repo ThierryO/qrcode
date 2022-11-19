@@ -1,7 +1,7 @@
 ## Test environments
 
 * GitHub Actions
-    * ubuntu 20.04, release
+    * ubuntu 22.04, release
     * ubuntu 20.04, oldrel
     * ubuntu 20.04, devel
     * windows-latest, release
