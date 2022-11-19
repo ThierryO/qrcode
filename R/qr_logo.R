@@ -1,6 +1,6 @@
 #' Generate QR code with a logo on top
 #'
-#' Will create an `svg` file with the QR code and logo.``
+#' Will create an `svg` file with the QR code and logo.
 #' @param logo the path to a logo image file
 #' @inheritParams qr_code
 #' @inheritParams generate_svg

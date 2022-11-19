@@ -38,5 +38,5 @@ Defaults to \code{"white"}.}
 Defaults to \code{TRUE} on \code{\link[=interactive]{interactive()}} sessions, otherwise \code{FALSE}.}
 }
 \description{
-Will create an \code{svg} file with the QR code and logo.``
+Will create an \code{svg} file with the QR code and logo.
 }
