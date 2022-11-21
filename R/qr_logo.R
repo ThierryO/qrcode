@@ -6,6 +6,7 @@
 #' @inheritParams generate_svg
 #' @importFrom assertthat assert_that is.string
 #' @importFrom knitr image_uri
+#' @export
 qr_logo <- function(
   x, logo, filename, size = 300, foreground = "black", background = "white",
   show = interactive()
