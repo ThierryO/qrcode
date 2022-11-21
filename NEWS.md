@@ -1,3 +1,7 @@
+# qrcode 0.2.1
+
+* Export `qr_logo()`.
+
 # qrcode 0.2.0
 
 * Defunct legacy functions.
