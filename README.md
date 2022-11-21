@@ -10,8 +10,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Lifecycle:
 stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable-1)
 ![GitHub](https://img.shields.io/github/license/thierryo/qrcode)
-[![Codecov test
-coverage](https://codecov.io/gh/thieryo/qrcode/branch/main/graph/badge.svg)](https://app.codecov.io/gh/thierryo/qrcode?branch=main)
+[![Codecov](https://codecov.io/gh/ThierryO/qrcode/branch/main/graph/badge.svg?token=uOVomusTtw)](https://app.codecov.io/gh/ThierryO/qrcode)
 ![GitHub code size in
 bytes](https://img.shields.io/github/languages/code-size/thierryo/qrcode.svg)
 ![GitHub repo
