@@ -7,35 +7,23 @@
 qr_logo(
   x,
   logo,
-  filename,
-  size = 300,
-  foreground = "black",
-  background = "white",
-  show = interactive()
+  ecl = c("L", "M", "Q", "H"),
+  input_ecl = c("H", "Q", "M", "L")
 )
 }
 \arguments{
-\item{x}{the input string}
-
 \item{logo}{the path to a logo image file}
 
-\item{filename}{Where to store the QR code as svg file.
-Silently overwrites existing files.
-Tries to create the path, when it doesn't exist.}
+\item{ecl}{the required error correction level for the remaining QR code
+covered by the logo.
+Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
+Defaults to \code{"L"}.}
 
-\item{size}{width of the svg file in pixels.
-Defaults to \code{300}.}
-
-\item{foreground}{Stroke and fill colour for the foreground.
-Use a valid \href{https://www.w3schools.com/colors/}{CSS colour}.
-Defaults to \code{"black"}.}
-
-\item{background}{Fill colour for the background.
-Use a valid \href{https://www.w3schools.com/colors/}{CSS colour}.
-Defaults to \code{"white"}.}
-
-\item{show}{Open the file after creating it.
-Defaults to \code{TRUE} on \code{\link[=interactive]{interactive()}} sessions, otherwise \code{FALSE}.}
+\item{input_ecl}{the required error correction level for the QR code
+underneath the logo.
+Must be higher than the selected level in \code{ecl}.
+Defaults to \code{"H"}.
+The difference between \code{ecl} and \code{input_ecl} determines the size of the logo.}
 }
 \description{
 Will create an \code{svg} file with the QR code and logo.
