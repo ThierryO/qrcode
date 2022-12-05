@@ -7,7 +7,7 @@ citEntry(
   year = 2022,
   url = "https://thierryo.github.io/qrcode/",
   abstract = "Create QRcode in R.",
-  textVersion = "Onkelinx, Thierry; Teh, Victor (2022) qrcode: Generate QRcodes with R. Version 0.2.1. https://thierryo.github.io/qrcode/",
+  textVersion = "Onkelinx, Thierry; Teh, Victor (2022) qrcode: Generate QRcodes with R. Version 0.2.1. https://github.com/ThierryO/qrcode/; https://thierryo.github.io/qrcode/",
   keywords = "two-dimensional barcode; matrix barcode",
   doi = "10.5281/zenodo.5040088",
 )

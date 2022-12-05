@@ -16,7 +16,7 @@ contact:
   orcid: 0000-0001-8804-4216
 doi: 10.5281/zenodo.5040088
 license: GPL-3.0
-repository-code: https://github.com/ThierryO/qrcode
+repository-code: https://github.com/ThierryO/qrcode/
 type: software
 abstract: Create QRcode in R.
 identifiers:

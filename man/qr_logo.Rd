@@ -12,6 +12,8 @@ qr_logo(
 )
 }
 \arguments{
+\item{x}{the input string}
+
 \item{logo}{the path to a logo image file}
 
 \item{ecl}{the required error correction level for the remaining QR code
