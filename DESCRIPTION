@@ -18,11 +18,12 @@ Depends:
     R (>= 3.0.0)
 Imports:
     assertthat,
-    knitr,
     stats,
     utils
 Suggests:
     httr,
+    knitr,
+    png,
     testthat (>= 3.0.0)
 Config/checklist/keywords: two-dimensional barcode; matrix barcode
 Config/testthat/edition: 3

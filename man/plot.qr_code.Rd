@@ -2,9 +2,12 @@
 % Please edit documentation in R/plot.R
 \name{plot.qr_code}
 \alias{plot.qr_code}
+\alias{plot.qr_logo}
 \title{Plot the QR code}
 \usage{
 \method{plot}{qr_code}(x, col = c("white", "black"), y, ...)
+
+\method{plot}{qr_logo}(x, col = c("white", "black"), y, ...)
 }
 \arguments{
 \item{x}{the \code{qr_code} object}
@@ -25,6 +28,13 @@ qr <- qr_code("HELLO WORLD")
 plot(qr)
 }
 \seealso{
+Other qr: 
+\code{\link{generate_svg}()},
+\code{\link{print.qr_code}()},
+\code{\link{qr_code}()},
+\code{\link{qr_event}()},
+\code{\link{qr_wifi}()}
+
 Other qr: 
 \code{\link{generate_svg}()},
 \code{\link{print.qr_code}()},

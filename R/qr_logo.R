@@ -1,6 +1,7 @@
 #' Generate QR code with a logo on top
 #'
 #' Will create an `svg` file with the QR code and logo.
+#' @inheritParams qr_code
 #' @param logo the path to a logo image file
 #' @param ecl the required error correction level for the remaining QR code
 #' covered by the logo.
@@ -26,30 +27,39 @@ qr_logo <- function(
   )
   logo <- read_logo(logo = logo)
   logo_ratio <- attr(logo, "height") / attr(logo, "width")
-  er <- (error_out -  error_in) / (error_out - 1)
   code <- qr_code(x = x, ecl = input_ecl)
   attr(code, "logo") <- logo
-  info_size <- prod(dim(code)) # total size
-  info_size <- info_size - 3 * 8 ^ 2 # finder patterns
-  info_size <- info_size - 2 * (ncol(code) - 2 * 8) # timing patterns
-  info_size <- info_size - 2 * 3 * 6 + 1 # information area
-  sqrt(er * info_size / logo_ratio) |>
-    unname() -> attr(code, "logo_width")
+  max_dim <- ncol(code) - 14
+  sqrt((error_in - error_out) * max_dim ^ 2 / logo_ratio) |>
+    unname() |>
+    min(max_dim) -> attr(code, "logo_width")
   attr(code, "logo_height") <- attr(code, "logo_width") * logo_ratio
+  if (attr(code, "logo_height") > max_dim) {
+    attr(code, "logo_width") <- attr(code, "logo_width") * max_dim /
+      attr(code, "logo_height")
+    attr(code, "logo_height") <- max_dim
+  }
   class(code) <- c("qr_logo", class(code))
   return(code)
 }
 
 
 #' @importFrom assertthat assert_that is.string noNA
+#' @importFrom grDevices rgb
 read_logo <- function(logo) {
   assert_that(is.string(logo), noNA(logo), file.exists(logo))
-  extension <- gsub(".*\\.(.*)?", "\\1", logo)
+  extension <- gsub(".*\\.(.*?)", "\\1", logo)
   assert_that(extension %in% c("png"), msg = "Currently only handles png logos")
   requireNamespace("png")
   mat <- png::readPNG(logo)
+  rgb(as.vector(mat[, , 1]), as.vector(mat[, , 2]), as.vector(mat[, , 3])) |>
+    factor() -> fmat
+  fmat |>
+    as.integer() |>
+    matrix(ncol = ncol(mat), nrow = nrow(mat)) -> mat
   attr(mat, "type") <- "raster"
-  attr(mat, "width") <- dim(mat)[1]
-  attr(mat, "height") <- dim(mat)[2]
+  attr(mat, "height") <- dim(mat)[1]
+  attr(mat, "width") <- dim(mat)[2]
+  attr(mat, "colour") <- levels(fmat)
   return(mat)
 }
