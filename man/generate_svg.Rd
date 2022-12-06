@@ -5,6 +5,7 @@
 \alias{generate_svg.default}
 \alias{generate_svg.qr_code}
 \alias{generate_svg.qr_wifi}
+\alias{generate_svg.qr_logo}
 \title{Generate the QR code as an svg file}
 \usage{
 generate_svg(
@@ -46,6 +47,16 @@ generate_svg(
   show = interactive(),
   ...,
   fontsize = 15
+)
+
+\method{generate_svg}{qr_logo}(
+  qrcode,
+  filename,
+  size = 300,
+  foreground = "black",
+  background = "white",
+  show = interactive(),
+  ...
 )
 }
 \arguments{
