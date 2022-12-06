@@ -25,6 +25,7 @@ Suggests:
     jpeg,
     knitr,
     png,
+    rsvg,
     testthat (>= 3.0.0)
 Config/checklist/keywords: two-dimensional barcode; matrix barcode
 Config/testthat/edition: 3

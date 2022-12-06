@@ -51,26 +51,37 @@ read_logo <- function(logo) {
   gsub(".*\\.(.*?)", "\\1", logo) |>
     tolower() -> extension
   assert_that(
-    extension %in% c("jpg", "jpeg", "png"),
-    msg = "Currently only handles jpeg and png logos"
+    extension %in% c("jpg", "jpeg", "png", "svg"),
+    msg = "Currently only handles jpeg, png and svg logos"
   )
   switch(
     extension,
     png = {
       requireNamespace("png")
-      mat <- png::readPNG(logo)
+      original <- png::readPNG(logo)
+      mat <- array(1, dim = c(nrow(original), ncol(original), 4))
+      mat[, , 1:3] <- original
+    },
+    svg = {
+      requireNamespace("rsvg")
+      mat <- rsvg::rsvg(logo)
     },
     {
       requireNamespace("jpeg")
-      mat <- jpeg::readJPEG(logo)
+      original <- jpeg::readJPEG(logo)
+      mat <- array(1, dim = c(nrow(original), ncol(original), 4))
+      mat[, , 1:3] <- original
     }
   )
-  rgb(as.vector(mat[, , 1]), as.vector(mat[, , 2]), as.vector(mat[, , 3])) |>
+  rgb(
+    red = as.vector(mat[, , 1]), green = as.vector(mat[, , 2]),
+    blue = as.vector(mat[, , 3]), alpha = as.vector(mat[, , 4])
+  ) |>
     factor() -> fmat
   fmat |>
     as.integer() |>
     matrix(ncol = ncol(mat), nrow = nrow(mat)) -> mat
-  attr(mat, "type") <- "raster"
+  attr(mat, "type") <- ifelse(extension == "svg", "vector", "raster")
   attr(mat, "height") <- dim(mat)[1]
   attr(mat, "width") <- dim(mat)[2]
   attr(mat, "colour") <- levels(fmat)
