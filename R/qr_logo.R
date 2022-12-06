@@ -48,10 +48,23 @@ qr_logo <- function(
 #' @importFrom grDevices rgb
 read_logo <- function(logo) {
   assert_that(is.string(logo), noNA(logo), file.exists(logo))
-  extension <- gsub(".*\\.(.*?)", "\\1", logo)
-  assert_that(extension %in% c("png"), msg = "Currently only handles png logos")
-  requireNamespace("png")
-  mat <- png::readPNG(logo)
+  gsub(".*\\.(.*?)", "\\1", logo) |>
+    tolower() -> extension
+  assert_that(
+    extension %in% c("jpg", "jpeg", "png"),
+    msg = "Currently only handles jpeg and png logos"
+  )
+  switch(
+    extension,
+    png = {
+      requireNamespace("png")
+      mat <- png::readPNG(logo)
+    },
+    {
+      requireNamespace("jpeg")
+      mat <- jpeg::readJPEG(logo)
+    }
+  )
   rgb(as.vector(mat[, , 1]), as.vector(mat[, , 2]), as.vector(mat[, , 3])) |>
     factor() -> fmat
   fmat |>

@@ -22,6 +22,7 @@ Imports:
     utils
 Suggests:
     httr,
+    jpeg,
     knitr,
     png,
     testthat (>= 3.0.0)
