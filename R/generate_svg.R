@@ -147,3 +147,42 @@ generate_svg.qr_wifi <- function(
   }
   return(invisible(NULL))
 }
+
+#' @rdname generate_svg
+#' @export
+generate_svg.qr_logo <- function(
+    qrcode, filename, size = 300, foreground = "black", background = "white",
+    show = interactive(), ...
+) {
+  assert_that(inherits(qrcode, "qr_logo"))
+  class(qrcode) <- class(qrcode)[class(qrcode) != "qr_logo"]
+  generate_svg(
+    qrcode = qrcode, filename = filename, size = size, foreground = foreground,
+    background = background, show = FALSE, ...
+  )
+  svg_content <- readLines(filename)
+  requireNamespace("knitr")
+  knitr::image_uri(attr(attr(qrcode, "logo"), "filename"))
+  uri <- knitr::image_uri(attr(attr(qrcode, "logo"), "filename"))
+  content_size <- ncol(qrcode) - 14
+  scale <- size / ncol(qrcode) / 2
+  paste(
+    "  <image href = \"%s\" x = \"%.0f\" y = \"%.0f\"",
+    "width = \"%.0f\" height = \"%.0f\" />"
+  ) |>
+    sprintf(
+      uri,
+      (22 + content_size - attr(qrcode, "logo_width")) * scale,
+      (22 + content_size - attr(qrcode, "logo_height")) * scale,
+      size * attr(qrcode, "logo_width") / ncol(qrcode),
+      size * attr(qrcode, "logo_height") / ncol(qrcode)
+    ) -> img
+  n_svg <- length(svg_content)
+  svg_content[-n_svg] |>
+    c(img, svg_content[n_svg]) |>
+    writeLines(filename)
+  if (show) {
+    browseURL(filename)
+  }
+  return(invisible(NULL))
+}

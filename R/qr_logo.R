@@ -74,5 +74,6 @@ read_logo <- function(logo) {
   attr(mat, "height") <- dim(mat)[1]
   attr(mat, "width") <- dim(mat)[2]
   attr(mat, "colour") <- levels(fmat)
+  attr(mat, "filename") <- logo
   return(mat)
 }
