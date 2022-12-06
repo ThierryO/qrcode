@@ -59,20 +59,18 @@ read_logo <- function(logo) {
     png = {
       requireNamespace("png")
       original <- png::readPNG(logo)
-      mat <- array(1, dim = c(nrow(original), ncol(original), 4))
-      mat[, , 1:3] <- original
     },
     svg = {
       requireNamespace("rsvg")
-      mat <- rsvg::rsvg(logo)
+      original <- rsvg::rsvg(logo)
     },
     {
       requireNamespace("jpeg")
       original <- jpeg::readJPEG(logo)
-      mat <- array(1, dim = c(nrow(original), ncol(original), 4))
-      mat[, , 1:3] <- original
     }
   )
+  mat <- array(1, dim = c(nrow(original), ncol(original), 4))
+  mat[, , seq_len(dim(original)[3])] <- original
   rgb(
     red = as.vector(mat[, , 1]), green = as.vector(mat[, , 2]),
     blue = as.vector(mat[, , 3]), alpha = as.vector(mat[, , 4])
