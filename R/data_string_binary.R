@@ -4,5 +4,5 @@
 #' @rdname defunct
 #' @param ... obsolete arguments
 DataStringBinary <- function(...) { #nolint: object_name_linter.
-  .Defunct("qr_code")
+  .Defunct("qr_code") # nocov
 }

@@ -87,7 +87,7 @@ generate_svg.qr_code <- function(
   dir.create(dirname(filename), showWarnings = FALSE, recursive = TRUE)
   writeLines(c(heading, svg_data, footing), filename)
   if (show) {
-    browseURL(filename)
+    browseURL(filename) # nocov
   }
   return(invisible(NULL))
 }
@@ -143,7 +143,7 @@ generate_svg.qr_wifi <- function(
   )
   writeLines(c(svg_header, svg_qrcode, svg_message, "</svg>"), filename)
   if (show) {
-    browseURL(filename)
+    browseURL(filename) # nocov
   }
   return(invisible(NULL))
 }
@@ -182,7 +182,7 @@ generate_svg.qr_logo <- function(
     c(img, svg_content[n_svg]) |>
     writeLines(filename)
   if (show) {
-    browseURL(filename)
+    browseURL(filename) # nocov
   }
   return(invisible(NULL))
 }

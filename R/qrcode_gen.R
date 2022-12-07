@@ -4,5 +4,5 @@
 #' @rdname defunct
 
 qrcode_gen <- function(...) {
-  .Defunct("qr_code")
+  .Defunct("qr_code") # nocov
 }
