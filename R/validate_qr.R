@@ -3,7 +3,7 @@
 validate_qr <- function(x, ecl = c("L", "M", "Q", "H"), validate = TRUE) {
   ecl <- match.arg(ecl)
   assert_that(is.flag(validate), noNA(validate))
-  assert_that(requireNamespace("httr"))
+  requireNamespace("httr", quietly = TRUE)
   where <- tempfile(fileext = ".png")
   png(where)
   plot(qr_code(x, ecl))
