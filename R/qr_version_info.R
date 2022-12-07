@@ -5,5 +5,5 @@
 #' @rdname defunct
 
 qrVersionInfo <- function(...) { #nolint: object_name_linter.
-  .Defunct("qr_version")
+  .Defunct("qr_version") # nocov
 }
