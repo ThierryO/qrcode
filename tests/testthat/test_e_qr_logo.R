@@ -1,0 +1,21 @@
+test_that("qr_logo()", {
+  logo_png <- tempfile(fileext = ".png")
+  on.exit(file.remove(logo_png), add = TRUE, after = FALSE)
+  code <- qr_code(logo_png)
+  png(logo_png)
+  plot(code)
+  dev.off()
+  expect_true(file_test("-f", logo_png))
+
+  code_logo <- qr_logo(x = logo_png, logo = logo_png)
+  expect_s3_class(code_logo, c("qr_logo", "qr_code"))
+  code_logo_png <- tempfile(fileext = ".png")
+  png(code_logo_png)
+  plot(code_logo)
+  dev.off()
+  expect_true(file_test("-f", code_logo_png))
+
+  code_logo_svg <- tempfile(fileext = ".svg")
+  generate_svg(qrcode = code_logo, filename = code_logo_svg, show = FALSE)
+  expect_true(file_test("-f", code_logo_svg))
+})
