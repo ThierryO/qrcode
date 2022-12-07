@@ -57,15 +57,15 @@ read_logo <- function(logo) {
   switch(
     extension,
     png = {
-      requireNamespace("png")
+      requireNamespace("png", quietly = TRUE)
       original <- png::readPNG(logo)
     },
     svg = {
-      requireNamespace("rsvg")
+      requireNamespace("rsvg", quietly = TRUE)
       original <- rsvg::rsvg(logo)
     },
     {
-      requireNamespace("jpeg")
+      requireNamespace("jpeg", quietly = TRUE)
       original <- jpeg::readJPEG(logo)
     }
   )

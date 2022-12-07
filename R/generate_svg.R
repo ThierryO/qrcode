@@ -161,7 +161,7 @@ generate_svg.qr_logo <- function(
     background = background, show = FALSE, ...
   )
   svg_content <- readLines(filename)
-  requireNamespace("knitr")
+  requireNamespace("knitr", quietly = TRUE)
   knitr::image_uri(attr(attr(qrcode, "logo"), "filename"))
   uri <- knitr::image_uri(attr(attr(qrcode, "logo"), "filename"))
   content_size <- ncol(qrcode) - 14
