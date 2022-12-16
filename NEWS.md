@@ -1,8 +1,8 @@
 # qrcode 0.2.1
 
-* Export `qr_logo()`.
-* `qr_logo()` returns a `qr_code` object.
-* `plot()` and `generate_svg()` handle the output of `qr_logo()`.
+* Replace the unexported `qr_logo()` by `add_logo`().
+* `add_logo()` returns a `qr_code` object.
+* `plot()` and `generate_svg()` handle the output of `add_logo()`.
 
 # qrcode 0.2.0
 

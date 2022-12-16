@@ -1,48 +1,69 @@
-#' Generate QR code with a logo on top
+#' Add a logo to a QR code
 #'
-#' Will create an `svg` file with the QR code and logo.
-#' @inheritParams qr_code
-#' @param logo the path to a logo image file
-#' @param ecl the required error correction level for the remaining QR code
-#' covered by the logo.
-#' Available options are `"L"` (7%), `"M"` (15%), `"Q"` (25%) and `"H"` (30%).
+#' First generate a `qr_code` with a higher `ecl` level.
+#' Then add the logo.
+#' The maximum area of logo depends on the difference in `ecl` level between the
+#' version with and without logo.
+#' The size of the logo is further restricted by its image ratio.
+#' We shrink very wide or tall logos to make sure it still fits on the logo.
+#' @param code A `qr_code` object
+#' @param logo the path to a logo image file.
+#' Must be either `png`, `svg` or `jpeg` format.
+#' @param ecl the required error correction level for the QR code
+#' after overlaying the logo.
+#' Must be lower than the `ecl` in the `code`.
 #' Defaults to `"L"`.
-#' @param input_ecl the required error correction level for the QR code
-#' underneath the logo.
-#' Must be higher than the selected level in `ecl`.
-#' Defaults to `"H"`.
-#' The difference between `ecl` and `input_ecl` determines the size of the logo.
+#' The difference between the `ecl` set here and the `ecl` in `code` determines
+#' the maximum area of the logo.
+#' For the largest logo, generate `code` with `ecl = "H"` and add the logo with
+#' `ecl = "L"`.
+#' @param hjust Horizontal position of the logo.
+#' The default of `"c"` indicates the centre of the QR code.
+#' Use `"r"` to align the right side of the logo with the right side of the QR
+#' code.
+#' Use `"l"` to align the left side of the logo with the right side of the two
+#' vertical finder patterns.
+#' @param vjust Vertical position of the logo.
+#' The default of `"c"` indicates the centre of the QR code..
+#' Use `"b"` to align the bottom of the logo with the bottom of the QR code.
+#' Use `"t"` to align the top of the logo with the bottom side of the two
+#' horizontal finder patterns.
 #' @export
-qr_logo <- function(
-  x, logo, ecl = c("L", "M", "Q", "H"), input_ecl = c("H", "Q", "M", "L")
+#' @importFrom assertthat assert_that
+add_logo <- function(
+  code, logo, ecl = c("L", "M", "Q", "H"), hjust = c("c", "l", "r"),
+  vjust = c("c", "b", "t")
 ) {
+  assert_that(inherits(code, "qr_code"))
   ecl <- match.arg(ecl)
-  input_ecl <- match.arg(input_ecl)
+  hjust <- match.arg(hjust)
+  vjust <- match.arg(vjust)
   error_level <- c(L = 0.07, M = 0.15, Q = 0.25, H = 0.3)
-  error_in <- error_level[input_ecl]
+  error_in <- error_level[attr(code, "ecl")]
   error_out <- error_level[ecl]
   assert_that(
     error_in > error_out,
-    msg = "error level in `input_ecl` must be higher than in `ecl`"
+    msg = "error level in `code` must be higher than `ecl` set in add_logo()"
   )
   logo <- read_logo(logo = logo)
-  logo_ratio <- attr(logo, "height") / attr(logo, "width")
-  code <- qr_code(x = x, ecl = input_ecl)
   attr(code, "logo") <- logo
-  max_dim <- ncol(code) - 14
-  sqrt((error_in - error_out) * max_dim ^ 2 / logo_ratio) |>
+  logo_ratio <- attr(logo, "height") / attr(logo, "width")
+  attr(code, "logo_max_dim") <- ncol(code) -
+    ifelse("c" %in% c(hjust, vjust), 22, 14)
+
+  sqrt((error_in - error_out) * attr(code, "logo_max_dim") ^ 2 / logo_ratio) |>
     unname() |>
-    min(max_dim) -> attr(code, "logo_width")
+    min(attr(code, "logo_max_dim")) -> attr(code, "logo_width")
   attr(code, "logo_height") <- attr(code, "logo_width") * logo_ratio
-  if (attr(code, "logo_height") > max_dim) {
-    attr(code, "logo_width") <- attr(code, "logo_width") * max_dim /
-      attr(code, "logo_height")
-    attr(code, "logo_height") <- max_dim
+  if (attr(code, "logo_height") > attr(code, "logo_max_dim")) {
+    attr(code, "logo_width") <- attr(code, "logo_width") *
+      attr(code, "logo_max_dim") / attr(code, "logo_height")
+    attr(code, "logo_height") <- attr(code, "logo_max_dim")
   }
+  attr(code, "logo_position") <- c(hjust, vjust)
   class(code) <- c("qr_logo", class(code))
   return(code)
 }
-
 
 #' @importFrom assertthat assert_that is.string noNA
 #' @importFrom grDevices rgb
@@ -54,35 +75,24 @@ read_logo <- function(logo) {
     extension %in% c("jpg", "jpeg", "png", "svg"),
     msg = "Currently only handles jpeg, png and svg logos"
   )
-  switch(
+  mat <- switch(
     extension,
     png = {
       requireNamespace("png", quietly = TRUE)
-      original <- png::readPNG(logo)
+      png::readPNG(logo, native = TRUE)
     },
     svg = {
       requireNamespace("rsvg", quietly = TRUE)
-      original <- rsvg::rsvg(logo)
+      rsvg::rsvg_nativeraster(logo)
     },
     {
       requireNamespace("jpeg", quietly = TRUE)
-      original <- jpeg::readJPEG(logo)
+      jpeg::readJPEG(logo, native = TRUE)
     }
   )
-  mat <- array(1, dim = c(nrow(original), ncol(original), 4))
-  mat[, , seq_len(dim(original)[3])] <- original
-  rgb(
-    red = as.vector(mat[, , 1]), green = as.vector(mat[, , 2]),
-    blue = as.vector(mat[, , 3]), alpha = as.vector(mat[, , 4])
-  ) |>
-    factor() -> fmat
-  fmat |>
-    as.integer() |>
-    matrix(ncol = ncol(mat), nrow = nrow(mat)) -> mat
   attr(mat, "type") <- ifelse(extension == "svg", "vector", "raster")
   attr(mat, "height") <- dim(mat)[1]
   attr(mat, "width") <- dim(mat)[2]
-  attr(mat, "colour") <- levels(fmat)
   attr(mat, "filename") <- logo
   return(mat)
 }
