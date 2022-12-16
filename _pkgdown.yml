@@ -20,9 +20,9 @@ reference:
   - generate_svg
   - plot.qr_code
   - print.qr_code
-  - qr_logo
   - qr_event
   - qr_wifi
+  - add_logo
 - title: Internal functions
   desc: Functions used internally by `qr_code()`.
   contents:
@@ -32,7 +32,7 @@ reference:
   contents:
   - has_concept("bits")
 - title: Legacy functions
-  desc: Old functions with known bugs. They were deprecated since version 0.1.4 and defunct since version 0.2. We will remove them in future versions.
+  desc: Old functions with known bugs. They were deprecated since version 0.1.4 and defunct since version 0.2.0. We will remove them in future versions.
   contents:
   - has_concept("legacy")
 

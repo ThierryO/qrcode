@@ -1,13 +1,13 @@
 test_that("qr_logo()", {
   logo_png <- tempfile(fileext = ".png")
   on.exit(file.remove(logo_png), add = TRUE, after = FALSE)
-  code <- qr_code(logo_png)
+  code <- qr_code(logo_png, ecl = "H")
   png(logo_png)
   plot(code)
   dev.off()
   expect_true(file_test("-f", logo_png))
 
-  code_logo <- qr_logo(x = logo_png, logo = logo_png)
+  code_logo <- add_logo(code = code, logo = logo_png)
   expect_s3_class(code_logo, c("qr_logo", "qr_code"))
   code_logo_png <- tempfile(fileext = ".png")
   png(code_logo_png)

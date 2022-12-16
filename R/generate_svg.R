@@ -162,20 +162,27 @@ generate_svg.qr_logo <- function(
   )
   svg_content <- readLines(filename)
   requireNamespace("knitr", quietly = TRUE)
-  knitr::image_uri(attr(attr(qrcode, "logo"), "filename"))
   uri <- knitr::image_uri(attr(attr(qrcode, "logo"), "filename"))
-  content_size <- ncol(qrcode) - 14
-  scale <- size / ncol(qrcode) / 2
+
+  vertical <- switch(
+    attr(qrcode, "logo_position")[2],
+    b = ncol(qrcode) - attr(qrcode, "logo_height") - 3,
+    c = (ncol(qrcode) - attr(qrcode, "logo_height")) / 2, t = 11
+  ) * size / ncol(qrcode)
+  horizontal <- switch(
+    attr(qrcode, "logo_position")[1], l = 11,
+    c = (ncol(qrcode) - attr(qrcode, "logo_width")) / 2,
+    r = ncol(qrcode) - 3 - attr(qrcode, "logo_width")
+  ) * size / ncol(qrcode)
+
   paste(
-    "  <image href = \"%s\" x = \"%.0f\" y = \"%.0f\"",
-    "width = \"%.0f\" height = \"%.0f\" />"
+    "  <image href = \"%s\" x = \"%.1f\" y = \"%.1f\"",
+    "width = \"%.1f\" height = \"%.1f\" />"
   ) |>
     sprintf(
-      uri,
-      (22 + content_size - attr(qrcode, "logo_width")) * scale,
-      (22 + content_size - attr(qrcode, "logo_height")) * scale,
-      size * attr(qrcode, "logo_width") / ncol(qrcode),
-      size * attr(qrcode, "logo_height") / ncol(qrcode)
+      uri, horizontal, vertical,
+      attr(qrcode, "logo_width") * size / ncol(qrcode),
+      attr(qrcode, "logo_height") * size / ncol(qrcode)
     ) -> img
   n_svg <- length(svg_content)
   svg_content[-n_svg] |>
