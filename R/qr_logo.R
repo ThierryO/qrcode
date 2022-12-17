@@ -41,10 +41,19 @@ add_logo <- function(
   error_level <- c(L = 0.07, M = 0.15, Q = 0.25, H = 0.3)
   error_in <- error_level[attr(code, "ecl")]
   error_out <- error_level[ecl]
-  assert_that(
-    error_in > error_out,
-    msg = "error level in `code` must be higher than `ecl` set in add_logo()"
-  )
+  paste(
+    "Your requested an QR code with logo with error level \"%s\" (%.0f%%).",
+    "The input QR code has error level \"%s\" (%.0f%%).",
+    "The error level of the input QR code must be higher than the version with",
+    "the logo.",
+    "Use the `ecl` argument of `qr_code()` and `add_logo()` to set the error",
+    "level."
+  ) |>
+    sprintf(
+      ecl, 100 * error_level[ecl], attr(code, "ecl"),
+      100 * error_level[attr(code, "ecl")]
+    ) -> ecl_error_message
+  assert_that(error_in > error_out, msg = ecl_error_message)
   logo <- read_logo(logo = logo)
   attr(code, "logo") <- logo
   logo_ratio <- attr(logo, "height") / attr(logo, "width")
