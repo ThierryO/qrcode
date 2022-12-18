@@ -1,0 +1,7 @@
+checklist::check_package()
+devtools::check_rhub()
+devtools::check_mac_release()
+devtools::check_win_release()
+devtools::check_win_oldrelease()
+devtools::check_win_devel()
+revdepcheck::revdep_check(quiet = FALSE, num_workers = 4)
