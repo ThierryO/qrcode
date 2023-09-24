@@ -2,8 +2,8 @@
 
 * GitHub Actions
     * ubuntu 22.04, release
-    * ubuntu 20.04, oldrel
-    * ubuntu 20.04, devel
+    * ubuntu 22.04, oldrel
+    * ubuntu 22.04, devel
     * windows-latest, release
     * macOS-latest, release
 
