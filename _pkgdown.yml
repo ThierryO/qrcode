@@ -32,10 +32,6 @@ reference:
   desc: The bits class is a logical vector displayed as a string of 0 and 1.
   contents:
   - has_concept("bits")
-- title: Legacy functions
-  desc: Old functions with known bugs. They were deprecated since version 0.1.4 and defunct since version 0.2.0. We will remove them in future versions.
-  contents:
-  - has_concept("legacy")
 
 authors:
   Thierry Onkelinx:
