@@ -19,6 +19,7 @@ qr_code("HELLO WORLD")
 }
 \seealso{
 Other qr: 
+\code{\link{coordinates}()},
 \code{\link{generate_svg}()},
 \code{\link{plot.qr_code}()},
 \code{\link{qr_code}()},
