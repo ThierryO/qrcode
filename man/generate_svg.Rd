@@ -98,6 +98,7 @@ generate_svg(
 }
 \seealso{
 Other qr: 
+\code{\link{coordinates}()},
 \code{\link{plot.qr_code}()},
 \code{\link{print.qr_code}()},
 \code{\link{qr_code}()},

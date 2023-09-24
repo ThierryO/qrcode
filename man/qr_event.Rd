@@ -34,6 +34,7 @@ Other arguments are silently ignored.
 }
 \seealso{
 Other qr: 
+\code{\link{coordinates}()},
 \code{\link{generate_svg}()},
 \code{\link{plot.qr_code}()},
 \code{\link{print.qr_code}()},

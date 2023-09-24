@@ -31,6 +31,7 @@ qr[1:10, 1:10]
 }
 \seealso{
 Other qr: 
+\code{\link{coordinates}()},
 \code{\link{generate_svg}()},
 \code{\link{plot.qr_code}()},
 \code{\link{print.qr_code}()},

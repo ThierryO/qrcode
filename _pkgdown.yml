@@ -23,6 +23,7 @@ reference:
   - qr_event
   - qr_wifi
   - add_logo
+  - coordinates
 - title: Internal functions
   desc: Functions used internally by `qr_code()`.
   contents:

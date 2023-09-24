@@ -29,6 +29,7 @@ plot(qr)
 }
 \seealso{
 Other qr: 
+\code{\link{coordinates}()},
 \code{\link{generate_svg}()},
 \code{\link{print.qr_code}()},
 \code{\link{qr_code}()},
@@ -36,6 +37,7 @@ Other qr:
 \code{\link{qr_wifi}()}
 
 Other qr: 
+\code{\link{coordinates}()},
 \code{\link{generate_svg}()},
 \code{\link{print.qr_code}()},
 \code{\link{qr_code}()},
