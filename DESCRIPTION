@@ -1,9 +1,9 @@
 Type: Package
 Package: qrcode
 Title: Generate QRcodes with R
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(
-    person("Thierry", "Onkelinx", , "thierry.onkelinx@inbo.be", role = c("aut", "cre"),
+    person("Thierry", "Onkelinx", , "qrcode@muscardinus.be", role = c("aut", "cre"),
            comment = c("Author of the reimplemented functions", ORCID = "0000-0001-8804-4216")),
     person("Victor", "Teh", , "victorteh@gmail.com", role = "aut",
            comment = "Original author")

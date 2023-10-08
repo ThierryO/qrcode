@@ -1,3 +1,8 @@
+# qrcode 0.2.2
+
+* New `coordinates()` function.
+* Remove the defunct legacy functions.
+
 # qrcode 0.2.1
 
 * Replace the unexported `qr_logo()` by `add_logo`().
