@@ -22,6 +22,7 @@ required:
 - codemeta
 - documentation
 - filename conventions
+- folder conventions
 - license
 - lintr
 - repository secret
