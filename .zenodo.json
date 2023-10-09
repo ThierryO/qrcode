@@ -1,6 +1,6 @@
 {
   "title": "qrcode: Generate QRcodes with R",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "GPL-3.0",
   "upload_type": "software",
   "description": "<p>Create QRcode in R.<\/p>",
@@ -8,6 +8,7 @@
     "two-dimensional barcode",
     "matrix barcode"
   ],
+  "access_right": "open",
   "language": "eng",
   "contributors": [
     {
@@ -25,5 +26,5 @@
       "name": "Teh, Victor"
     }
   ],
-  "access_right": "open"
+  "communities": []
 }
