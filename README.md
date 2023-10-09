@@ -74,7 +74,12 @@ plot(code)
 generate_svg(code, filename = "man/figures/qr.svg")
 ```
 
-![A QR code displaying the value ‘QR CODE’](man/figures/qr.svg)
+<figure>
+<img src="man/figures/qr.svg"
+alt="A QR code displaying the value ‘QR CODE’" />
+<figcaption aria-hidden="true">A QR code displaying the value ‘QR
+CODE’</figcaption>
+</figure>
 
 ## Installation
 
@@ -94,4 +99,4 @@ remotes::install_github("ThierryO/qrcode")
 The legacy function `qrcode_gen()` had several known bugs. Because of
 these bugs, we re-implemented the code from scratch in version 0.1.4. We
 created new functions. The old functions are defunct since version
-0.2.0.
+0.2.0. We removed them in version 0.2.2.
