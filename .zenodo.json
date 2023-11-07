@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "license": "GPL-3.0",
   "upload_type": "software",
-  "description": "<p>Create QRcode in R.<\/p>",
+  "description": "<p>Create static QR codes in R. The content of the QR code is exactly\nwhat the user defines. We don’t add a redirect URL, making it impossible\nfor us to track the usage of the QR code. This allows to generate fast,\nfree to use and privacy friendly QR codes.<\/p>",
   "keywords": [
     "two-dimensional barcode",
     "matrix barcode"
