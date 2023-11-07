@@ -18,7 +18,10 @@ doi: 10.5281/zenodo.5040088
 license: GPL-3.0
 repository-code: https://github.com/ThierryO/qrcode/
 type: software
-abstract: "Create QRcode in R."
+abstract: "Create static QR codes in R. The content of the QR code is exactly what
+  the user defines. We don't add a redirect URL, making it impossible for us to track
+  the usage of the QR code. This allows to generate fast, free to use and privacy
+  friendly QR codes."
 identifiers:
 - type: doi
   value: 10.5281/zenodo.5040088
