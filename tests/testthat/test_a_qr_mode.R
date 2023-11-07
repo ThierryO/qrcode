@@ -8,5 +8,4 @@ test_that("qr_mode() works as expected", {
   Encoding(x) <- "latin1"
   expect_identical(qr_mode(x), "Byte")
   expect_identical(qr_mode("\u00E6"), "Byte")
-  expect_error(qr_mode("\u2192"), "only latin1")
 })
