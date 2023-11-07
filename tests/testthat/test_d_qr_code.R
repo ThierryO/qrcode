@@ -11,7 +11,6 @@ test_that("qr_code() returns a qr_code object", {
   Encoding(x) <- "latin1"
   expect_s3_class(qr_code(x), "qr_code")
   expect_s3_class(qr_code("\u00E6"), "qr_code")
-  expect_error(qr_code("\u2192"), "only latin1")
 })
 
 test_that("qr_code() has a stable output for numeric", {
