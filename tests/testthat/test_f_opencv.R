@@ -14,11 +14,15 @@ test_that("test generated codes", {
     plot(qr_code(input))
     dev.off()
     opencv::ocv_read(test_file) |>
-      opencv::ocv_qr_detect() |>
-      expect_equal(input)
+      opencv::ocv_qr_detect() -> z
+    Encoding(z) <- "latin1"
+    expect_equal(input, z)
     rm(test_file)
   }
-
   test_read_qr("ABCD")
   test_read_qr("123 abc ABC_")
+  input <- "fa\xE7ile"
+  Encoding(input) <- "latin1"
+  test_read_qr(input)
+  test_read_qr("\u00E6")
 })
