@@ -3,7 +3,8 @@
 \name{plot.qr_code}
 \alias{plot.qr_code}
 \alias{plot.qr_logo}
-\title{Plot the QR code}
+\title{Plot the QR code
+This function plots to QR code to the open device.}
 \usage{
 \method{plot}{qr_code}(x, col = c("white", "black"), y, ...)
 
@@ -22,12 +23,24 @@ Defaults to \code{c("white", "black")}.}
 }
 \description{
 Plot the QR code
+This function plots to QR code to the open device.
 }
 \examples{
 qr <- qr_code("HELLO WORLD")
 plot(qr)
+
+# Test the QR code with the opencv package
+if (requireNamespace("opencv")) {
+  png("test.png")
+  plot(qr)
+  dev.off()
+  opencv::ocv_qr_detect(opencv::ocv_read('test.png'))
+  unlink("test.png")
+}
 }
 \seealso{
+\code{\link[opencv:qrcode]{opencv::ocv_qr_detect()}} for reading QR codes.
+
 Other qr: 
 \code{\link{coordinates}()},
 \code{\link{generate_svg}()},
