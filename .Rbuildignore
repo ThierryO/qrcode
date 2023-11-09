@@ -16,3 +16,4 @@
 ^man-roxygen$
 ^organisation.yml$
 ^pkgdown$
+^revdep$
