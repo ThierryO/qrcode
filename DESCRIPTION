@@ -27,6 +27,7 @@ Suggests:
     httr,
     jpeg,
     knitr,
+    opencv,
     png,
     rsvg,
     testthat (>= 3.0.0)
