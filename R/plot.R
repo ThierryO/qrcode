@@ -1,13 +1,25 @@
 #' Plot the QR code
+#' This function plots to QR code to the open device.
+#'
 #' @param x the `qr_code` object
 #' @param col Define the colours.
 #' The first element refers to `FALSE` and the second `TRUE`.
 #' Defaults to `c("white", "black")`.
 #' @param y currently ignored
 #' @param ... currently ignored
+#' @seealso [opencv::ocv_qr_detect()] for reading QR codes.
 #' @examples
 #' qr <- qr_code("HELLO WORLD")
 #' plot(qr)
+#'
+#' # Test the QR code with the opencv package
+#' if (requireNamespace("opencv")) {
+#'   png("test.png")
+#'   plot(qr)
+#'   dev.off()
+#'   opencv::ocv_qr_detect(opencv::ocv_read('test.png'))
+#'   unlink("test.png")
+#' }
 #' @export
 #' @importFrom graphics image par
 #' @author Thierry Onkelinx

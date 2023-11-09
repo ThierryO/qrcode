@@ -2,9 +2,7 @@
 % Please edit documentation in R/coordinates.R
 \name{coordinates}
 \alias{coordinates}
-\title{Extract coordinates from a QR code object
-Selects the dark elements from the \code{qr_code} object and returns their
-coordinates.}
+\title{Extract coordinates from a QR code object.}
 \usage{
 coordinates(x)
 }
@@ -16,13 +14,15 @@ A \code{data.frame} with the \code{column} and \code{row} number of the dark
 elements.
 }
 \description{
-Extract coordinates from a QR code object
 Selects the dark elements from the \code{qr_code} object and returns their
 coordinates.
+This can be useful when you want to create a QR code with a custom style.
 }
 \examples{
 x <- qr_code("test")
 plot(x)
+head(coordinates(x))
+plot(coordinates(x), pch = 19, cex = 2, asp = 1)
 }
 \seealso{
 Other qr: 
