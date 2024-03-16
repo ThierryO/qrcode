@@ -27,4 +27,4 @@ identifiers:
   value: 10.5281/zenodo.5040088
 - type: url
   value: https://thierryo.github.io/qrcode/
-version: 0.2.2
+version: 0.2.3

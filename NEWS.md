@@ -1,3 +1,8 @@
+# qrcode 0.2.3
+
+* `generate_svg()` now escapes the special characters `&`, `'`, `"`, `<`, `>`.
+  Fixes #19 reported by @kaveelim.
+
 # qrcode 0.2.2
 
 * New `coordinates()` function returning the coordinates of the dark cells.
