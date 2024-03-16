@@ -20,8 +20,8 @@ c(z, z, rev(z))
 \seealso{
 Other bits: 
 \code{\link{as.character.bits}()},
-\code{\link{bits2int}()},
 \code{\link{bits}()},
+\code{\link{bits2int}()},
 \code{\link{print.bits}()}
 }
 \author{

@@ -21,8 +21,8 @@ as.character(z)
 }
 \seealso{
 Other bits: 
-\code{\link{bits2int}()},
 \code{\link{bits}()},
+\code{\link{bits2int}()},
 \code{\link{c.bits}()},
 \code{\link{print.bits}()}
 }
