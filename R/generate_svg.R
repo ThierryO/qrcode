@@ -64,7 +64,7 @@ generate_svg.qr_code <- function(
       ),
       size
     ),
-    sprintf("  <g id=\"qrcode:%s\">", attr(qrcode, "string")),
+    sprintf("  <g id=\"qrcode:%s\">", escape_svg(attr(qrcode, "string"))),
     sprintf(
       paste(
         "    <rect x=\"0\" y=\"0\" width=\"%1$ipx\" height=\"%1$ipx\"",
@@ -192,4 +192,14 @@ generate_svg.qr_logo <- function(
     browseURL(filename) # nocov
   }
   return(invisible(NULL))
+}
+
+#' @importFrom assertthat assert_that
+escape_svg <- function(x) {
+  assert_that(is.character(x))
+  gsub("&", "&amp;", x) |>
+    gsub(pattern = "'", replacement = "&apos;") |>
+    gsub(pattern = "\"", replacement = "&qout;") |>
+    gsub(pattern = "<", replacement = "&lt;") |>
+    gsub(pattern = ">", replacement = "&gt;")
 }
