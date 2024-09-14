@@ -36,6 +36,7 @@ reference:
   - print.qr_code
   - qr_event
   - qr_wifi
+  - qr_sepa
   - add_logo
   - coordinates
 - title: Internal functions

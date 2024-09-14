@@ -1,5 +1,6 @@
 # qrcode 0.2.3
 
+* Add `qr_sepa()` to generate QR codes for SEPA payments.
 * `generate_svg()` now escapes the special characters `&`, `'`, `"`, `<`, `>`.
   Fixes #19 reported by @kaveelim.
 
