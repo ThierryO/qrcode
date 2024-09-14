@@ -1,16 +1,30 @@
+url: https://thierryo.github.io/qrcode/
+template:
+  bootstrap: 5
+  light-switch: false
+  params:
+    docsearch:
+      api_key: BH4D9OD16A
+      index_name: 726ee21349adbe94cf79913703e6e9fa
 navbar:
   title: ~
   type: default
-  left:
-  - text: NEWS
-    href: news/index.html
-  - text: Functions
-    href: reference/index.html
-  - text: Contributing
-    href: CONTRIBUTING.html
-  right:
-  - icon: "fa fa-github"
-    href: https://github.com/thierryo
+  contents:
+  - has_concept("bits")
+  structure:
+    left:  [intro, reference, news, tutorials, contributing]
+    right: [search, github]
+  components:
+    news:
+      text: Changelog
+      href: news/index.html
+    contributing:
+      text: Contributing
+      menu:
+      - text: Contributing
+        href: CONTRIBUTING.html
+      - text: Code of conduct
+        href: CODE_OF_CONDUCT.html
 
 reference:
 - title: Generate QR code
@@ -33,11 +47,7 @@ reference:
   contents:
   - has_concept("bits")
 
+
 authors:
   Thierry Onkelinx:
     href: "https://www.muscardinus.be"
-template:
-  params:
-    docsearch:
-      api_key: BH4D9OD16A
-      index_name: 726ee21349adbe94cf79913703e6e9fa
