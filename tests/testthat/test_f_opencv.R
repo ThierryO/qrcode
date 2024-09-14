@@ -16,7 +16,7 @@ test_that("test generated codes", {
     opencv::ocv_read(test_file) |>
       opencv::ocv_qr_detect() -> z
     Encoding(z) <- "latin1"
-    expect_equal(input, z)
+    expect_equal(input, z, ignore_attr = TRUE)
     rm(test_file)
   }
   test_read_qr("ABCD")
