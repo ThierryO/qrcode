@@ -16,6 +16,6 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: inbo/actions/check_pkg@checklist-0.3.6
+      - uses: inbo/actions/check_pkg@checklist-0.4.1
         with:
           aptget: libopencv-dev
