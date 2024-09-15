@@ -35,6 +35,7 @@ add_logo <- function(
   vjust = c("c", "b", "t")
 ) {
   assert_that(inherits(code, "qr_code"))
+  stopifnot("SEPA qr codes must be not obstructed" = !inherits(code, "qr_sepa"))
   ecl <- match.arg(ecl)
   hjust <- match.arg(hjust)
   vjust <- match.arg(vjust)

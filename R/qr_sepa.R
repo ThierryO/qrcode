@@ -36,5 +36,7 @@ qr_sepa <- function(
     "BCD\n002\n1\nSCT\n%s\n%s\n%s\nEUR%.2f\n%s\n%s\n%s", bic, beneficiary,
     iban, amount, purpose, structured_reference, unstructured_reference
   ) |>
-    qr_code(ecl = "M")
+    qr_code(ecl = "M") -> output
+  class(output) <- c("qr_sepa", class(output))
+  return(output)
 }
