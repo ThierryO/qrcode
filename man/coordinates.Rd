@@ -31,6 +31,8 @@ Other qr:
 \code{\link{print.qr_code}()},
 \code{\link{qr_code}()},
 \code{\link{qr_event}()},
+\code{\link{qr_location}()},
+\code{\link{qr_sepa}()},
 \code{\link{qr_wifi}()}
 }
 \author{

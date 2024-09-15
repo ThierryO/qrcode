@@ -33,3 +33,22 @@ The unstructured reference is a string of maximum 140 characters.}
 \description{
 Generate a QR code for a SEPA payment
 }
+\examples{
+qr_sepa(
+  iban = "GB33BUKB20201555555555", beneficiary = "John Doe",
+  amount = 100, unstructured_reference = "Test payment"
+) |>
+  plot()
+}
+\seealso{
+Other qr: 
+\code{\link{coordinates}()},
+\code{\link{generate_svg}()},
+\code{\link{plot.qr_code}()},
+\code{\link{print.qr_code}()},
+\code{\link{qr_code}()},
+\code{\link{qr_event}()},
+\code{\link{qr_location}()},
+\code{\link{qr_wifi}()}
+}
+\concept{qr}

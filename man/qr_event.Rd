@@ -39,6 +39,8 @@ Other qr:
 \code{\link{plot.qr_code}()},
 \code{\link{print.qr_code}()},
 \code{\link{qr_code}()},
+\code{\link{qr_location}()},
+\code{\link{qr_sepa}()},
 \code{\link{qr_wifi}()}
 }
 \concept{qr}

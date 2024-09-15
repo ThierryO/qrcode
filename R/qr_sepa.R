@@ -9,6 +9,13 @@
 #' @param structured_reference the structured reference.
 #' @export
 #' @importFrom assertthat assert_that is.string noNA is.number
+#' @family qr
+#' @examples
+#' qr_sepa(
+#'   iban = "GB33BUKB20201555555555", beneficiary = "John Doe",
+#'   amount = 100, unstructured_reference = "Test payment"
+#' ) |>
+#'   plot()
 qr_sepa <- function(
   iban, beneficiary, amount, unstructured_reference = "", bic = "",
   purpose = "", structured_reference = ""
