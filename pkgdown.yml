@@ -1,0 +1,8 @@
+pandoc: '3.2'
+pkgdown: 2.1.0
+pkgdown_sha: ~
+articles: {}
+last_built: 2024-09-29T18:53Z
+urls:
+  reference: https://thierryo.github.io/qrcode/reference
+  article: https://thierryo.github.io/qrcode/articles
