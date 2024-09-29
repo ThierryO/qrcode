@@ -34,6 +34,7 @@ reference:
   - generate_svg
   - plot.qr_code
   - print.qr_code
+  - qr_vcard
   - qr_event
   - qr_wifi
   - qr_sepa
