@@ -63,7 +63,9 @@ qr_vcard <- function(
   ) |>
     vapply(vcard_wrap, character(1), width = 75) |>
     paste(collapse = "\r\n") |>
-    qr_code(ecl = ecl)
+    qr_code(ecl = ecl) -> output
+  class(output) <- c("qr_vcard", class(output))
+  return(output)
 }
 
 #' @importFrom assertthat assert_that is.count is.string noNA
