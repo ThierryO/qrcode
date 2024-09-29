@@ -1,5 +1,6 @@
-# qrcode 0.2.3
+# qrcode 0.3.0
 
+* Add `qr_vcard()` to generate QR codes for a vCard.
 * Add `qr_sepa()` to generate QR codes for SEPA payments.
 * Add `qr_location()` to generate QR codes for locations.
 * `generate_svg()` now escapes the special characters `&`, `'`, `"`, `<`, `>`.
