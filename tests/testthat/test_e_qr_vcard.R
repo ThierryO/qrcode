@@ -24,7 +24,7 @@ test_that("qr_vcard()", {
       address = list(
         work = c(
           street_nr = "123 Main St.", city = "Anytown", region = "NY",
-          postal_code = "12345", country = "USA", pobox = "PO Box 123"
+          postal_code = "12345", country = "USA"
         ),
         home = c(
           street_nr = "321 Main St.", city = "Anytown", region = "NY",
