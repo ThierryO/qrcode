@@ -22,6 +22,7 @@
 #' @param middle Optionally one or more middle names.
 #' @param prefix Optionally one or more prefixes.
 #' @param suffix Optionally one or more suffixes.
+#' @param version The vCard version. Must be one of "4.0", "3.0" or "2.1".
 #' @inheritParams qr_code
 #' @param ... Additional arguments are silently ignored.
 #' @export
@@ -29,13 +30,15 @@
 qr_vcard <- function(
   given, family, address, email, telephone, organisation, job_title, url,
   gender, logo, photo, middle = character(0), prefix = character(0),
-  suffix = character(0), ecl = c("L", "M", "Q", "H"), ...
+  suffix = character(0), version = c("4.0", "3.0", "2.1"),
+  ecl = c("L", "M", "Q", "H"), ...
 ) {
   assert_that(
     is.string(given), is.string(family), noNA(given), noNA(family),
     is.character(middle), is.character(prefix), is.character(suffix),
     noNA(middle), noNA(prefix), noNA(suffix)
   )
+  version <- match.arg(version)
   ecl <- match.arg(ecl)
   given <- vcard_escape(given)
   family <- vcard_escape(family)
@@ -43,7 +46,7 @@ qr_vcard <- function(
   prefix <- vcard_escape(prefix)
   suffix <- vcard_escape(suffix)
   c(
-    "BEGIN:VCARD", "VERSION:4.0",
+    "BEGIN:VCARD", sprintf("VERSION:%s", version),
     vcard_fname(
       given = given, family = family, middle = middle, prefix = prefix,
       suffix = suffix
@@ -57,8 +60,8 @@ qr_vcard <- function(
     vcard_multi(x = organisation, element = "ORG"),
     vcard_multi(x = job_title, element = "TITLE"),
     vcard_multi_type(x = url, element = "URL"),
-    vcard_multi_type(x = logo, element = "LOGO"),
-    vcard_multi_type(x = photo, element = "PHOTO"),
+    vcard_media(x = logo, element = "LOGO"),
+    vcard_media(x = photo, element = "PHOTO"),
     vcard_single(x = gender, element = "GENDER"), "END:VCARD"
   ) |>
     vapply(vcard_wrap, character(1), width = 75) |>
@@ -190,6 +193,31 @@ vcard_multi_type <- function(x, element) {
       fmt = "%2$s%3$s:%1$s", element,
       ifelse(!is.na(names(x)), paste0(";Type=", names(x)), "")
     )
+}
+
+#' @importFrom assertthat assert_that is.string noNA
+vcard_media <- function(x, element = c("LOGO", "PHOTO")) {
+  if (missing(x)) {
+    return(character(0))
+  }
+  assert_that(check_url(x))
+  element <- match.arg(element)
+  if (is.null(names(x))) {
+    names(x) <- NA
+  }
+  vcard_escape(x) |>
+    sprintf(fmt = "%1$s;%2$s", element)
+}
+
+#' @importFrom assertthat assert_that noNA
+check_url <- function(x) {
+  assert_that(is.character(x), noNA(x))
+  paste0(
+    "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}",
+    "\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+  ) |>
+    grepl(pattern = _, x = x, perl = TRUE) -> checked
+  all(checked)
 }
 
 #' @importFrom assertthat assert_that is.string noNA

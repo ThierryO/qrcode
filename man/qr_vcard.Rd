@@ -19,6 +19,7 @@ qr_vcard(
   middle = character(0),
   prefix = character(0),
   suffix = character(0),
+  version = c("4.0", "3.0", "2.1"),
   ecl = c("L", "M", "Q", "H"),
   ...
 )
@@ -60,6 +61,8 @@ The names of the vector are used as the type of the URL.}
 \item{prefix}{Optionally one or more prefixes.}
 
 \item{suffix}{Optionally one or more suffixes.}
+
+\item{version}{The vCard version. Must be one of "4.0", "3.0" or "2.1".}
 
 \item{ecl}{the required error correction level.
 Available options are \code{"L"} (7\%), \code{"M"} (15\%), \code{"Q"} (25\%) and \code{"H"} (30\%).
