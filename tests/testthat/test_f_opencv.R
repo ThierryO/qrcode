@@ -25,4 +25,9 @@ test_that("test generated codes", {
   Encoding(input) <- "latin1"
   test_read_qr(input)
   test_read_qr("\u00E6")
+
+  sharp_s <- "stra\u00DFe" #UTF-8 encoding
+  test_read_qr(sharp_s)
+  Encoding(sharp_s) <- "latin1" #latin1 encoding
+  test_read_qr(sharp_s)
 })
